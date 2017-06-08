@@ -5,7 +5,7 @@
 % Erstellt von Maximilian Nöthe, <maximilian.noethe@tu-dortmund.de>
 % ausgelegt für lualatex und Biblatex mit biber
 
-% Kompilieren mit 
+% Kompilieren mit
 % lualatex dateiname.tex
 % biber dateiname.bcf
 % lualatex dateiname.tex
@@ -66,7 +66,7 @@
 \setmathfont{Latin Modern Math}
 
 % nice, small fracs for the text with \sfrac{}{}
-\usepackage{xfrac}  
+\usepackage{xfrac}
 
 
 %------------------------------------------------------------------------------
@@ -120,7 +120,7 @@
                    % in the references.bib use langid={en} for english sources
 ]{biblatex}
 \addbibresource{references.bib}  % die Bibliographie einbinden
-\DefineBibliographyStrings{german}{andothers = {{et\,al\adddot}}} 
+\DefineBibliographyStrings{german}{andothers = {{et\,al\adddot}}}
 
 %------------------------------------------------------------------------------
 %------------------------------ Sonstiges: ------------------------------------
@@ -130,19 +130,21 @@
 \usepackage{bookmark}
 \usepackage[shortcuts]{extdash}
 
+\usepackage{tikz-feynman}
+
 %------------------------------------------------------------------------------
 %-------------------------    Angaben zur Arbeit   ----------------------------
 %------------------------------------------------------------------------------
 
-\author{Maximilian Nöthe}
-\title{\LaTeX-Dokumentenklasse und Vorlage für Abschlussarbeiten an der TU Dortmund}
-\date{2014}
-\birthplace{Castrop-Rauxel}
-\chair{Lehrstuhl für Experimentelle Physik V}
+\author{Jean-Marco Alameddine}
+\title{Theoretische Untersuchung von Formfaktoren in \texorpdfstring{$B \to D l \nu_l$}{B -> D l nu_l}}
+\date{2017}
+\birthplace{Iserlohn}
+\chair{Lehrstuhl für Theoretische Physik III}
 \division{Fakultät Physik}
 \thesisclass{Bachelor of Science}
-\submissiondate{31. September 2015}
-\firstcorrector{Prof.~Dr.~Erstgutachter}
+\submissiondate{21. Juli 2017}
+\firstcorrector{Prof.~Dr.~Gudrun Hiller}
 \secondcorrector{Prof.~Dr.~Zweitgutachter}
 
 % tu logo on top of the titlepage
@@ -150,7 +152,7 @@
 
 \begin{document}
 \frontmatter
-\input{content/hints.tex}
+%\input{content/hints.tex}
 \maketitle
 
 % Gutachterseite
@@ -163,9 +165,9 @@
 \mainmatter
 % Hier beginnt der Inhalt mit Seite 1 in arabischen Ziffern
 \input{content/01_einleitung.tex}
-\input{content/02_struktur.tex}
-\input{content/03_grundlagen.tex}
-\input{content/04_figs_tabs.tex}
+\input{content/02_theorie.tex}
+\input{content/03_fits.tex}
+\input{content/04_zusammenfassung.tex}
 
 \appendix
 % Hier beginnt der Anhang, nummeriert in lateinischen Buchstaben
