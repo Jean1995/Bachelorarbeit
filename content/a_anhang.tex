@@ -1,1 +1,41 @@
 \chapter{Anhang}
+
+\begin{tikzpicture}
+  \begin{feynman}
+    \vertex (a1) {\(b\)};
+    \vertex[right=1cm of a1] (a2);
+    \vertex[right=1cm of a2] (a3);
+    %\vertex[right=1cm of a3] (a4) {\(b\)};
+    \vertex[right=1cm of a3, label=125:\(V_{cb}\)] (a5);
+    \vertex[right=2cm of a5] (a6) {\(c\)};
+
+    \vertex[below=2em of a1] (b1) {\(\overline q\)};
+    \vertex[right=1cm of b1] (b2);
+    \vertex[right=1cm of b2] (b3);
+    %\vertex[right=1cm of b3] (b4) {\(\overline d\)};
+    \vertex[below=2em of a6] (b5) {\(\overline q\)};
+
+    \vertex[above=of a6] (c1) {\(\overline \nu_l\)};
+    \vertex[above=2em of c1] (c3) {\(l\)};
+    \vertex at ($(c1)!0.5!(c3) - (1cm, 0)$) (c2);
+
+    \diagram* {
+      {[edges=fermion]
+        (b5) -- (b1)
+        (a1) -- (a5) -- (a6)
+        %(b5) -- (b4) -- (b3) -- (a3) -- (a4) -- (a5) -- (a6),
+      },
+
+
+      (c1) -- [fermion, out=180, in=-45] (c2) -- [fermion, out=45, in=180] (c3),
+      (a5) -- [boson, bend left, edge label=\(W^{-}\)] (c2),
+    };
+
+    \draw [decoration={brace}, decorate] (b1.south west) -- (a1.north west)
+          node [pos=0.5, left] {\(\overline B\)};
+    %\draw [decoration={brace}, decorate] (c3.north east) -- (c1.south east)
+    %      node [pos=0.5, right] {\(\pi^{-}\)};
+    \draw [decoration={brace}, decorate] (a6.north east) -- (b5.south east)
+          node [pos=0.5, right] {\(D\)};
+  \end{feynman}
+\end{tikzpicture}

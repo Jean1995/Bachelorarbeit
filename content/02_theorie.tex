@@ -1,6 +1,12 @@
 \chapter{Theorie des semileptonischen Zerfalles}
 
-\begin{tikzpicture}
+Das Feynman-Diagramm in führender Ordnung des untersuchten Zerfalles ist in Abbildung \ref{fig:feynman1} dargestellt.
+
+\todo{Sich für den schönsten Feynmangraphen entscheiden}
+\nocite{tikzfeynman}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
   \begin{feynman}
     \vertex (a1) {\(b\)};
     \vertex[right=1cm of a1] (a2);
@@ -28,14 +34,87 @@
 
 
       (c1) -- [fermion, out=180, in=-45] (c2) -- [fermion, out=45, in=180] (c3),
-      (a5) -- [boson, bend left, edge label=\(W^{-}\)] (c2),
+      (a5) -- [boson, edge label=\(W^{-}\)] (c2),
     };
 
     \draw [decoration={brace}, decorate] (b1.south west) -- (a1.north west)
-          node [pos=0.5, left] {\(B^{0}\)};
+          node [pos=0.5, left] {\(\overline B\)};
     %\draw [decoration={brace}, decorate] (c3.north east) -- (c1.south east)
     %      node [pos=0.5, right] {\(\pi^{-}\)};
     \draw [decoration={brace}, decorate] (a6.north east) -- (b5.south east)
-          node [pos=0.5, right] {\(D^{+}\)};
+          node [pos=0.5, right] {\(D\)};
   \end{feynman}
-\end{tikzpicture}
+  \end{tikzpicture}
+  \caption{Feynman-Diagramm des semileptonischen Zerfalles $B \to D l \overline \nu_l$ in führender Ordnung.}
+  \label{fig:feynman1}
+\end{figure}
+
+Im Eingangszustand befindet sich ein $\overline B$-Meson, welches aus einem schweren $b$-Quark und einem leichten Antiquark $\overline q$ ($ \overline q = \overline u, \overline d)$ besteht.
+Die schwache Wechselwirkung führt zu einer Umwandlung des beteiligten $b$-Quarks in ein $c$-Quark unter Emission eines $W^{-}$-Bosons. Dieses $W^{-}$-Boson ist ein virtuelles Teilchen und zerfällt direkt weiter in ein Lepton $l$ und das dazugehörige Antineutrino $\overline \nu_l$.
+Zusätzlich ist bei diesem Prozess zu beachten, dass die schwache Wechselwirkung nicht an die Masseneigenzustände der Quarks koppelt.
+Die korrekten Eigenzustände der schwachen Wechselwirkung ergeben sich durch die Rotation der ursprünglichen Eigenzustände.
+Diese Rotation wird durch die unitäre CKM-Matrix beschrieben.
+Der für den betrachteten Zerfall relevante Parameter $\lvert V_{cb} \rvert$ beträgt \cite{1703.06124}
+\begin{equation}
+  \lvert V_{cb} \rvert = \input{build/V_cb.tex}.
+\end{equation}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+  \begin{feynman}
+    \vertex (a1) {\(b\)};
+    \vertex[right=1cm of a1] (a2);
+    \vertex[right=1cm of a2] (a3);
+    %\vertex[right=1cm of a3] (a4) {\(b\)};
+    \vertex[right=1cm of a3, label=125:\(V_{cb}\)] (a5);
+    \vertex[right=2cm of a5] (a6) {\(c\)};
+
+    \vertex[below=4em of a1] (b1) {\(\overline q\)};
+    \vertex[right=1cm of b1] (b2);
+    \vertex[right=1cm of b2] (b3);
+    \vertex[below=2em of a3] (g1);
+    \vertex[left=1.8cm of a6] (g2);
+    \vertex[right=1cm of b2] (g5);
+    \vertex[left=0.5cm of a6] (g6);
+    \vertex[right=1.5cm of g1] (g3);
+    \vertex[right=0.8cm of g3] (g4);
+    %\vertex[right=1cm of b3] (b4) {\(\overline d\)};
+    \vertex[below=4em of a6] (b5) {\(\overline q\)};
+
+    \vertex[above=of a6] (c1) {\(\overline \nu_l\)};
+    \vertex[above=2em of c1] (c3) {\(l\)};
+    \vertex at ($(c1)!0.5!(c3) - (1cm, 0)$) (c2);
+
+    \diagram* {
+      {[edges=fermion]
+        (b5) -- (b1)
+        (a1) -- (a5) -- (a6)
+        %(b5) -- (b4) -- (b3) -- (a3) -- (a4) -- (a5) -- (a6),
+      },
+
+
+      (c1) -- [fermion, out=180, in=-45] (c2) -- [fermion, out=45, in=180] (c3),
+      (a5) -- [boson, edge label=\(W^{-}\)] (c2),
+
+      (a2) -- [gluon] (g1)
+      (b2) -- [gluon] (g1)
+      (g1) -- [gluon] (g2)
+      (g5) -- [gluon] (g3)
+      (g3) -- [fermion, half left] (g4)
+      (g4) -- [fermion, half left] (g3)
+      (g4) -- [gluon] (g6)
+
+    };
+
+    \draw [decoration={brace}, decorate] (b1.south west) -- (a1.north west)
+          node [pos=0.5, left] {\(\overline B\)};
+    %\draw [decoration={brace}, decorate] (c3.north east) -- (c1.south east)
+    %      node [pos=0.5, right] {\(\pi^{-}\)};
+    \draw [decoration={brace}, decorate] (a6.north east) -- (b5.south east)
+          node [pos=0.5, right] {\(D\)};
+  \end{feynman}
+  \end{tikzpicture}
+  \caption{Exemplarisches Feynman-Diagramm des semileptonischen Zerfalles $B \to D l \overline \nu_l$ unter Berücksichtigung der starken Wechselwirkung zwischen den beteiligten Quarks.}
+  \label{fig:feynman2}
+\end{figure}
