@@ -133,6 +133,12 @@
 \usepackage{tikz-feynman}
 \usepackage{todonotes}
 
+\DeclarePairedDelimiter{\bra}{\langle \,}{\, \lvert}
+\DeclarePairedDelimiter{\ket}{\lvert \, }{\, \rangle}
+\DeclarePairedDelimiterX{\braket}[2]{\langle}{\rangle}{
+  #1 \delimsize| #2
+}
+
 %------------------------------------------------------------------------------
 %-------------------------    Angaben zur Arbeit   ----------------------------
 %------------------------------------------------------------------------------

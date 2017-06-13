@@ -1,5 +1,7 @@
 \chapter{Theorie des semileptonischen Zerfalles}
 
+\section{Qualitative Beschreibung}
+
 Das Feynman-Diagramm in führender Ordnung des untersuchten Zerfalles ist in Abbildung \ref{fig:feynman1} dargestellt.
 
 \todo{Sich für den schönsten Feynmangraphen entscheiden}
@@ -49,14 +51,14 @@ Das Feynman-Diagramm in führender Ordnung des untersuchten Zerfalles ist in Abb
   \label{fig:feynman1}
 \end{figure}
 
-Im Eingangszustand befindet sich ein $\overline B$-Meson, welches aus einem schweren $b$-Quark und einem leichten Antiquark $\overline q$ ($ \overline q = \overline u, \overline d)$ besteht.
+Im Eingangszustand befindet sich ein $\overline B$-Meson, welches aus einem $b$-Quark und einem leichten Antiquark $\overline q$ ($ \overline q = \overline u, \overline d)$ besteht.
 Die schwache Wechselwirkung führt zu einer Umwandlung des beteiligten $b$-Quarks in ein $c$-Quark unter Emission eines $W^{-}$-Bosons. Dieses $W^{-}$-Boson ist ein virtuelles Teilchen und zerfällt direkt weiter in ein Lepton $l$ und das dazugehörige Antineutrino $\overline \nu_l$.
 Zusätzlich ist bei diesem Prozess zu beachten, dass die schwache Wechselwirkung nicht an die Masseneigenzustände der Quarks koppelt.
-Die korrekten Eigenzustände der schwachen Wechselwirkung ergeben sich durch die Rotation der ursprünglichen Eigenzustände.
+Die korrekten Eigenzustände der Quarks $d'$, $s'$ und $b'$ für die schwache Wechselwirkung sind stattdessen Linearkombinationen der Masseneigenzustände von $d$, $s$ und $b$. Sie ergeben sich somit durch eine Rotation der ursprünglichen Eigenzustände.
 Diese Rotation wird durch die unitäre CKM-Matrix beschrieben.
-Der für den betrachteten Zerfall relevante Parameter $\lvert V_{cb} \rvert$ beträgt \cite{1703.06124}
+Der für den betrachteten Zerfall relevante Parameter $\lvert V_{cb} \rvert$ beträgt \cite{Bigi2017441}
 \begin{equation}
-  \lvert V_{cb} \rvert = \input{python/V_cb.tex}.
+  \lvert V_{cb} \rvert = \input{pycode/V_cb.tex}.
 \end{equation}
 
 \begin{figure}
@@ -118,3 +120,63 @@ Der für den betrachteten Zerfall relevante Parameter $\lvert V_{cb} \rvert$ bet
   \caption{Exemplarisches Feynman-Diagramm des semileptonischen Zerfalles $B \to D l \overline \nu_l$ unter Berücksichtigung der starken Wechselwirkung zwischen den beteiligten Quarks.}
   \label{fig:feynman2}
 \end{figure}
+
+Zusätzlich ist bei der Beschreibung des vorliegenden Zerfalles die starke Wechselwirkung zu berücksichtigen.
+Sie führt, vermittelt durch den Austausch von Gluonen, zur Bindung zwischen dem als Zuschauerquark agierenden Antiquark sowie dem schwach wechselwirkenden Quark.
+Aufgrund des nicht-pertubativen Verhaltens der starken Wechselwirkung bei großen Abständen werden auch die Beiträge der Feynman-Diagramme höherer Ordnung, wie in Abbildung \ref{fig:feynman2} exemplarisch dargestellt, relevant.
+Primäres Ziel der Formfaktoren ist es, diese Effekte bei der Berechnung der Zerfallsraten quantitativ zu Berücksichtigen.
+
+\section{Parametrisierung des Matrixelementes durch Formfaktoren}
+
+Das Matrixelement $M$ des Zerfalles lässt sich allgemein als \todo{Abstände zwischen den Bra/Kets optimieren}
+\begin{align*}
+  M = \bra{D \, l \, \overline{\nu_l}} H \ket{ \overline{B} }
+\end{align*}
+mit dem Hamiltonian $H$ des Zerfalles beschreiben.
+Es ist außerdem möglich, das Matrixelement in einen hadronischen Anteil mit dem Hamiltonian $H_\text{had}$ und einen leptonischen Anteil mit dem Hamiltonian $H_\text{lep}$ zu faktorisieren, so dass sich das Matrixelement
+\begin{align*}
+  M = \bra{ l \, \overline{\nu_l}} H_\text{lep} \ket{0}  \bra{D} H_\text{had}  \ket{ \overline{B} }
+\end{align*}
+ergibt.
+Der hadronische Faktor wird durch einen V-A-Strom
+\begin{align*}
+  \bra{D} H_\text{had}  \ket{ \overline{B} } = \bra{D} \, \overline{c} \gamma_\mu (1 - \gamma_5) b \, \ket{ \overline{B} } = \bra{D} \underbrace{\overline{c} \gamma_\mu b }_{= V_\mu} \ket{\overline{B} } - \bra{D} \, \underbrace{ \overline{c} \gamma_\mu \gamma_5 b}_{= A_\mu}\, \ket{ \overline{B} }
+\end{align*}
+beschrieben, wobei $b$ hier der Spinor des $b$-Quarks und $\overline{c}$ der adjungierte Spinor des $c$-Quarks ist.
+Die Bezeichnungen $V_\mu$ und $A_\mu$ für die Ströme drücken aus, dass sich unter Parität $V_\mu = \overline{c} \gamma_\mu b$ wie ein Vektor und $A_\mu = \overline{c} \gamma_\mu \gamma_5 b$ wie ein Axialvektor transformiert.
+Da die hier betrachteten Mesonen pseudoskalare Größen sind, stehen zur Parametrisierung des Matrixelementes als dynamische Variablen der Viererimpuls des $\overline{B}$-Mesons $p^B$ sowie der Viererimpuls des $D$-Mesons $p^D$ zur Verfügung.
+Zusätzlich lässt sich hieraus der Lorentz-Skalar
+\begin{equation}
+  q^2 = (p^B-p^D)^2
+\end{equation}
+konstruieren, welcher den Impulsübertrag zwischen den Mesonen ausdrückt.
+
+Sowohl die dynamische Variable $p^B$ als auch $p^D$ transformieren sich wie Vektoren.
+Aus diesen Größen lässt sich jedoch kein Ausdruck konstruieren, der sich wie ein Axialvektor transformiert.
+Da die Quantenchromodynamik die Parität erhält, folgt hieraus direkt, dass der axiale Anteil des hadonischen Matrixelementes verschwinden muss:
+\begin{align*}
+  \bra{D} A_\mu \ket{\overline{B}} = 0.
+\end{align*}
+Somit verbleibt der vektorielle Anteil des hadronischen Matrixelementes, welcher durch
+\begin{equation}
+  \bra{D} V_\mu \ket{\overline{B}} = f_+(q^2)(p^B + p^D)_\mu + f_{-}(q^2)(p^B - p^D)_\mu
+\end{equation}
+mit den Formfaktoren $f_+(q^2)$, $f_{-}(q^2)$ parametrisiert wird.
+
+Mithilfe dieser Parametrisierung kann, unter Nutzung der Feynmanregeln, die differentielle Zerfallsbreite für den betrachteten Zerfall berechnet werden.
+Sie ergibt sich zu \cite{PhysRevD.94.094008}
+\begin{equation}
+  \frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D l \overline{\nu_l} \right) = \frac{\eta_\text{EW}^2 G_\text{F}^2 \lvert V_{cb} \rvert^2 m_B \sqrt{\lambda} }{192 \pi^3} \left( 1 - \frac{m_l^2}{q^2} \right)^2 \left( c_+^l f_+(q^2)^2 + c_0^l f_0(q^2)^2 \right)
+\end{equation}
+mit den Abkürzungen
+\begin{align*}
+  c_+^l &= \frac{\lambda}{m_B^4} \left( 1 + \frac{m_l^2}{2 q^2} \right) & c_0^l &= \left(1 - \frac{m_D^2}{m_B^2} \right)^2 \frac{3 m_l^2}{2 q^2}
+\end{align*}
+sowie
+\begin{align*}
+  \lambda = (q^2 - m_B^2 - m_D^2)^2 - 4 m_B^2 m_D^2
+\end{align*}
+und
+\begin{align*}
+  f_0(q^2) = f_+(q^2) + f_{-}(q^2) \frac{q^2}{m_B^2 - m_D^2}.
+\end{align*}
