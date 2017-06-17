@@ -277,7 +277,7 @@ plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_4*red, label=r'Vorhersage mit $\
 plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_tau_up_4*red, dif_wq_tau_down_4*red, interpolate=True, alpha=0.5, color='m')
 
 plt.xlabel(r'$z$')
-plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D l \nu_l \right)_\text{BSM} \,/\, \num{e-15} \si{\giga \electronvolt} $')
+plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D \tau \nu_\tau \right)_\text{BSM} \,/\, \num{e-15} \si{\giga \electronvolt} $')
 plt.legend(loc='best')
 plt.savefig('plot_bsm_dif_wq_' + str(N1) + str(N2) + '.pdf') #fancy
 plt.clf()

@@ -5,7 +5,6 @@
 Das Feynman-Diagramm in führender Ordnung des untersuchten Zerfalles ist in Abbildung \ref{fig:feynman1} dargestellt.
 
 \todo{Sich für den schönsten Feynmangraphen entscheiden}
-\nocite{tikzfeynman}
 \begin{figure}
   \centering
   \begin{tikzpicture}
@@ -180,3 +179,49 @@ und
 \begin{align*}
   f_0(q^2) = f_+(q^2) + f_{-}(q^2) \frac{q^2}{m_B^2 - m_D^2}.
 \end{align*}
+
+\section{Kinematik des Zerfalles}
+
+Aus der Viererimpulserhaltung $p^B = p^D + p^l + p^{\overline{\nu_l}}$ lassen sich Einschränkungen an den kinematisch erlaubten Bereich des Impulsübertrages $q^2$ stellen.
+Hierbei ergibt sich, dass sich der Impulsübertrag im Bereich
+\begin{align*}
+  m_l^2 \leq q^2 \leq (m_B - m_D)^2
+\end{align*}
+bewegen kann.
+Die Kinematik für den maximalen sowie den minimalen Impulsübertrag ist jeweils in Abbildung \ref{fig:recoil} skizziert.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \draw (0,0) circle [radius=0.3] node {$\overline{B}$};
+      \draw[dashed, ->] (0.5, 0) -- (1.5, 0);
+      \draw (2,0) circle [radius=0.3] node {$D$};
+      \draw (2.7,0) circle [radius=0.3] node {$l$};
+      \draw[thick, ->] (2.7, 0.5) -- (2.7, 1.0);
+      \draw (3.4,0) circle [radius=0.3] node {$\overline{\nu_l}$};
+      \draw[thick, ->] (3.4, -0.5) -- (3.4, -1.0);
+    \end{tikzpicture}
+    \caption{Kinematik bei $q^2 = (m_B - m_D)^2$.}
+    \label{fig:recoil1}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \draw (0,0) circle [radius=0.3] node {$\overline{B}$};
+      \draw[dashed, ->] (0.5, 0) -- (1.5, 0);
+      \draw (2,0) circle [radius=0.3] node {$D$};
+      \draw[thick, ->] (2, 0.5) -- (2, 1.0);
+      \draw (2.7,0) circle [radius=0.3] node {$l$};
+      \draw[thick, ->] (2.7, -0.5) -- (2.7, -1.0);
+      \draw (3.4,0) circle [radius=0.3] node {$\overline{\nu_l}$};
+      \draw[thick, ->] (3.4, -0.5) -- (3.4, -1.0);
+    \end{tikzpicture}
+    \caption{Kinematik bei $q^2 = m_l^2$.}
+    \label{fig:recoil2}
+  \end{subfigure}
+  \caption{Kinematische Extremfälle beim Impulsübertrag.}
+  \label{fig:recoil}
+\end{figure}
+\todo{Wirklich dieses Diagramm behalten? Und "zero-recoil"-Begriff bei a) einbringen?}
