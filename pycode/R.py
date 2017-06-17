@@ -13,7 +13,11 @@ a_mc = fit2.a_mc
 m_mc = fit2.m_mc
 
 import matplotlib.pyplot as plt
-
+plt.rcParams['figure.figsize'] = (10, 8)
+plt.rcParams['font.size'] = 12
+plt.rcParams['lines.linewidth'] = 2
+plt.rcParams['text.usetex'] = True
+plt.rcParams['text.latex.preamble'] = ['\\usepackage{siunitx}']
 
 ### Funktionen
 
@@ -80,7 +84,23 @@ for a, m in zip(a_mc, m_mc):
 R_error = np.std(R_values)
 R_mean = np.mean(R_values)
 
-print(R_mean, "+-", R_error)
+print("R =",R_mean, "+-", R_error)
+
+
+# R-Schlange: Integriere nur von (m_b-m_d)**2 bis zu m_tau^2, um die größer werdenden Fehler des dif. WQ zu beheben
+R_values_schlange = np.array([])
+
+for a, m in zip(a_mc, m_mc):
+    tot_wq_e_schlange = quad(dif_wq, m[5]**2, (m[2]-m[3])**2, args=(m[4], a, m[2], m[3], m[0], m[1]))[0]
+    tot_wq_tau_schlange = quad(dif_wq, m[5]**2, (m[2]-m[3])**2, args=(m[5], a, m[2], m[3], m[0], m[1]))[0]
+    tot_wq_mu_schlange = quad(dif_wq, m[5]**2, (m[2]-m[3])**2, args=(m[6], a, m[2], m[3], m[0], m[1]))[0]
+    #print(tot_wq_e)
+    R_values_schlange = np.append(R_values_schlange, 2*tot_wq_tau_schlange/(tot_wq_e_schlange + tot_wq_mu_schlange))
+
+R_error_schlange = np.std(R_values_schlange)
+R_mean_schlange = np.mean(R_values_schlange)
+
+print("R~", R_mean_schlange, "+-", R_error_schlange)
 
 ### Differentieller Wirkungsquerschnitt Elektronen / Tauonen
 
@@ -132,13 +152,13 @@ if plot_difwq != 0:
 
     red = 1/(10**(-15) )#* 10**9 * const.eV)
 
-    plt.plot(z_from_qq(qq_plot_e) ,dif_wq_val_e*red, label=r'Vorhersage dif. WQ. $l = e$. Paramterzahl N1 = ' + str(N1) + ' N2 = ' + str(N2))
+    plt.plot(z_from_qq(qq_plot_e) ,dif_wq_val_e*red, label=r'Vorhersage differentielle Zerfallsbreite. $l = e$. Paramterzahl $N_1$ = ' + str(N1) + r', $N_2$ = ' + str(N2) + r'.')
     plt.fill_between(z_from_qq(qq_plot_e), dif_wq_val_e_up*red,  dif_wq_val_e_down*red, interpolate=True, alpha=0.5)
 
-    plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_val_tau*red, label=r'Vorhersage dif. WQ. $l = \tau$. Paramterzahl N1 = ' +  str(N1)+ ' N2 = ' + str(N2))
+    plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_val_tau*red, label=r'Vorhersage differentielle Zerfallsbreite. $l = \tau$. Paramterzahl $N_1$ = ' + str(N1) + r', $N_2$ = ' + str(N2) + r'.')
     plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_val_tau_up*red,  dif_wq_val_tau_down*red, interpolate=True, alpha=0.5)
 
-    plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_val_mu*red, label=r'Vorhersage dif. WQ. $l = \mu$. Paramterzahl N1 = ' + str(N1) +   ' N2 = ' + str(N2))
+    plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_val_mu*red, label=r'Vorhersage differentielle Zerfallsbreite. $l = \mu$. Paramterzahl $N_1$ = ' + str(N1) + r', $N_2$ = ' + str(N2) + r'.')
     plt.fill_between(z_from_qq(qq_plot_mu), dif_wq_val_mu_up*red,  dif_wq_val_mu_down*red, interpolate=True, alpha=0.5)
 
     plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D l \nu_l \right) \,/\, \num{e-15} \si{\giga \electronvolt} $')

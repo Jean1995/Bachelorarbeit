@@ -14,7 +14,7 @@ from uncertainties import correlated_values, covariance_matrix
 
 import matplotlib.pyplot as plt
 plt.rcParams['figure.figsize'] = (10, 8)
-plt.rcParams['font.size'] = 16
+plt.rcParams['font.size'] = 12
 plt.rcParams['lines.linewidth'] = 2
 plt.rcParams['text.usetex'] = True
 plt.rcParams['text.latex.preamble'] = ['\\usepackage{siunitx}']
@@ -25,6 +25,8 @@ plt.set_cmap('Set2')
 import params
 from params import N1, N2, m_p, m_0, m_b, m_d, m_e, m_tau, m_mu, m_bottom, m_charm, V_cb, R_exp, m_p_s, m_0_s, m_b_s, m_d_s, m_e_s, m_tau_s, m_mu_s, m_bottom_s, m_charm_s, V_cb_s, R_exp_s
 
+m_array   = np.array([m_p, m_0, m_b, m_d, m_e, m_tau, m_mu, m_bottom, m_charm, V_cb, R_exp])
+m_array_s = np.array([m_p_s, m_0_s, m_b_s, m_d_s, m_e_s, m_tau_s, m_mu_s, m_bottom_s, m_charm_s, V_cb_s, R_exp_s])
 
 x_roh = params.w_roh
 y = params.lattice_roh
@@ -131,8 +133,7 @@ x_plot_n_down = np.zeros(len(x_plot))
 a_mc = random.multivariate_normal(np.delete(a,0), V, samples)
 
 #erstelle zufällige fehlerbehaftete Werte für Massen, Konstanten, etc.
-m_array   = np.array([m_p, m_0, m_b, m_d, m_e, m_tau, m_mu, m_bottom, m_charm, V_cb, R_exp])
-m_array_s = np.array([m_p_s, m_0_s, m_b_s, m_d_s, m_e_s, m_tau_s, m_mu_s, m_bottom_s, m_charm_s, V_cb_s, R_exp_s])
+# Erstellung m_array und fehler siehe oben
 m_cov = np.diag(m_array_s)**2 # erstelle Kovarianzmatrix, jedoch ohne Kovarianzen (d.h. Varianzen auf Diagonalen)
 m_mc = random.multivariate_normal(m_array, m_cov, samples) # m_mc[a,b] mit b bestimmt ich, welche Variable ich erhalte (also b=0 m_p, usw.)
 
@@ -174,12 +175,12 @@ chi_squared_fn = np.sum((( pred_lat_val_fn - np.split(y,2)[1] ) / (np.split(s_y,
 
 # Plot f+
 
-plt.errorbar( x, np.split(y,2)[0], yerr = np.split(s_y,2)[0], fmt=',', label='Lattice Calculations f+', capsize=5,capthick=0.5, barsabove = True) # splitte in 2 Hälften und nehme die erste Hälfte
+plt.errorbar( x, np.split(y,2)[0], yerr = np.split(s_y,2)[0], fmt=',', label=r'Lattice Calculations $f_+$', capsize=5,capthick=0.5, barsabove = True) # splitte in 2 Hälften und nehme die erste Hälfte
 y_plot_p = np.zeros(len(x_plot))
 for i in range(N1):
     y_plot_p = y_plot_p + a[i] * f(x_plot, i, m_p)
 
-plt.plot(x_plot,y_plot_p, label='Fit durch gewichtete Methode der kleinsten Quadrate. Paramterzahl N1 = ' + str(N1))
+plt.plot(x_plot,y_plot_p, label=r'Fit durch gewichtete Methode der kleinsten Quadrate. Paramterzahl $N_1 = ' + str(N1) + r'$.')
 
 
 
@@ -197,12 +198,12 @@ plt.clf()
 
 # Plot f0
 
-plt.errorbar( x, np.split(y,2)[1], yerr = np.split(s_y,2)[1], fmt=',', label='Lattice Calculations f0', capsize=5,capthick=0.5, barsabove = True) # splitte in 2 Hälften und nehme die erste Hälfte
+plt.errorbar( x, np.split(y,2)[1], yerr = np.split(s_y,2)[1], fmt=',', label=r'Lattice Calculations $f_0$', capsize=5,capthick=0.5, barsabove = True) # splitte in 2 Hälften und nehme die erste Hälfte
 y_plot_n = np.zeros(len(x_plot))
 for i in range(N2):
     y_plot_n = y_plot_n + a[i+N1] * f(x_plot, i, m_0)
 
-plt.plot(x_plot,y_plot_n, label='Fit durch gewichtete Methode der kleinsten Quadrate. Paramterzahl N = ' + str(N2))
+plt.plot(x_plot,y_plot_n, label=r'Fit durch gewichtete Methode der kleinsten Quadrate. Paramterzahl $N_2 = ' + str(N2) + r'$.')
 
 plt.fill_between(x_plot, x_plot_n_up,  x_plot_n_down, interpolate=True, alpha=0.5)
 
