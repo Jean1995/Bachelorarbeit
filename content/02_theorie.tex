@@ -183,13 +183,13 @@ und
 \section{Kinematik des Zerfalles}
 
 Aus der Viererimpulserhaltung $p^B = p^D + p^l + p^{\overline{\nu_l}}$ lassen sich Einschränkungen an den kinematisch erlaubten Bereich des Impulsübertrages $q^2$ stellen.
-Hierbei ergibt sich, dass sich der Impulsübertrag im Bereich
-\begin{align*}
+Diese Einschränkungen ergeben sich, wenn die beiden kinematischen Extremfälle betrachtet werden, welche jeweils in Abbildung \ref{fig:recoil} skizziert sind.
+Es ergibt sich hieraus, dass der Impulsübertrag im Bereich
+\begin{equation}
   m_l^2 \leq q^2 \leq (m_B - m_D)^2
-\end{align*}
-bewegen kann.
-Die Kinematik für den maximalen sowie den minimalen Impulsübertrag ist jeweils in Abbildung \ref{fig:recoil} skizziert.
-
+  \label{eqn:kinematik}
+\end{equation}
+liegen kann.
 \begin{figure}
   \centering
   \begin{subfigure}{0.48\textwidth}
@@ -203,7 +203,7 @@ Die Kinematik für den maximalen sowie den minimalen Impulsübertrag ist jeweils
       \draw (3.4,0) circle [radius=0.3] node {$\overline{\nu_l}$};
       \draw[thick, ->] (3.4, -0.5) -- (3.4, -1.0);
     \end{tikzpicture}
-    \caption{Kinematik bei $q^2 = (m_B - m_D)^2$.}
+    \caption{Kinematik bei $q_\text{max}^2 = (m_B - m_D)^2$.}
     \label{fig:recoil1}
   \end{subfigure}
   \begin{subfigure}{0.48\textwidth}
@@ -218,10 +218,32 @@ Die Kinematik für den maximalen sowie den minimalen Impulsübertrag ist jeweils
       \draw (3.4,0) circle [radius=0.3] node {$\overline{\nu_l}$};
       \draw[thick, ->] (3.4, -0.5) -- (3.4, -1.0);
     \end{tikzpicture}
-    \caption{Kinematik bei $q^2 = m_l^2$.}
+    \caption{Kinematik bei $q_\text{min}^2 = m_l^2$.}
     \label{fig:recoil2}
   \end{subfigure}
   \caption{Kinematische Extremfälle beim Impulsübertrag.}
   \label{fig:recoil}
 \end{figure}
 \todo{Wirklich dieses Diagramm behalten? Und "zero-recoil"-Begriff bei a) einbringen?}
+
+Für den Impulsübertrag $q^2$ werden häufig alternative Parametrisierungen verwendet.
+Eine Möglichkeit stellt die $w$-Parametrisierung
+\begin{equation}
+  w(q^2) = \frac{m_B^2 + m_D^2 - q^2}{2 m_B m_D}
+\end{equation}
+dar. %, dessen Abhängigkeit von $q^2$ in Abbildung \ref{fig:w_param} dargestellt ist.
+Hierbei wird der maximale Impulsübertrag $q_\text{max}^2$ auf $w=0$ abgebildet.
+
+Eine weitere Parametrisierung, welche für den im folgenden Kapitel durchgeführten Fit der Formfaktoren von Bedeutung ist, findet sich in der Variable
+\begin{equation}
+  z(q^2) = \frac{\sqrt{w+1}-\sqrt{2}}{\sqrt{w+1}+\sqrt{2}}.
+\end{equation}
+Diese Parametrisierung von $q^2$ bildet den maximalen Impulsübertrag $q_\text{max}^2$ auf $z=0$ ab. %, wie in Abbildung \ref{fig:z_param} dargestellt ist.
+Betrachtet man $z(q^2)$ zusätzlich außerhalb des kinematisch erlaubten Bereiches, so wird der Impulsübertrag, wie in Abbildung \ref{fig:z_kreis} dargestellt, auf die komplexe Ebene abgebildet.
+Dabei bewegt sich $z$ auf einem Einheitshalbkreis in der oberen komplexen Halbebene, so dass $\lvert z \rvert \leq \num{1}$ immer erfüllt ist.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\textwidth]{pycode/plot_z_2.pdf}
+  \caption{Abbildung von $q^2$ durch $z$ auf die komplexe Ebene. In grün wird der nach Gleichung \eqref{eqn:kinematik} kinematisch erlaubte Bereich dargestellt. Die gestrichelte rote Line verdeutlicht den unphysikalischen Bereich negativer Impulsüberträge.}
+  \label{fig:z_kreis}
+\end{figure}
