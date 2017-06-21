@@ -6,6 +6,8 @@ from fit2 import a_mc # Importiere die Monte Carlo Parameter
 from fit2 import m_mc
 from fit2 import a as a_genau
 import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+plt.set_cmap('Set2')
 plt.rcParams['figure.figsize'] = (10, 8)
 plt.rcParams['font.size'] = 12
 plt.rcParams['lines.linewidth'] = 2

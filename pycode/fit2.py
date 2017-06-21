@@ -12,18 +12,24 @@ from numpy import random
 import uncertainties.unumpy as unp
 from uncertainties import correlated_values, covariance_matrix
 
-import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10, 8)
-plt.rcParams['font.size'] = 12
-plt.rcParams['lines.linewidth'] = 2
-plt.rcParams['text.usetex'] = True
-plt.rcParams['text.latex.preamble'] = ['\\usepackage{siunitx}']
+import locale
+locale.setlocale(locale.LC_NUMERIC, "de_DE.utf8")
 
+import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 plt.set_cmap('Set2')
+plt.rcParams['figure.figsize'] = (10, 8)
+plt.rcParams['font.size'] = 8
+plt.rcParams['lines.linewidth'] = 2
+plt.rcParams['text.usetex'] = True
+plt.rcParams['axes.formatter.use_locale'] = True # kommata
+plt.rcParams['text.latex.preamble'] = ['\\usepackage[locale=DE,separate-uncertainty=true,per-mode=symbol-or-fraction,]{siunitx}']
+
+#plt.style.use('ggplot')
+#plt.set_cmap('Set2')
 
 import params
-from params import N1, N2, m_p, m_0, m_b, m_d, m_e, m_tau, m_mu, m_bottom, m_charm, V_cb, R_exp, m_p_s, m_0_s, m_b_s, m_d_s, m_e_s, m_tau_s, m_mu_s, m_bottom_s, m_charm_s, V_cb_s, R_exp_s
+from params import N1, N2, m_p, m_0, m_b, m_d, m_e, m_tau, m_mu, m_bottom, m_charm, V_cb, R_exp, m_p_s, m_0_s, m_b_s, m_d_s, m_e_s, m_tau_s, m_mu_s, m_bottom_s, m_charm_s, V_cb_s, R_exp_s, corr_mat
 
 m_array   = np.array([m_p, m_0, m_b, m_d, m_e, m_tau, m_mu, m_bottom, m_charm, V_cb, R_exp])
 m_array_s = np.array([m_p_s, m_0_s, m_b_s, m_d_s, m_e_s, m_tau_s, m_mu_s, m_bottom_s, m_charm_s, V_cb_s, R_exp_s])
@@ -235,16 +241,49 @@ cor = np.matmul(D_inv, np.matmul(V, D_inv))
 fig = plt.figure()
 ax = fig.add_subplot(111)
 cax = ax.matshow(cor, interpolation='nearest', cmap='seismic')
-plt.colorbar(cax)
+cb = fig.colorbar(cax)
+cb.ax.set_yticklabels(cb.ax.get_yticklabels(), fontsize=15)
 cax.set_clim(vmin=-1, vmax=1)
-plt.title(r'Korrelationsmatrix')
+#plt.title(r'Korrelationsmatrix')
 
 for (i, j), z in np.ndenumerate(cor):
-    plt.text(j, i, '{:0.2f}'.format(z), ha='center', va='center',
+    plt.text(j, i, r'$\num{'+str('{:0.2f}'.format(z))+r'}$', ha='center', va='center', fontsize=15,
             bbox=dict(boxstyle='round', facecolor='grey', edgecolor='0.3'))
 
-ax.set_xticklabels(['']+x_label)
-ax.set_yticklabels(['']+x_label)
+ax.set_xticklabels(['']+x_label, fontsize=15)
+ax.set_yticklabels(['']+x_label, fontsize=15)
 
+plt.tight_layout()
 plt.savefig('cormatrix_a_N' + str(N1) + str(N2) + '.pdf')
+plt.clf()
+
+### Korellationsmatrix Daten
+
+cor = corr_mat
+
+x_label = []
+for i in range(len(x_roh)):
+    x_label.append(r'$f_+(\num{' + str(x_roh[i]) + r'})$')
+for i in range(len(x_roh)):
+    x_label.append(r'$f_0(\num{' + str(x_roh[i]) + r'})$')
+
+
+fig = plt.figure()
+ax = fig.add_subplot(111)
+cax = ax.matshow(cor, interpolation='nearest', cmap='seismic')
+#plt.colorbar(cax)
+cb = fig.colorbar(cax)
+cb.ax.set_yticklabels(cb.ax.get_yticklabels(), fontsize=15)
+#cax.set_clim(vmin=-1, vmax=1)
+#plt.title(r'Korrelationsmatrix Gittereichrechnungen.')
+
+for (i, j), z in np.ndenumerate(cor):
+    plt.text(j, i, r'$\num{'+str('{:0.2f}'.format(z))+r'}$', ha='center', va='center', fontsize=15,
+            bbox=dict(boxstyle='round', facecolor='grey', edgecolor='0.3'))
+
+ax.set_xticklabels(['']+x_label, fontsize=15)
+ax.set_yticklabels(['']+x_label, fontsize=15)
+
+plt.tight_layout()
+plt.savefig('cormatrix_daten.pdf')
 plt.clf()

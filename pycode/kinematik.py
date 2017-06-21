@@ -9,7 +9,7 @@ plt.rcParams['font.size'] = 12
 plt.rcParams['lines.linewidth'] = 2
 plt.rcParams['text.usetex'] = True
 plt.rcParams['text.latex.preamble'] = ['\\usepackage{siunitx}']
-
+plt.axis('equal')
 
 
 def w(qq):
@@ -38,11 +38,11 @@ qq_min = m_e**2
 qq_max = (m_b - m_d)**2
 
 
-qq_area_3 = np.linspace(0,100, 1000000)
+qq_area_3 = np.linspace(qq_max,100, 1000000)
 plt.plot(list(map(re_z, qq_area_3)), list(map(im_z, qq_area_3)), 'r')
 qq_area_32 = np.linspace(100,1000000, 1000000)
 plt.plot(list(map(re_z, qq_area_32)), list(map(im_z, qq_area_32)), 'r')
-qq_area_33 = np.linspace(-1000000,0, 1000)
+qq_area_33 = np.linspace(-1000000,qq_min, 1000)
 plt.plot(list(map(re_z, qq_area_33)), list(map(im_z, qq_area_33)), 'r--')
 qq_area_4 = np.linspace(qq_min,qq_max, 100)
 plt.plot(list(map(re_z, qq_area_4)), list(map(im_z, qq_area_4)), 'g', label=r'Kinematisch erlaubter Bereich.')
@@ -51,11 +51,19 @@ plt.ylabel(r'$\mathrm{Im}(z)$')
 plt.xlabel(r'$\mathrm{Re}(z)$')
 plt.legend(loc='best')
 
+#plt.annotate(r'$q^2 \to \infty$',
+#            xy=(0.73, 0.53), xycoords='data',
+#            xytext=(-65, 60), textcoords='offset points',
+#            arrowprops=dict(arrowstyle="->",
+#                            connectionstyle="arc3,rad=-0.2", color="k"))
+
 plt.annotate(r'$q^2 \to \infty$',
-            xy=(0.73, 0.53), xycoords='data',
+            xy=(0.80, 0.3), xycoords='data',
             xytext=(-65, 60), textcoords='offset points',
             arrowprops=dict(arrowstyle="->",
                             connectionstyle="arc3,rad=-0.2", color="k"))
+
+
 plt.tight_layout()
 plt.savefig('plot_z_2.pdf')
 plt.clf()

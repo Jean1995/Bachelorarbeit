@@ -13,6 +13,8 @@ a_mc = fit2.a_mc
 m_mc = fit2.m_mc
 
 import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+plt.set_cmap('Set2')
 plt.rcParams['figure.figsize'] = (10, 8)
 plt.rcParams['font.size'] = 12
 plt.rcParams['lines.linewidth'] = 2
@@ -163,6 +165,6 @@ if plot_difwq != 0:
 
     plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D l \nu_l \right) \,/\, \num{e-15} \si{\giga \electronvolt} $')
     plt.xlabel(r'$z$')
-    plt.legend(loc='best')
+    plt.legend(loc='best', prop={'size':13})
     plt.savefig('plot_diff_wq' + str(N1) + str(N2) + '.pdf') #fancy
     plt.clf()

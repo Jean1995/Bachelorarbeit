@@ -6,6 +6,8 @@ from fit2 import a # Importiere die Parameter
 from scipy.optimize import bisect
 
 import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+plt.set_cmap('Set2')
 plt.rcParams['figure.figsize'] = (10, 8)
 plt.rcParams['font.size'] = 12
 plt.rcParams['lines.linewidth'] = 2

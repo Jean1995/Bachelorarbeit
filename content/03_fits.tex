@@ -1,1 +1,35 @@
 \chapter{Fitten der Formfaktoren innerhalb und außerhalb des Standardmodelles}\label{make}
+
+Aus dem Paper \cite{PhysRevD.92.034506} werden Theoriewerte für die Formfaktoren $f_+(w)$ und $f_0(w)$ für verschiedene Impulsüberträge entnommen, welche im Folgenden für alle Fits verwendet werden.
+Die Daten stammen aus Berechnungen, welche unter Nutzung der Gittereichtheorie durchgeführt wurden.
+In Tabelle \ref{tab:data} sind diese Daten angegeben sowie in Abbildung \ref{fig:cor_daten} die Korrelationen der Daten untereinander.
+\begin{table}
+  \centering
+  \caption{Gittereichrechnungen für verschiedene Impulsüberträge.}
+  \label{tab:data}
+  \sisetup{table-format=1.2}
+  \begin{tabular}{
+    S[table-format=1.2]
+    S[table-format=1.4]
+    @{${}\pm{}$}
+    S[table-format=1.4]
+    S[table-format=1.4]
+    @{${}\pm{}$}
+    S[table-format=1.4]
+  }
+  \toprule
+  {$w$} & \multicolumn{2}{c}{$f_+(w)$} & \multicolumn{2}{c}{$f_0(w)$} \\
+  \midrule
+  1 & 1.1994 & 0.0095 & 0.9026 & 0.0072 \\
+  1.08 & 1.0941 & 0.0104 & 0.8609 & 0.0077 \\
+  1.16 & 1.0047 & 0.0123 & 0.8254 & 0.0094 \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\textwidth]{pycode/cormatrix_daten.pdf}
+  \caption{Korrelationsmatrix der Daten der Gittereichrechnungen.}
+  \label{fig:cor_daten}
+\end{figure}
