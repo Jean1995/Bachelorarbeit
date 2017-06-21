@@ -231,14 +231,14 @@ Eine Möglichkeit stellt die $w$-Parametrisierung
 \begin{equation}
   w(q^2) = \frac{m_B^2 + m_D^2 - q^2}{2 m_B m_D}
 \end{equation}
-dar. %, dessen Abhängigkeit von $q^2$ in Abbildung \ref{fig:w_param} dargestellt ist.
+dar, dessen Abhängigkeit von $q^2$ in Abbildung \ref{fig:w_param} dargestellt ist.
 Hierbei wird der maximale Impulsübertrag $q_\text{max}^2$ auf $w=0$ abgebildet.
 
 Eine weitere Parametrisierung, welche für den im folgenden Kapitel durchgeführten Fit der Formfaktoren von Bedeutung ist, findet sich in der Variable
 \begin{equation}
   z(q^2) = \frac{\sqrt{w+1}-\sqrt{2}}{\sqrt{w+1}+\sqrt{2}}.
 \end{equation}
-Diese Parametrisierung von $q^2$ bildet den maximalen Impulsübertrag $q_\text{max}^2$ auf $z=0$ ab. %, wie in Abbildung \ref{fig:z_param} dargestellt ist.
+Diese Parametrisierung von $q^2$ bildet den maximalen Impulsübertrag $q_\text{max}^2$ auf $z=0$ ab, wie in Abbildung \ref{fig:z_param} dargestellt ist.
 Betrachtet man $z(q^2)$ zusätzlich außerhalb des kinematisch erlaubten Bereiches, so wird der Impulsübertrag, wie in Abbildung \ref{fig:z_kreis} dargestellt, auf die komplexe Ebene abgebildet.
 Dabei bewegt sich $z$ auf einem Einheitshalbkreis in der oberen komplexen Halbebene, so dass $\lvert z \rvert \leq \num{1}$ immer erfüllt ist.
 \begin{figure}
@@ -246,4 +246,21 @@ Dabei bewegt sich $z$ auf einem Einheitshalbkreis in der oberen komplexen Halbeb
   \includegraphics[width=0.9\textwidth]{pycode/plot_z_2.pdf}
   \caption{Abbildung von $q^2$ durch $z$ auf die komplexe Ebene. In grün wird der nach Gleichung \eqref{eqn:kinematik} kinematisch erlaubte Bereich dargestellt. Die gestrichelte rote Line verdeutlicht den unphysikalischen Bereich negativer Impulsüberträge.}
   \label{fig:z_kreis}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{pycode/plot_w.pdf}
+    \caption{Parametrisierung mit $w(q^2)$.}
+    \label{fig:w_param}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{pycode/plot_z.pdf}
+    \caption{Parametrisierung mit $z(q^2)$.}
+    \label{fig:z_param}
+  \end{subfigure}
+  \caption{Parametrisierung des Impulsübertrages. Der im vorliegenden Zerfall erlaubte kinematische Bereich nach Gleichung \eqref{eqn:kinematik} wird durch den blauen Kasten verdeutlicht.}
 \end{figure}
