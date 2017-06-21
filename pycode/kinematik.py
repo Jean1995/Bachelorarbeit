@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 plt.set_cmap('Set2')
 plt.rcParams['figure.figsize'] = (10, 8)
-plt.rcParams['font.size'] = 12
+plt.rcParams['font.size'] = 13
 plt.rcParams['lines.linewidth'] = 2
 plt.rcParams['text.usetex'] = True
 plt.rcParams['text.latex.preamble'] = ['\\usepackage{siunitx}']
