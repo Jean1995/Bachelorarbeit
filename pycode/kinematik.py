@@ -5,12 +5,12 @@ import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 plt.set_cmap('Set2')
 plt.rcParams['figure.figsize'] = (10, 8)
-plt.rcParams['font.size'] = 13
+plt.rcParams['font.size'] = 14
 plt.rcParams['lines.linewidth'] = 2
 plt.rcParams['text.usetex'] = True
 plt.rcParams['text.latex.preamble'] = ['\\usepackage{siunitx}']
 plt.axis('equal')
-
+plt.rc('font',family='Latin Modern')
 
 def w(qq):
     return (m_b**2 + m_d**2 - qq)/(2*m_b*m_d)

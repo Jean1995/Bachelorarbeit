@@ -24,6 +24,7 @@ plt.rcParams['lines.linewidth'] = 2
 plt.rcParams['text.usetex'] = True
 plt.rcParams['axes.formatter.use_locale'] = True # kommata
 plt.rcParams['text.latex.preamble'] = ['\\usepackage[locale=DE,separate-uncertainty=true,per-mode=symbol-or-fraction,]{siunitx}']
+plt.rc('font',family='Latin Modern')
 
 #plt.style.use('ggplot')
 #plt.set_cmap('Set2')
