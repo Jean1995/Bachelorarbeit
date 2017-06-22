@@ -35,7 +35,7 @@ Alle folgenden Berechnungen werden unter Verwendung dieser Werte durchgeführt.
   \bottomrule
   \end{tabular}
 \end{table}
-
+\todo{Muss ich hier auch noch mal zusätzlich die Quelle angeben, die ich ja eigentlich schon im Fließtext angegeben habe?}
 
 
 
@@ -60,7 +60,7 @@ Die Blaschkefaktoren werden hierbei als
   P_i(z) = \frac{1}{1 - \frac{q^2(z)}{m_i^2}}
 \end{align*}
 definiert, um die Resonanzen durch angeregte Zustände in den Formfaktoren zu berücksichtigen. \todo{Das mit den Resonanzen konkretisieren. Anregungszustände?}
-Dabei wird als $m_i$ die niedrigste Resonanz gewählt, da diese den größten Einfluss auf den Formfaktor im kinematisch erlaubten Bereich ausübt.
+Dabei wird als $m_i$ jeweils die niedrigste Resonanz gewählt, da diese den größten Einfluss auf den Formfaktor im kinematisch erlaubten Bereich ausübt.
 Außerdem muss beachtet werden, dass die Quantenzahlen der Resonanzen mit den jeweiligen Quantenzahlen der Formfaktoren, $J^P = 0^{+}$ für $f_+$ und $J^P = 1^-$ für $f_0$, übereinstimmen.
 Dem Paper \cite{PhysRevD.94.094008} werden die hier verwendeten Massen zu
 \begin{align*}
@@ -79,7 +79,46 @@ Eingesetzt in die Reihenentwicklung \eqref{eqn:reihenentwicklung} folgt daraus d
 \begin{align*}
   a_0^+ = P_+(z_\text{max}) \left( \sum_{k=0}^{N_0} a_k^0 \frac{z_{\text{max}}^k}{P_0(z_\text{max})} - \sum_{k=1}^{N_+} a_k^+ \frac{z_{\text{max}}^k}{P_+(z_\text{max})} \right)
 \end{align*}
-an die Fitparameter, welche die Gesamtheit der Freiheitsgrade des Fits um eins erniedrigt.
+an die Fitparameter, welche die Gesamtheit der Freiheitsgrade des Fits um einen Freiheitsgrad erniedrigt.
+
+Die Bestimmung der Fitparameter erfolgt mithilfe der Methode der kleinsten Quadrate.
+Allgemeines Ziel dieser Methode ist es, die Summe der Residuenquadrate
+\begin{align*}
+  S = \sum_{k=0}^{} \left( y_{i,+}(z_i) - f_{+}(z_i, \vec{a_+}) \right)^2 + \sum_{k=0}^{} \left( y_{i,0}(z_i) - f_{0}(z_i, \vec{a_0}) \right)^2
+\end{align*}
+durch die passende Wahl der Fitparameter $\vec{a_+}$ und $\vec{a_0}$ zu minimieren.
+Hierbei stellt $y_i$ die Daten der Gittereichtheorie aus Tabelle \ref{tab:data} und $f(z_i)$ die dazugehörige Vorhersage durch die Fitfunktion dar.
+
+Um die Korellationen der Daten untereinander zu berücksichtigen, wird statt der normalen Summe der Residuenquadrate die gewichtete Summe
+\begin{align*}
+  S = \vec{r}^T \symbf{W} \vec{r},
+\end{align*}
+minimiert, wobei $\vec{r}$ als Vektorkomponenten die einzelnen Residuen $y_i - f(z_i)$ beinhaltet und $\symbf{W}$ die Gewichtsmatrix ist.
+Als Gewichtmatrix wird die Inverse der Kovarianzmatrix $\symbf{V}$ der Daten gewählt, so dass die Residuen mit der Inverse der Varianz der jeweiligen Theoriewerte gewichtet werden. \todo{Soll hier noch mehr ergänzt werden zur Methodik? Designmatrix, etc.?}
+
+Um ein Konfidenzintervall für die gefittete Funktion zu bestimmen, werden $\input{pycode/samples.tex}$ verschiedene Konfigurationen der fehlerbehafteten Eingangsdaten sowie der fehlerbehafteten Fitparameter zufallsgeneriert, wobei alle Daten als normalverteilt angenommen werden. \todo{Auch hier: ausführlicher?}
+
+\texorpdfstring{$N_0=\num{2}$, $N_+=\num{2}$}{N0 = 2, N+ = 2}
+
+\subsection{Fit der Formfaktoren für \texorpdfstring{$N_0 = \num{2}$, $N_+ = \num{2}$}{N0 = 2, N+ = 2}.}
+
+\begin{table}
+    \centering
+    \caption{Messdaten Modenbestimmung.}
+    \label{tab:moden}
+    \sisetup{parse-numbers=false}
+    \begin{tabular}{
+	S[table-format=1.6]
+	@{${}\pm{}$}
+	S[table-format=1.5]
+	}
+	\toprule
+	\multicolumn{2}{c}{$x$}		\\
+	\midrule
+    \input{pycode/params_33.tex}
+    \bottomrule
+    \end{tabular}
+    \end{table}
 
 
 \section{Betrachtung der Formfaktoren außerhalb des Standardmodelles}

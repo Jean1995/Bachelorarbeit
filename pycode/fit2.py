@@ -11,6 +11,11 @@ import scipy.constants as const
 from numpy import random
 import uncertainties.unumpy as unp
 from uncertainties import correlated_values, covariance_matrix
+from table import (
+    make_table,
+    make_SI,
+    write,
+)
 
 import locale
 locale.setlocale(locale.LC_NUMERIC, "de_DE.utf8")
@@ -19,7 +24,7 @@ import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 plt.set_cmap('Set2')
 plt.rcParams['figure.figsize'] = (10, 8)
-plt.rcParams['font.size'] = 8
+plt.rcParams['font.size'] = 9
 plt.rcParams['lines.linewidth'] = 2
 plt.rcParams['text.usetex'] = True
 plt.rcParams['axes.formatter.use_locale'] = True # kommata
@@ -119,19 +124,20 @@ a = np.insert(a, 0, a00(a)) # Berechne a_+0 aus den gegebenen Parametern
 V = a_1
 
 
-
-
 ### Tada!
 
 print("Parameter")
 print(a)
+
+
 
 ### Plotten
 
 x_plot = np.linspace(z_from_qq(0), z_from_qq((m_b-m_d)**2), 1000)
 
 ### Mr. Monte Carlo
-samples = 300
+samples = 1000
+write('samples.tex', make_SI(samples, r'', figures=0))
 x_plot_p_up = np.zeros(len(x_plot))
 x_plot_p_down = np.zeros(len(x_plot))
 x_plot_n_up = np.zeros(len(x_plot))
@@ -149,6 +155,14 @@ for i in range(samples):
     a_00_vals = np.insert(a_00_vals, 0, a00(a_mc[i,:]) ) # Ersetelle ein array mit a_+0 werten für alle samples
 
 a_mc = np.insert(a_mc, 0, a_00_vals, axis=1) # füge diese Spalte in die MonteCarlo-Daten ein
+
+### Werte ausgeben
+
+
+a_print = unp.uarray(a, np.insert(np.diag(V),1,np.std(a_00_vals))
+) # füge den Fehler von a00 aus Monte-Carlo ein. Ya
+write('params_' + str(N1) + str(N2) + '.tex', make_table([a_print],[1]))
+
 
 for i, val in enumerate(x_plot):
     mc_values_p = np.zeros(samples) # für jedes z "sample"-viele Werte ermitteln
@@ -196,7 +210,8 @@ plt.fill_between(x_plot, x_plot_p_up,  x_plot_p_down, interpolate=True, alpha=0.
 plt.ylabel(r'$f_+(z)$')
 plt.xlabel(r'$z$')
 plt.legend(loc='best')
-plt.title(r'Fit der Formfaktoren. $\chi^2 = \num{' + str(chi_squared_fp) + r'}$.')
+#plt.title(r'Fit der Formfaktoren. $\chi^2 = \num{' + str(chi_squared_fp) + r'}$.')
+plt.tight_layout()
 plt.savefig('plot_f+_' + str(N1) + str(N2) + '.pdf') #fancy
 plt.clf()
 
@@ -217,7 +232,8 @@ plt.fill_between(x_plot, x_plot_n_up,  x_plot_n_down, interpolate=True, alpha=0.
 plt.ylabel(r'$f_0(z)$')
 plt.xlabel(r'$z$')
 plt.legend(loc='best')
-plt.title(r'Fit der Formfaktoren. $\chi^2 = \num{' + str(chi_squared_fn) + r'}$.')
+#plt.title(r'Fit der Formfaktoren. $\chi^2 = \num{' + str(chi_squared_fn) + r'}$.')
+plt.tight_layout()
 plt.savefig('plot_f0_' + str(N1) + str(N2) + '.pdf') #fancy
 plt.clf()
 
