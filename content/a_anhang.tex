@@ -57,3 +57,21 @@
 \end{figure}
 
 %zweifach
+
+\begin{table}
+    \centering
+    \caption{Messdaten Modenbestimmung.}
+    \label{tab:moden}
+    \sisetup{parse-numbers=false}
+    \begin{tabular}{
+	S[table-format=-1.6]
+	@{${}\pm{}$}
+	S[table-format=-1.6]
+	}
+	\toprule
+	\multicolumn{2}{c}{$x$}		\\
+	\midrule
+    \input{pycode/params_33.tex}
+    \bottomrule
+    \end{tabular}
+    \end{table}
