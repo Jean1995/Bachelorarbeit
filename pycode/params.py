@@ -8,7 +8,7 @@ from uncertainties import ufloat
 
 #
 N1 = 2 #Parameter f+
-N2 = 2 #Parameter f0
+N2 = 1 #Parameter f0
 
 plot_difwq = 1 # entscheide, ob der differentielle WQ geplottet werden soll (zeitlicher Aufwand von ca. einer Minute)
 ### Konstanten
@@ -58,6 +58,7 @@ w_roh = np.array([1, 1.08, 1.16]) # Werte für w
 lattice_roh = np.array([1.1994, 1.0941, 1.0047, 0.9026, 0.8609, 0.8254]) # Latticewerte
 s_l = np.array([0.0095, 0.0104, 0.0123, 0.0072, 0.0077, 0.0094]) # Abweichungen Lattice
 
+#corr_mat = np.array([[1, 0, 0, 0, 0, 0],[0, 1, 0, 0, 0, 0],[0, 0, 1, 0, 0, 0],[0, 0, 0, 1, 0, 0],[0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 1]])
 corr_mat = np.array([[1, 0.9674, 0.8812, 0.8290, 0.8533, 0.8032],[0.9674, 1, 0.9523, 0.8241, 0.8992, 0.8856],[0.8812, 0.9523, 1, 0.7892, 0.8900, 0.9530],[0.8290, 0.8241, 0.7892, 1, 0.9650, 0.8682],[0.8533, 0.8992, 0.8900, 0.9650, 1, 0.9519], [0.8032, 0.8856, 0.9530, 0.8682, 0.9519, 1]]) #Korellationsmatrix
 V = np.zeros((len(lattice_roh), len(lattice_roh))) # Kovarianzmatrix
 for i in range(len(lattice_roh)):

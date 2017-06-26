@@ -19,7 +19,8 @@ plt.rcParams['figure.figsize'] = (10, 8)
 plt.rcParams['font.size'] = 12
 plt.rcParams['lines.linewidth'] = 2
 plt.rcParams['text.usetex'] = True
-plt.rcParams['text.latex.preamble'] = ['\\usepackage{siunitx}']
+plt.rcParams['text.latex.preamble'] = ['\\usepackage[locale=DE,separate-uncertainty=true,per-mode=symbol-or-fraction,]{siunitx}']
+plt.rc('font',family='Latin Modern')
 
 ### Funktionen
 
@@ -166,5 +167,6 @@ if plot_difwq != 0:
     plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D l \nu_l \right) \,/\, \num{e-15} \si{\giga \electronvolt} $')
     plt.xlabel(r'$z$')
     plt.legend(loc='best', prop={'size':13})
+    plt.tight_layout()
     plt.savefig('plot_diff_wq' + str(N1) + str(N2) + '.pdf') #fancy
     plt.clf()
