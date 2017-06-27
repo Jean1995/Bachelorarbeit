@@ -7,8 +7,8 @@ from table import (
 from uncertainties import ufloat
 
 #
-N1 = 2 #Parameter f+
-N2 = 1 #Parameter f0
+N1 = 3 #Parameter f+
+N2 = 3 #Parameter f0
 
 plot_difwq = 1 # entscheide, ob der differentielle WQ geplottet werden soll (zeitlicher Aufwand von ca. einer Minute)
 ### Konstanten
