@@ -24,8 +24,8 @@ import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 plt.set_cmap('Set2')
 plt.rcParams['figure.figsize'] = (10, 8)
-plt.rcParams['font.size'] = 9
-plt.rcParams['lines.linewidth'] = 2
+plt.rcParams['font.size'] = 13
+plt.rcParams['lines.linewidth'] = 1.5
 plt.rcParams['text.usetex'] = True
 plt.rcParams['axes.formatter.use_locale'] = True # kommata
 plt.rcParams['text.latex.preamble'] = ['\\usepackage[locale=DE,separate-uncertainty=true,per-mode=symbol-or-fraction,]{siunitx}']
@@ -111,6 +111,9 @@ print("Designmatrix f+:")
 print(A)
 ### Gewichtsmatrix
 
+print("Test1", V)
+print("Test1", unp.std_devs(y_cor))
+
 W = inv(np.diag(np.diag(V))) # Nur die Gewichte! Kovarianz von uncertainties
 
 ### Berechnung der Parameter
@@ -127,10 +130,12 @@ V = covariance_matrix(a)
 
 ### Tada!
 
+a_tmp = a # falls später gebraucht
 a = unp.nominal_values(a)
 
 print("Parameter")
 print(a)
+
 
 
 
@@ -182,7 +187,6 @@ for i, item in enumerate(a_print):
 
 
 
-
 ## Weiter MonteCarlo
 
 
@@ -226,46 +230,46 @@ write('chisquared_sum_' + str(N1) + str(N2) + '.tex', make_SI(chi_squared_fp+chi
 
 # Plot f+
 
-
-plt.errorbar( x, np.split(unp.nominal_values(y_cor),2)[0], yerr = np.split(unp.std_devs(y_cor),2)[0], fmt=',', label=r'Lattice Calculations $f_+$', capsize=5,capthick=0.5, barsabove = True) # splitte in 2 Hälften und nehme die erste Hälfte
 y_plot_p = np.zeros(len(x_plot))
 for i in range(N1):
     y_plot_p = y_plot_p + a[i] * f(x_plot, i, m_p)
 
-plt.plot(x_plot,y_plot_p, label=r'Fit durch gewichtete Methode der kleinsten Quadrate. Paramterzahl $N_1 = ' + str(N1) + r'$.')
+plt.plot(x_plot,y_plot_p, label=r'Fit $f_+$ mit Paramterzahl $N_1 = ' + str(N1) + r'$.', color='r')
 
+plt.fill_between(x_plot, x_plot_p_up,  x_plot_p_down, interpolate=True, alpha=0.5, color='r',linewidth=0.0)
 
+plt.errorbar( x, np.split(unp.nominal_values(y_cor),2)[0], yerr = np.split(unp.std_devs(y_cor),2)[0], fmt=',', color='g', label=r'Theoriewerte $f_+$.', capsize=5,capthick=0.5, barsabove = True) # splitte in 2 Hälften und nehme die erste Hälfte
 
-plt.fill_between(x_plot, x_plot_p_up,  x_plot_p_down, interpolate=True, alpha=0.5)
-
-plt.ylabel(r'$f_+(z)$')
-plt.xlabel(r'$z$')
-plt.legend(loc='best')
-#plt.title(r'Fit der Formfaktoren. $\chi^2 = \num{' + str(chi_squared_fp) + r'}$.')
-plt.tight_layout()
-plt.savefig('plot_f+_' + str(N1) + str(N2) + '.pdf') #fancy
-plt.clf()
+#plt.ylabel(r'$f_+(z)$')
+#plt.xlabel(r'$z$')
+#plt.legend(loc='best')
+##plt.title(r'Fit der Formfaktoren. $\chi^2 = \num{' + str(chi_squared_fp) + r'}$.')
+#plt.tight_layout()
+#plt.savefig('plot_f+_' + str(N1) + str(N2) + '.pdf') #fancy
+#plt.clf()
 
 
 
 
 # Plot f0
 
-plt.errorbar( x, np.split(unp.nominal_values(y_cor),2)[1], yerr = np.split(unp.std_devs(y_cor),2)[1], fmt=',', label=r'Lattice Calculations $f_0$', capsize=5,capthick=0.5, barsabove = True) # splitte in 2 Hälften und nehme die erste Hälfte
+
 y_plot_n = np.zeros(len(x_plot))
 for i in range(N2):
     y_plot_n = y_plot_n + a[i+N1] * f(x_plot, i, m_0)
 
-plt.plot(x_plot,y_plot_n, label=r'Fit durch gewichtete Methode der kleinsten Quadrate. Paramterzahl $N_2 = ' + str(N2) + r'$.')
+plt.plot(x_plot,y_plot_n, label=r'Fit $f_0$ mit Paramterzahl $N_2 = ' + str(N2) + r'$.', color='b')
 
-plt.fill_between(x_plot, x_plot_n_up,  x_plot_n_down, interpolate=True, alpha=0.5)
+plt.fill_between(x_plot, x_plot_n_up,  x_plot_n_down, interpolate=True, alpha=0.5, color='b', linewidth=0.0)
 
-plt.ylabel(r'$f_0(z)$')
+plt.errorbar( x, np.split(unp.nominal_values(y_cor),2)[1], yerr = np.split(unp.std_devs(y_cor),2)[1], fmt=',', label=r'Theoriewerte $f_0$.', capsize=5,capthick=0.5, barsabove = True, color='y') # splitte in 2 Hälften und nehme die erste Hälfte
+
+plt.ylabel(r'$f_i(z)$')
 plt.xlabel(r'$z$')
 plt.legend(loc='best')
 #plt.title(r'Fit der Formfaktoren. $\chi^2 = \num{' + str(chi_squared_fn) + r'}$.')
 plt.tight_layout()
-plt.savefig('plot_f0_' + str(N1) + str(N2) + '.pdf') #fancy
+plt.savefig('plot_' + str(N1) + str(N2) + '.pdf') #fancy
 plt.clf()
 
 

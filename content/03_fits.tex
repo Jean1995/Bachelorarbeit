@@ -37,7 +37,7 @@ Alle folgenden Berechnungen werden unter Verwendung dieser Werte durchgeführt.
 \end{table}
 \todo{Muss ich hier auch noch mal zusätzlich die Quelle angeben, die ich ja eigentlich schon im Fließtext angegeben habe?}
 
-\section{Fit der Formfaktoren im Standardmodell}
+\section{Methodik des Fittens der Formfaktoren}
 
 Das Ziel ist es, aus den diskreten Werten für einzelne Impulsüberträge in Tabelle \ref{tab:data} die Formfaktoren zu einer kontinuierlichen Größe in $z$ zu erweitern, um beispielsweise aus \eqref{eqn:difzb} die totale Zerfallsbreite ermitteln zu können.
 Hierzu wird ein Fit an die gegebenen Daten durchgeführt.
@@ -99,56 +99,77 @@ Dementsprechend werden Theoriewerte mit kleinem Fehler stärker gewichte als The
 
 Um ein Konfidenzintervall für die gefittete Funktion zu bestimmen, werden $\input{pycode/samples.tex}$ verschiedene Konfigurationen der fehlerbehafteten Eingangsdaten sowie der fehlerbehafteten Fitparameter zufallsgeneriert, wobei alle Daten als normalverteilt angenommen werden. \todo{Auch hier: ausführlicher?}
 
-\subsection{Fit der Formfaktoren für \texorpdfstring{$N_+ = \num{2}$, $N_0 = \num{1}$}{N+ = 2, N0 = 1}.}
+%\subsection{Fit der Formfaktoren für \texorpdfstring{$N_+ = \num{2}$, $N_0 = \num{1}$}{N+ = 2, N0 = 1}.}
+\section{Ergebnisse der Fits für verschiedene Parameterkombinationen}
+\label{sec:fits}
 
-Die errechneten Fitparameter für eine Reihenentwicklung von $f_+$ mit $N_+ = \num{2}$ Parametern sowie $f_0$ mit $N_0 = \num{1}$ Parametern sind in Tabelle \ref{tab:fitparams21} angegeben.
-\begin{table}
-    \centering
-    \caption{Fitparameter für die Ordnungen $N_+ = \num{2}$ und $N_0 = \num{1}$ der Reihenentwicklung.}
-    \label{tab:fitparams21}
-    \sisetup{parse-numbers=false}
-    \begin{tabular}{
-  S
-	S[table-format=-1.3]
-	@{${}\pm{}$}
-	S[table-format=-1.3]
-	}
-	\toprule
-  \rule{0pt}{2ex}
-  \input{pycode/params_21_0label.tex} \input{pycode/params_21_0val.tex}
-  \rule{0pt}{2ex}
-  \input{pycode/params_21_1label.tex} \input{pycode/params_21_1val.tex}
-  \rule{0pt}{2ex}
-  \input{pycode/params_21_2label.tex} \input{pycode/params_21_2val.tex}
-  \midrule
-  \multicolumn{3}{c}{$\chi^2 \,/\, df= \input{pycode/chisquared_sum_21.tex} \,/\, \num{2}$}		\\
-    \bottomrule
-    \end{tabular}
-\end{table}
-Außerdem wird die Anpassungsgüte
+Die Fitparameter werden für verschiedene Kombinationen der Ordnungen $N_+$ der Reihenentwicklung von $f_+$ sowie $N_0$ der Reihenentwicklung von $f_0$ berechnet.
+Ein Maß für die Güte des Fits stellt die Anpassungsgüte \todo{Begriff richtig?}
 \begin{equation}
+  \label{eqn:apg}
   \chi^2 = \sum_{i=0}^{} \left( \frac{y_{i,+}(z_i) - f_{+}(z_i, \vec{a_+})}{\sigma_{y_{i,+}}} \right)^2 + \sum_{i=0}^{} \left( \frac{y_{i,0}(z_i) - f_{0}(z_i, \vec{a_0})}{\sigma_{y_{i,0}}}  \right)^2
 \end{equation}
-angegeben, welche durch die Anzahl der Freiheitgrade $df$ dividiert wird.
+dar, welche jeweils durch die Anzahl der Freiheitgrade $df$ dividiert wird.
 Im vorliegenden Fall gilt
 \begin{align*}
   df = 6 - (N_1 + N_2 + 1),
 \end{align*}
-für $\num{6}$ vorhandene Theoriewerte und die Nutzung der Nebenbedingung \eqref{eqn:einschr}.
-Die Korrelationen zwischen den Fitparametern sind in Abbildung \ref{fig:fitcor21} angegeben.
+bei sechs vorhandenen Theoriewerten sowie der Nutzung der Nebenbedingung \eqref{eqn:einschr}.
+Die berechneten Fitparameter für vier unterschiedliche Kombinationen von $N_+$ und $N_0$ sowie die jeweilige Anpassungsgüte des Fits sind in Tabelle \ref{tab:fitparams} angegeben.
+Zusätzlich sind die Korrelationen der Fitparameter im Anhang in den Abbildungen \ref{fig:fitcor21} bis \ref{fig:fitcor33} dargestellt.
+
+
+\begin{table}
+  \centering
+  \begin{subtable}{0.48\textwidth}
+    \centering
+    \input{content/tab12.tex}
+  \end{subtable}
+  \begin{subtable}{0.48\textwidth}
+    \centering
+    \input{content/tab21.tex}
+  \end{subtable}
+  \begin{subtable}[t]{0.48\textwidth}
+    \vspace{15px}
+    \centering
+    \input{content/tab22.tex}
+  \end{subtable}
+  \begin{subtable}[t]{0.48\textwidth}
+    \vspace{15px}
+    \centering
+    \input{content/tab33.tex}
+  \end{subtable}
+  \vspace{10px}
+  \caption{Fitparameter und Anpassungsgüte nach Gleichung \eqref{eqn:apg} für verschiedene Ordnungen der Reihenentwicklung $N_1$ und $N_2$.}
+  \label{tab:fitparams}
+\end{table}
+
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{pycode/cormatrix_a_N21.pdf}
-  \caption{Korrelationsmatrix der Fitparameter für die Ordnungen $N_+ = \num{2}$ und $N_0 = \num{1}$ der Reihenentwicklung.}
-  \label{fig:fitcor21}
+  \includegraphics[width=0.6\textwidth]{pycode/plot_21.pdf}
+  \caption{Fit an die Theoriewerte für $N_0 = \num{2}$ und $N_+ = \num{1}$.}
+  \label{fig:fit21}
 \end{figure}
-Durch Einsetzen der berechneten Fitfunktion in Gleichung \eqref{eqn:difzb} kann die differentielle Zerfallsbreite bestimmt werden.
-Das Ergebnis ist in Abbildung \ref{fig:difwq21} dargestellt.
+
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{pycode/plot_diff_wq21.pdf}
-  \caption{Differentielle Zerfallsbreite des Zerfalles für die Ordnungen $N_+ = \num{2}$ und $N_0 = \num{1}$ der Reihenentwicklung.}
-  \label{fig:difwq21}
+  \includegraphics[width=0.6\textwidth]{pycode/plot_12.pdf}
+  \caption{Fit an die Theoriewerte für $N_0 = \num{1}$ und $N_+ = \num{2}$.}
+  \label{fig:fit12}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{pycode/plot_22.pdf}
+  \caption{Fit an die Theoriewerte für $N_0 = \num{2}$ und $N_+ = \num{2}$.}
+  \label{fig:fit22}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{pycode/plot_33.pdf}
+  \caption{Fit an die Theoriewerte für $N_0 = \num{3}$ und $N_+ = \num{3}$.}
+  \label{fig:fit33}
 \end{figure}
 
 \section{Betrachtung der Formfaktoren außerhalb des Standardmodelles}
