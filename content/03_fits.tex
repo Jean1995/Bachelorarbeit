@@ -93,9 +93,8 @@ Um die Korellationen der Daten untereinander zu berücksichtigen, wird statt der
   S = \vec{r}^T \symbf{W} \vec{r},
 \end{align*}
 minimiert, wobei $\vec{r}$ als Vektorkomponenten die einzelnen Residuen $y_i - f(z_i)$ beinhaltet und $\symbf{W}$ die Gewichtsmatrix ist.
-Als Gewichtsmatrix wird hier eine Diagonalmatrix gewählt, dessen Diagonalelemente jeweils die Inversen der Varianzen von $y_i$ sind.
-Dementsprechend werden Theoriewerte mit kleinem Fehler stärker gewichte als Theoriewerte mit großem Fehler.
-%Als Gewichtmatrix wird die Inverse der Kovarianzmatrix $\symbf{V}$ der Daten gewählt, so dass die Residuen mit der Inverse der Varianz der jeweiligen Theoriewerte gewichtet werden. \todo{Soll hier noch mehr ergänzt werden zur Methodik? Designmatrix, etc.?}
+%Als Gewichtsmatrix wird hier eine Diagonalmatrix gewählt, dessen Diagonalelemente jeweils die Inversen der Varianzen von $y_i$ sind.
+Als Gewichtmatrix wird die Inverse der Kovarianzmatrix $\symbf{V}$ der Daten gewählt, so dass die Residuen mit der Inverse der Varianz der jeweiligen Theoriewerte gewichtet werden. \todo{Soll hier noch mehr ergänzt werden zur Methodik? Designmatrix, etc.?}
 
 Um ein Konfidenzintervall für die gefittete Funktion zu bestimmen, werden $\input{pycode/samples.tex}$ verschiedene Konfigurationen der fehlerbehafteten Eingangsdaten sowie der fehlerbehafteten Fitparameter zufallsgeneriert, wobei alle Daten als normalverteilt angenommen werden. \todo{Auch hier: ausführlicher?}
 
@@ -116,18 +115,15 @@ Im vorliegenden Fall gilt
 \end{align*}
 bei sechs vorhandenen Theoriewerten sowie der Nutzung der Nebenbedingung \eqref{eqn:einschr}.
 Die berechneten Fitparameter für vier unterschiedliche Kombinationen von $N_+$ und $N_0$ sowie die jeweilige Anpassungsgüte des Fits sind in Tabelle \ref{tab:fitparams} angegeben.
-Zusätzlich sind die Korrelationen der Fitparameter im Anhang in den Abbildungen \ref{fig:fitcor21} bis \ref{fig:fitcor33} dargestellt.
-
-
 \begin{table}
   \centering
   \begin{subtable}{0.48\textwidth}
     \centering
-    \input{content/tab12.tex}
+    \input{content/tab32.tex}
   \end{subtable}
   \begin{subtable}{0.48\textwidth}
     \centering
-    \input{content/tab21.tex}
+    \input{content/tab23.tex}
   \end{subtable}
   \begin{subtable}[t]{0.48\textwidth}
     \vspace{15px}
@@ -143,28 +139,27 @@ Zusätzlich sind die Korrelationen der Fitparameter im Anhang in den Abbildungen
   \caption{Fitparameter und Anpassungsgüte nach Gleichung \eqref{eqn:apg} für verschiedene Ordnungen der Reihenentwicklung $N_1$ und $N_2$.}
   \label{tab:fitparams}
 \end{table}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{pycode/plot_21.pdf}
-  \caption{Fit an die Theoriewerte für $N_0 = \num{2}$ und $N_+ = \num{1}$.}
-  \label{fig:fit21}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{pycode/plot_12.pdf}
-  \caption{Fit an die Theoriewerte für $N_0 = \num{1}$ und $N_+ = \num{2}$.}
-  \label{fig:fit12}
-\end{figure}
-
+Zusätzlich sind die Korrelationen der Fitparameter im Anhang in den Abbildungen \ref{fig:fitcor22} bis \ref{fig:fitcor33} angegeben.
+Die sich daraus folgenden Fitfunktionen sind zusammen mit den Theoriedaten in den Abbildung \ref{fig:fit22} bis \ref{fig:fit33} dargestellt.
+Um die Fitfunktion ist jeweils die $\num{1}$-$\sigma$-Umgebung eingezeichnet.
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{pycode/plot_22.pdf}
   \caption{Fit an die Theoriewerte für $N_0 = \num{2}$ und $N_+ = \num{2}$.}
   \label{fig:fit22}
 \end{figure}
-
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{pycode/plot_32.pdf}
+  \caption{Fit an die Theoriewerte für $N_0 = \num{3}$ und $N_+ = \num{2}$.}
+  \label{fig:fit32}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{pycode/plot_23.pdf}
+  \caption{Fit an die Theoriewerte für $N_0 = \num{2}$ und $N_+ = \num{3}$.}
+  \label{fig:fit23}
+\end{figure}
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{pycode/plot_33.pdf}
@@ -172,5 +167,6 @@ Zusätzlich sind die Korrelationen der Fitparameter im Anhang in den Abbildungen
   \label{fig:fit33}
 \end{figure}
 
+\section{Berechnung der differentiellen Zerfallsbreite sowie \texorpdfstring{$R(D)}$}{R(D)}.}
 \section{Betrachtung der Formfaktoren außerhalb des Standardmodelles}
 % Schreibe hier erst, warum BSM benötigt wird, und mache dann subsections mit den einzelnen Bereichen von BSM

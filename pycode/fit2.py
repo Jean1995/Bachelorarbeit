@@ -28,7 +28,7 @@ plt.rcParams['font.size'] = 13
 plt.rcParams['lines.linewidth'] = 1.5
 plt.rcParams['text.usetex'] = True
 plt.rcParams['axes.formatter.use_locale'] = True # kommata
-plt.rcParams['text.latex.preamble'] = ['\\usepackage[locale=DE,separate-uncertainty=true,per-mode=symbol-or-fraction,]{siunitx}']
+plt.rcParams['text.latex.preamble'] = ['\\usepackage[locale=DE,separate-uncertainty=true,per-mode=symbol-or-fraction,]{siunitx} \\DeclareMathSymbol{,}{\mathord}{letters}{"3B}']
 plt.rc('font',family='Latin Modern')
 
 #plt.style.use('ggplot')
@@ -45,8 +45,7 @@ y = params.lattice_roh
 s_y = params.s_l
 V = params.V
 
-y_cor = np.array( correlated_values(y, V) ) # als np-array?
-print(y_cor)
+
 
 ### Funktionen
 
@@ -111,33 +110,23 @@ print("Designmatrix f+:")
 print(A)
 ### Gewichtsmatrix
 
-print("Test1", V)
-print("Test1", unp.std_devs(y_cor))
-
-W = inv(np.diag(np.diag(V))) # Nur die Gewichte! Kovarianz von uncertainties
+W = inv(V)
 
 ### Berechnung der Parameter
 
 a_1 = inv(np.matmul(np.matmul(A.T, W), A))
-a_2 = np.dot(np.matmul(A.T, W), y_cor)
+a_2 = np.dot(np.matmul(A.T, W), y)
 a = np.dot(a_1, a_2) # sollten N1 + N2 - 1 Werte sein.
 a = np.insert(a, 0, a00(a)) # Berechne a_+0 aus den gegebenen Parametern
 
 ### Berechnung der Kovarianzmatrix der Parameter
 
-V = covariance_matrix(a)
+V = a_1
 
-
-### Tada!
-
-a_tmp = a # falls später gebraucht
-a = unp.nominal_values(a)
+### Nominelle Werte der Parameter
 
 print("Parameter")
 print(a)
-
-
-
 
 ### Plotten
 
@@ -152,23 +141,24 @@ x_plot_n_up = np.zeros(len(x_plot))
 x_plot_n_down = np.zeros(len(x_plot))
 
 
-a_mc = random.multivariate_normal(a, V, samples)
+a_mc = random.multivariate_normal(np.delete(a,0), V, samples)
 
 #erstelle zufällige fehlerbehaftete Werte für Massen, Konstanten, etc.
 # Erstellung m_array und fehler siehe oben
 m_cov = np.diag(m_array_s)**2 # erstelle Kovarianzmatrix, jedoch ohne Kovarianzen (d.h. Varianzen auf Diagonalen)
 m_mc = random.multivariate_normal(m_array, m_cov, samples) # m_mc[a,b] mit b bestimmt ich, welche Variable ich erhalte (also b=0 m_p, usw.)
 
-#a_00_vals = np.array([])
-#for i in range(samples):
-#    a_00_vals = np.insert(a_00_vals, 0, a00(a_mc[i,:]) ) # Ersetelle ein array mit a_+0 werten für alle samples
-#
-#a_mc = np.insert(a_mc, 0, a_00_vals, axis=1) # füge diese Spalte in die MonteCarlo-Daten ein
+a_00_vals = np.array([])
+for i in range(samples):
+    a_00_vals = np.insert(a_00_vals, 0, a00(a_mc[i,:]) ) # Ersetelle in array mit a_+0 werten für alle samples
+
+a_mc = np.insert(a_mc, 0, a_00_vals, axis=1) # füge diese Spalte in die MonteCarlo-Daten ein
 
 ### Werte ausgeben
 
 
-a_print = unp.uarray(a, np.sqrt(np.diag(V))) # Wurzel der Varianzen, die auf der Diagonale stehen
+a_print = unp.uarray(a, np.insert(np.diag(V),1,np.std(a_00_vals))
+) # füge den Fehler von a00 aus Monte-Carlo ein. Ya
 
 tab_label = []
 for i in range(N1):
@@ -213,7 +203,7 @@ for i, val in enumerate(x_plot):
 pred_lat_val_fp = np.zeros(len(x))
 for i in range(N1):
     pred_lat_val_fp = pred_lat_val_fp + a[i] * f(x, i, m_p)
-chi_squared_fp = np.sum((( pred_lat_val_fp - np.split(unp.nominal_values(y_cor),2)[0] ) / (np.split(unp.std_devs(y_cor),2)[0]))**2)
+chi_squared_fp = np.sum((( pred_lat_val_fp - np.split(y,2)[0] ) / (np.split(s_y,2)[0]))**2)
 
 
 
@@ -221,7 +211,7 @@ chi_squared_fp = np.sum((( pred_lat_val_fp - np.split(unp.nominal_values(y_cor),
 pred_lat_val_fn = np.zeros(len(x))
 for i in range(N2):
     pred_lat_val_fn = pred_lat_val_fn + a[i+N1] * f(x, i, m_0)
-chi_squared_fn = np.sum((( pred_lat_val_fn - np.split(unp.nominal_values(y_cor),2)[1] ) / (np.split(unp.std_devs(y_cor),2)[1]))**2)
+chi_squared_fn = np.sum((( pred_lat_val_fn - np.split(y,2)[1] ) / (np.split(s_y,2)[1]))**2)
 
 write('chisquared_p_' + str(N1) + str(N2) + '.tex', make_SI(chi_squared_fp, r'', figures=3))
 write('chisquared_n_' + str(N1) + str(N2) + '.tex', make_SI(chi_squared_fn, r'', figures=3))
@@ -234,11 +224,11 @@ y_plot_p = np.zeros(len(x_plot))
 for i in range(N1):
     y_plot_p = y_plot_p + a[i] * f(x_plot, i, m_p)
 
-plt.plot(x_plot,y_plot_p, label=r'Fit $f_+$ mit Paramterzahl $N_1 = ' + str(N1) + r'$.', color='r')
+plt.plot(x_plot,y_plot_p, label=r'Fit $f_+$ mit Paramterzahl $N_+ = ' + str(N1) + r'$.', color='r')
 
 plt.fill_between(x_plot, x_plot_p_up,  x_plot_p_down, interpolate=True, alpha=0.5, color='r',linewidth=0.0)
 
-plt.errorbar( x, np.split(unp.nominal_values(y_cor),2)[0], yerr = np.split(unp.std_devs(y_cor),2)[0], fmt=',', color='g', label=r'Theoriewerte $f_+$.', capsize=5,capthick=0.5, barsabove = True) # splitte in 2 Hälften und nehme die erste Hälfte
+plt.errorbar( x, np.split(y,2)[0], yerr = np.split(s_y,2)[0], fmt=',', color='g', label=r'Theoriewerte $f_+$.', capsize=5,capthick=0.5, barsabove = True) # splitte in 2 Hälften und nehme die erste Hälfte
 
 #plt.ylabel(r'$f_+(z)$')
 #plt.xlabel(r'$z$')
@@ -258,11 +248,11 @@ y_plot_n = np.zeros(len(x_plot))
 for i in range(N2):
     y_plot_n = y_plot_n + a[i+N1] * f(x_plot, i, m_0)
 
-plt.plot(x_plot,y_plot_n, label=r'Fit $f_0$ mit Paramterzahl $N_2 = ' + str(N2) + r'$.', color='b')
+plt.plot(x_plot,y_plot_n, label=r'Fit $f_0$ mit Paramterzahl $N_0 = ' + str(N2) + r'$.', color='b')
 
 plt.fill_between(x_plot, x_plot_n_up,  x_plot_n_down, interpolate=True, alpha=0.5, color='b', linewidth=0.0)
 
-plt.errorbar( x, np.split(unp.nominal_values(y_cor),2)[1], yerr = np.split(unp.std_devs(y_cor),2)[1], fmt=',', label=r'Theoriewerte $f_0$.', capsize=5,capthick=0.5, barsabove = True, color='y') # splitte in 2 Hälften und nehme die erste Hälfte
+plt.errorbar( x, np.split(y,2)[1], yerr = np.split(s_y,2)[1], fmt=',', label=r'Theoriewerte $f_0$.', capsize=5,capthick=0.5, barsabove = True, color='y') # splitte in 2 Hälften und nehme die erste Hälfte
 
 plt.ylabel(r'$f_i(z)$')
 plt.xlabel(r'$z$')
@@ -282,7 +272,8 @@ print("f0+(qq=0): ", y_plot_n[0])
 ### Kovarianzmatrix -> Korellationsmatrix
 x_label = []
 for i in range(N1):
-    x_label.append('$a^+_' + str(i) + '$')
+    if i > 0:
+        x_label.append('$a^+_' + str(i) + '$')
 for i in range(N2):
     x_label.append('$a^0_' + str(i) + '$')
 

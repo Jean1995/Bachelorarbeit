@@ -4,7 +4,11 @@ import numpy as np
 from numpy.linalg import inv
 import scipy.constants as const
 from numpy import random
-
+from table import (
+    make_SI,
+    write,
+)
+from uncertainties import ufloat
 
 from fit2 import N1, N2, m_p, m_0, m_b, m_d, m_e, m_tau, m_mu, m_bottom, m_charm, V_cb, R_exp, m_p_s, m_0_s, m_b_s, m_d_s, m_e_s, m_tau_s, m_mu_s, m_bottom_s, m_charm_s, V_cb_s, R_exp_s
 from params import eta, G_f, plot_difwq
@@ -88,6 +92,8 @@ R_error = np.std(R_values)
 R_mean = np.mean(R_values)
 
 print("R =",R_mean, "+-", R_error)
+write('R_' + str(N1) + str(N2) +  '.tex', make_SI(ufloat(R_mean,R_error), r'', figures=2))
+
 
 
 # R-Schlange: Integriere nur von (m_b-m_d)**2 bis zu m_tau^2, um die größer werdenden Fehler des dif. WQ zu beheben
@@ -104,6 +110,7 @@ R_error_schlange = np.std(R_values_schlange)
 R_mean_schlange = np.mean(R_values_schlange)
 
 print("R~", R_mean_schlange, "+-", R_error_schlange)
+write('Rschlange_' + str(N1) + str(N2) +  '.tex', make_SI(ufloat(R_mean_schlange,R_error_schlange), r'', figures=2))
 
 ### Differentieller Wirkungsquerschnitt Elektronen / Tauonen
 

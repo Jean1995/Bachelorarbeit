@@ -8,9 +8,9 @@ from uncertainties import ufloat
 
 #
 N1 = 3 #Parameter f+
-N2 = 3 #Parameter f0
+N2 = 2 #Parameter f0
 
-plot_difwq = 1 # entscheide, ob der differentielle WQ geplottet werden soll (zeitlicher Aufwand von ca. einer Minute)
+plot_difwq = 0 # entscheide, ob der differentielle WQ geplottet werden soll (zeitlicher Aufwand von ca. einer Minute)
 ### Konstanten
 
 m_b = 5279.26 *10**(-3) #* 10**6 * const.electron_volt#/const.c**2

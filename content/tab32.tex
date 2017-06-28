@@ -1,0 +1,25 @@
+
+    \sisetup{parse-numbers=false}
+    \begin{tabular}{
+  S[table-format=-1.0]
+	S[table-format=-1.5]
+	@{${}\pm{}$}
+	S[table-format=-1.5]
+	}
+	\toprule
+  \multicolumn{3}{c}{$N_1 = \num{3} \quad N_2 = \num{2}$} \\
+  \midrule
+  \rule{0pt}{2.2ex}
+  \input{pycode/params_32_0label.tex} \input{pycode/params_32_0val.tex}
+  \rule{0pt}{2.2ex}
+  \input{pycode/params_32_1label.tex} \input{pycode/params_32_1val.tex}
+  \rule{0pt}{2.2ex}
+  \input{pycode/params_32_2label.tex} \input{pycode/params_32_2val.tex}
+  \rule{0pt}{2.2ex}
+  \input{pycode/params_32_3label.tex} \input{pycode/params_32_3val.tex}
+  \rule{0pt}{2.2ex}
+  \input{pycode/params_32_4label.tex} \input{pycode/params_32_4val.tex}
+  \midrule
+  \multicolumn{3}{c}{$\chi^2 \,/\, df= \input{pycode/chisquared_sum_32.tex} \,/\, \num{4}$}		\\
+    \bottomrule
+    \end{tabular}
