@@ -20,10 +20,11 @@ import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 plt.set_cmap('Set2')
 plt.rcParams['figure.figsize'] = (10, 8)
-plt.rcParams['font.size'] = 12
-plt.rcParams['lines.linewidth'] = 2
+plt.rcParams['font.size'] = 20
+plt.rcParams['lines.linewidth'] = 1.5
 plt.rcParams['text.usetex'] = True
-plt.rcParams['text.latex.preamble'] = ['\\usepackage[locale=DE,separate-uncertainty=true,per-mode=symbol-or-fraction,]{siunitx}']
+plt.rcParams['axes.formatter.use_locale'] = True # kommata
+plt.rcParams['text.latex.preamble'] = ['\\usepackage[locale=DE,separate-uncertainty=true,per-mode=symbol-or-fraction,]{siunitx} \\DeclareMathSymbol{,}{\mathord}{letters}{"3B}']
 plt.rc('font',family='Latin Modern')
 
 ### Funktionen
@@ -162,18 +163,18 @@ if plot_difwq != 0:
 
     red = 1/(10**(-15) )#* 10**9 * const.eV)
 
-    plt.plot(z_from_qq(qq_plot_e) ,dif_wq_val_e*red, label=r'Vorhersage differentielle Zerfallsbreite. $l = e$. Paramterzahl $N_1$ = ' + str(N1) + r', $N_2$ = ' + str(N2) + r'.')
-    plt.fill_between(z_from_qq(qq_plot_e), dif_wq_val_e_up*red,  dif_wq_val_e_down*red, interpolate=True, alpha=0.5)
+    plt.plot(z_from_qq(qq_plot_e) ,dif_wq_val_e*red, label=r'Differentielle Zerfallsbreite, $l = e$.', color='b')
+    plt.fill_between(z_from_qq(qq_plot_e), dif_wq_val_e_up*red,  dif_wq_val_e_down*red, interpolate=True, alpha=0.3, color='b',linewidth=0.0)
 
-    plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_val_tau*red, label=r'Vorhersage differentielle Zerfallsbreite. $l = \tau$. Paramterzahl $N_1$ = ' + str(N1) + r', $N_2$ = ' + str(N2) + r'.')
-    plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_val_tau_up*red,  dif_wq_val_tau_down*red, interpolate=True, alpha=0.5)
+    plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_val_tau*red, label=r'Differentielle Zerfallsbreite, $l = \tau$.', color='r')
+    plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_val_tau_up*red,  dif_wq_val_tau_down*red, interpolate=True, alpha=0.3, color='r',linewidth=0.0)
 
-    plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_val_mu*red, label=r'Vorhersage differentielle Zerfallsbreite. $l = \mu$. Paramterzahl $N_1$ = ' + str(N1) + r', $N_2$ = ' + str(N2) + r'.')
-    plt.fill_between(z_from_qq(qq_plot_mu), dif_wq_val_mu_up*red,  dif_wq_val_mu_down*red, interpolate=True, alpha=0.5)
+    plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_val_mu*red, label=r'Differentielle Zerfallsbreite, $l = \mu$.', color='g')
+    plt.fill_between(z_from_qq(qq_plot_mu), dif_wq_val_mu_up*red,  dif_wq_val_mu_down*red, interpolate=True, alpha=0.3, color='g',linewidth=0.0)
 
-    plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D l \nu_l \right) \,/\, \num{e-15} \si{\giga \electronvolt} $')
+    plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D l \nu_l \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
     plt.xlabel(r'$z$')
-    plt.legend(loc='best', prop={'size':13})
+    plt.legend(loc='best', prop={'size':20})
     plt.tight_layout()
     plt.savefig('plot_diff_wq' + str(N1) + str(N2) + '.pdf') #fancy
     plt.clf()

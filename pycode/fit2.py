@@ -226,7 +226,7 @@ for i in range(N1):
 
 plt.plot(x_plot,y_plot_p, label=r'Fit $f_+$ mit Paramterzahl $N_+ = ' + str(N1) + r'$.', color='r')
 
-plt.fill_between(x_plot, x_plot_p_up,  x_plot_p_down, interpolate=True, alpha=0.5, color='r',linewidth=0.0)
+plt.fill_between(x_plot, x_plot_p_up,  x_plot_p_down, interpolate=True, alpha=0.3, color='r',linewidth=0.0)
 
 plt.errorbar( x, np.split(y,2)[0], yerr = np.split(s_y,2)[0], fmt=',', color='g', label=r'Theoriewerte $f_+$.', capsize=5,capthick=0.5, barsabove = True) # splitte in 2 Hälften und nehme die erste Hälfte
 
@@ -250,7 +250,7 @@ for i in range(N2):
 
 plt.plot(x_plot,y_plot_n, label=r'Fit $f_0$ mit Paramterzahl $N_0 = ' + str(N2) + r'$.', color='b')
 
-plt.fill_between(x_plot, x_plot_n_up,  x_plot_n_down, interpolate=True, alpha=0.5, color='b', linewidth=0.0)
+plt.fill_between(x_plot, x_plot_n_up,  x_plot_n_down, interpolate=True, alpha=0.3, color='b', linewidth=0.0)
 
 plt.errorbar( x, np.split(y,2)[1], yerr = np.split(s_y,2)[1], fmt=',', label=r'Theoriewerte $f_0$.', capsize=5,capthick=0.5, barsabove = True, color='y') # splitte in 2 Hälften und nehme die erste Hälfte
 
