@@ -8,9 +8,9 @@ from uncertainties import ufloat
 
 #
 N1 = 3 #Parameter f+
-N2 = 2 #Parameter f0
+N2 = 3 #Parameter f0
 
-plot_difwq = 1 # entscheide, ob der differentielle WQ geplottet werden soll (zeitlicher Aufwand von ca. einer Minute)
+plot_difwq = 0 # entscheide, ob der differentielle WQ geplottet werden soll (zeitlicher Aufwand von ca. einer Minute)
 ### Konstanten
 
 m_b = 5279.26 *10**(-3) #* 10**6 * const.electron_volt#/const.c**2
@@ -69,6 +69,27 @@ for i in range(len(lattice_roh)):
 
 ### Weitere Daten
 
+R_babar_m = 0.440
+R_babar_stat = 0.058
+R_babar_syst = 0.042
+R_belle_m = 0.375
+R_belle_stat = 0.064
+R_belle_syst = 0.026
 
-R_exp = 0.406
-R_exp_s = 0.05
+R_babar = ufloat(R_babar_m, np.sqrt(R_babar_stat**2 + R_babar_syst**2))
+R_belle = ufloat(R_belle_m, np.sqrt(R_belle_stat**2 + R_belle_syst**2))
+#systematischer Fehler und statistischer Fehler quadratisch addiert
+
+R_exp_mean = (R_babar/R_babar.s**2 + R_belle/R_belle.s**2)/(1/R_babar.s**2 + 1/R_belle.s**2)
+#gewichteter Mittelwert
+
+R_exp = R_exp_mean.n
+R_exp_s = R_exp_mean.s
+
+write('R_exp_mean.tex', make_SI(R_exp_mean, r'', figures=2))
+np.savetxt('R_babar_0.tex', ['\\num{' + str(R_babar_m) + '}'], fmt='%s')
+np.savetxt('R_babar_1.tex', ['\\num{' + str(R_babar_stat) + '}'], fmt='%s')
+np.savetxt('R_babar_2.tex', ['\\num{' + str(R_babar_syst) + '}'], fmt='%s')
+np.savetxt('R_belle_0.tex', ['\\num{' + str(R_belle_m) + '}'], fmt='%s')
+np.savetxt('R_belle_1.tex', ['\\num{' + str(R_belle_stat) + '}'], fmt='%s')
+np.savetxt('R_belle_2.tex', ['\\num{' + str(R_belle_syst) + '}'], fmt='%s')

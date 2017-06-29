@@ -4,14 +4,12 @@ Die Berechnungen sind dabei \enquote{unquenched}\todo{Übersetzung für unquench
 Die Gittereichrechnungen werden unter Verwendung von 14 verschiedenen Konfigurationen, d.h. Kombinationen von Gitterabständen und Massenverhältnissen von leichten Seequarks und Strange-Seequarks, durchgeführt. \todo{Korrektheit und Vollständigkeit der Sachinhalte?}
 In Tabelle \ref{tab:data} sind die dem Paper entnommenen Daten und ihre Fehler, sowie in Abbildung \ref{fig:cor_daten} die Korrelationen der Daten untereinander angegeben.
 Alle folgenden Berechnungen werden unter Verwendung dieser Werte durchgeführt.
-
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{pycode/cormatrix_daten.pdf}
   \caption{Korrelationsmatrix der Daten der Gittereichrechnungen.}
   \label{fig:cor_daten}
 \end{figure}
-
 \begin{table}
   \centering
   \caption{Werte der Formfaktoren aus Gittereichrechnungen für verschiedene Impulsüberträge.}
@@ -36,7 +34,6 @@ Alle folgenden Berechnungen werden unter Verwendung dieser Werte durchgeführt.
   \end{tabular}
 \end{table}
 \todo{Muss ich hier auch noch mal zusätzlich die Quelle angeben, die ich ja eigentlich schon im Fließtext angegeben habe?}
-
 \section{Methodik des Fittens der Formfaktoren}
 
 Das Ziel ist es, aus den diskreten Werten für einzelne Impulsüberträge in Tabelle \ref{tab:data} die Formfaktoren zu einer kontinuierlichen Größe in $z$ zu erweitern, um beispielsweise aus \eqref{eqn:difzb} die totale Zerfallsbreite ermitteln zu können.
@@ -117,6 +114,7 @@ bei sechs vorhandenen Theoriewerten sowie der Nutzung der Nebenbedingung \eqref{
 Die berechneten Fitparameter für vier unterschiedliche Kombinationen von $N_+$ und $N_0$ sowie die jeweilige Anpassungsgüte des Fits sind in Tabelle \ref{tab:fitparams} angegeben.
 \begin{table}
   \centering
+  \caption{Fitparameter und Anpassungsgüte nach Gleichung \eqref{eqn:apg} für verschiedene Ordnungen der Reihenentwicklung $N_1$ und $N_2$.}
   \begin{subtable}{0.48\textwidth}
     \centering
     \input{content/tab32.tex}
@@ -136,7 +134,6 @@ Die berechneten Fitparameter für vier unterschiedliche Kombinationen von $N_+$ 
     \input{content/tab33.tex}
   \end{subtable}
   \vspace{10px}
-  \caption{Fitparameter und Anpassungsgüte nach Gleichung \eqref{eqn:apg} für verschiedene Ordnungen der Reihenentwicklung $N_1$ und $N_2$.}
   \label{tab:fitparams}
 \end{table}
 Zusätzlich sind die Korrelationen der Fitparameter im Anhang in den Abbildungen \ref{fig:fitcor22} bis \ref{fig:fitcor33} angegeben.
@@ -167,13 +164,12 @@ Um die Fitfunktion ist jeweils die $\num{1}$-$\sigma$-Umgebung eingezeichnet.
   \label{fig:fit33}
 \end{figure}
 
-\section{Berechnung der differentiellen Zerfallsbreite sowie \texorpdfstring{$R(D)$}{R(D)}.}
+\section{Berechnung der differentiellen Zerfallsbreite und von \texorpdfstring{$R(D)$}{R(D)}.}
 
 Durch Einsetzen der ermittelten Fitfunktion in Gleichung \eqref{eqn:difzb} lässt sich die differentielle Zerfallsbreite für Elektronen, Myonen sowie Tauonen bestimmen.
 Die berechneten Funktionen sind in den Abbildungen \ref{fig:difwq22} bis \ref{fig:difwq33} dargestellt, wobei jeweils zusätzlich das $\num{1}$-$\sigma$-Intervall angegeben ist.
 Bei den berechneten Zerfallsbreiten ist zu beachten, dass sich zwischen den Funktionen für $l = e$ und $l = \mu$ vernachlässigbar kleine Unterschiede zeigen, während sich die Funktion für $l = \tau$ deutlich unterscheidet.
-Dies liegt an der deutlich größeren Masse des Tauons $m_{\tau}$ im Vergleich zur Elektronenmasse $m_{e}$ oder der Myonenmasse $m_{\mu}$.
-
+Dies liegt an der größeren Masse des Tauons $m_{\tau}$ im Vergleich zur Elektronenmasse $m_{e}$ oder der Myonenmasse $m_{\mu}$.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{pycode/plot_diff_wq22.pdf}
@@ -198,6 +194,48 @@ Dies liegt an der deutlich größeren Masse des Tauons $m_{\tau}$ im Vergleich z
   \caption{Vorhersage der differentiellen Zerfallsbreite für $N_0 = \num{3}$ und $N_+ = \num{3}$.}
   \label{fig:difwq33}
 \end{figure}
-
+Durch Integration der partiellen Zerfallsbreiten über den kinematisch erlaubten Bereich ergeben sich die totalen Zerfallsbreiten $\Gamma \left(\overline{B} \to D l \overline{\nu_l} \right)$ für die einzelnen leptonischen Anteile\todo{Formulierung}. \nocite{scipy}
+Hieraus lässt sich die Größe
+\begin{equation}
+  R(D) = \frac{{\mathbfcal{B}}\!\left(\overline{B} \to D \tau \overline{\nu_\tau} \right)}{{\mathbfcal{B}}\!\left(\overline{B} \to D l \overline{\nu_l} \right)}
+\end{equation}
+ermitteln, wobei ${\mathbfcal{B}} \!\left(\overline{B} \to D l \overline{\nu}_l \right)$ im Nenner einer Mittelung des Verzweigungsverhältnisses für $l = e$ und $l = \mu$ entspricht.
+Die aus den totalen Zerfallsbreiten ermittelten Werte $R(D)$ für verschiedene Ordnungen $N_+$ und $N_0$ sind in Tabelle \ref{tab:r_calc} angegeben.
+\begin{table}
+    \centering
+    \caption{Berechnung von $R(D)$ für verschiedene Kombinationen der Ordnungen $N_+$ und $N_0$.}
+    \sisetup{parse-numbers=false}
+    \begin{tabular}{
+    S[]
+  	S[table-format=1.3]
+  	@{${}\pm{}$}
+  	S[table-format=1.3]
+  	}
+  	\toprule
+    {$(N_+, N_0)$}  & \multicolumn{2}{c}{$R(D)$} \\
+    \midrule
+    \rule{0pt}{2.2ex}
+    (2, 2) & \input{pycode/R_22.tex}
+    (2, 3) & \input{pycode/R_23.tex}
+    (3, 2) & \input{pycode/R_32.tex}
+    (3, 3) & \input{pycode/R_33.tex}
+    \bottomrule
+    \label{tab:r_calc}
+    \end{tabular}
+\end{table}
 \section{Betrachtung der Formfaktoren außerhalb des Standardmodelles}
-% Schreibe hier erst, warum BSM benötigt wird, und mache dann subsections mit den einzelnen Bereichen von BSM
+
+Für die Observable $R(D)$ existieren experimentelle Messungen der Experimente Belle \cite{PhysRevD.92.072014} und BaBar \cite{PhysRevLett.109.101802}.
+Diese Werte betragen
+\begin{align*}
+  R(D)_\text{Belle} &= \input{pycode/R_belle_0.tex} \pm \input{pycode/R_belle_1.tex} \pm \input{pycode/R_belle_2.tex} ,\\
+  R(D)_\text{BaBar} &= \input{pycode/R_babar_0.tex} \pm \input{pycode/R_babar_1.tex} \pm \input{pycode/R_babar_2.tex}.
+\end{align*}
+Durch das Ermitteln des gewichteten Mittelwertes der beiden Messungen, wobei der systematische und statistische Fehler jeweils quadratisch addiert werden, ergibt sich ein experimenteller Messwert von
+\begin{align*}
+  R(D)_\text{exp} = \input{pycode/R_exp_mean.tex}.
+\end{align*}
+Dies entspricht einer Abweichung vom errechneten Theoriewert für $N_+=\num{3}$ und $N_0=\num{3}$ von $\input{pycode/R_abweichung_33.tex}\sigma$.
+Es stellt sich dementsprechend die Frage, inwiefern diese Diskrepanz durch Veränderung der Theorie der Formfaktoren behoben werden kann.
+
+\subsection{Naive Korrektur der Formfaktoren}
