@@ -5,17 +5,23 @@ from params import m_tau, N1, N2, eta, G_f, V_cb, m_e, m_mu, m_p, m_0, m_b, m_d,
 from fit2 import a # Importiere die Parameter
 from scipy.optimize import bisect
 
+from table import (
+    make_SI,
+    write,
+    make_table,
+)
+
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 plt.set_cmap('Set2')
 plt.rcParams['figure.figsize'] = (10, 8)
-plt.rcParams['font.size'] = 12
-plt.rcParams['lines.linewidth'] = 2
+plt.rcParams['font.size'] = 18
+plt.rcParams['lines.linewidth'] = 1.5
 plt.rcParams['text.usetex'] = True
-plt.rcParams['text.latex.preamble'] = ['\\usepackage{siunitx}']
+plt.rcParams['axes.formatter.use_locale'] = True # kommata
+plt.rcParams['text.latex.preamble'] = ['\\usepackage[locale=DE,separate-uncertainty=true,per-mode=symbol-or-fraction,]{siunitx} \\DeclareMathSymbol{,}{\mathord}{letters}{"3B}']
+plt.rc('font',family='Latin Modern')
 
-plt.style.use('ggplot')
-plt.set_cmap('Set2')
 
 ##### Funktionen
 
@@ -112,20 +118,21 @@ good_values_up = np.array(good_values_up)
 good_values_down = np.array(good_values_down)
 
 
-plt.plot(good_values[:,0], good_values[:,1], '--', label=r'Parameterbereich $\alpha$, $\beta$ mit $ R_{\alpha, \beta} = R_{\text{exp}}$')
-plt.fill_between(good_values_up[:,0], good_values_up[:,1],  good_values_down[:,1], interpolate=True, alpha=0.5, label=r'Parameterbereich $\alpha$, $\beta$ mit $ R_{\alpha, \beta} \in \left[ R_{\text{exp}} - \sigma, R_{\text{exp}} + \sigma \right] $')
-plt.plot(1, beta_val_nul, 'g*',markersize=10, label=r'$ R = R_{\text{exp}}$ mit $\alpha = 1$ und $\beta = \num[round-mode=places,round-precision=2]{' + str(beta_val_nul) + r'}$')
+plt.plot(good_values[:,0], good_values[:,1], '--', label=r'Parameterbereich $(\alpha,\: \beta$) mit $ R_{\alpha, \beta} = R_{\text{exp}}$')
+plt.fill_between(good_values_up[:,0], good_values_up[:,1],  good_values_down[:,1], interpolate=True, alpha=0.5, label=r'Parameterbereich $(\alpha,\: \beta)$ mit $ R_{\alpha, \beta} \in \left[ R_{\text{exp}} - \sigma, R_{\text{exp}} + \sigma \right] $')
+plt.plot(1, beta_val_nul, 'g*',markersize=12, label=r'$ R = R_{\text{exp}}$ mit $\alpha = 1$ und $\beta = \num[round-mode=places,round-precision=2]{' + str(beta_val_nul) + r'}$')
+
+write('beta_val_nul.tex', make_SI(beta_val_nul, r'', figures=2))
+
 
 #plt.plot(1, beta_val_nul, 'x', label=r'$ R = R_{\text{exp}}$ mit $\alpha = 1$ und $\beta = \num[round-mode=places,round-precision=2]{' + str(beta_val_nul) + r'}$')
 plt.ylabel(r'$\beta$')
 plt.xlabel(r'$\alpha$')
-plt.legend(loc='best')
 #plt.axvline(x=1, linewidth=1, color = 'g')
-
-
 #plt.ylim(alpha_min, beta_max-0.1)
 plt.xlim(alpha_min, alpha_max)
-
+plt.legend(loc='best')
+plt.tight_layout()
 plt.savefig('alpha_beta_' + str(N1) + str(N2) + '.pdf') #fancy
 plt.clf()
 
@@ -155,8 +162,9 @@ plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_complete(qq_plot_tau, m_tau, a, 1, 1)*re
 
 plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_complete(qq_plot_mu, m_mu, a, 1, 1)*red, 'g--', label=r'Differentielle Zerfallsbreite mit $l = \mu$, $\beta = 1$')
 
-plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D l \nu_l \right) \,/\, \num{e-15} \si{\giga \electronvolt} $')
+plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D l \nu_l \right) \,/\, \left( \num{e-15} \si{\giga\electronvolt\tothe{-1}} \right)$')
 plt.xlabel(r'$z$')
-plt.legend(loc='best')
+plt.legend(loc='best', prop={'size':17})
+plt.tight_layout()
 plt.savefig('plot_diff_wq_Rexp' + str(N1) + str(N2) + '.pdf') #fancy
 plt.clf()

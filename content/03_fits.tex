@@ -232,10 +232,39 @@ Diese Werte betragen
   R(D)_\text{BaBar} &= \input{pycode/R_babar_0.tex} \pm \input{pycode/R_babar_1.tex} \pm \input{pycode/R_babar_2.tex}.
 \end{align*}
 Durch das Ermitteln des gewichteten Mittelwertes der beiden Messungen, wobei der systematische und statistische Fehler jeweils quadratisch addiert werden, ergibt sich ein experimenteller Messwert von
-\begin{align*}
+\begin{equation}
+  \label{eqn:R_exp}
   R(D)_\text{exp} = \input{pycode/R_exp_mean.tex}.
-\end{align*}
+\end{equation}
 Dies entspricht einer Abweichung vom errechneten Theoriewert für $N_+=\num{3}$ und $N_0=\num{3}$ von $\input{pycode/R_abweichung_33.tex}\sigma$.
 Es stellt sich dementsprechend die Frage, inwiefern diese Diskrepanz durch Veränderung der Theorie der Formfaktoren behoben werden kann.
 
 \subsection{Naive Korrektur der Formfaktoren}
+
+Zunächst wird die naive Multiplikation von allgemeinen Vorfaktoren an die Formfaktoren $f_+$ und $f_0$ untersucht.
+Hierfür werden in Gleichung \eqref{eqn:difzb} die Faktoren
+\begin{align*}
+  f_+(q^2) &\to \alpha f_+(q^2) & f_0(q^2) &\to \beta f_0(q^2)
+\end{align*}
+ergänzt und dessen Auswirkung auf $R(D)$ untersucht.
+Als Ausgangsfunktionen werden dabei die gefitteten Formfaktoren für $N_+ = N_0 = \num{3}$ verwendet.
+In Abbildung \ref{fig:alpha_beta} ist dargestellt, in welchem Parameterbereich sich $(\alpha, \: \beta)$ befinden muss, um mit den experimentellen Werten für $R(D)$ aus Gleichung \eqref{eqn:R_exp} übereinzustimmen.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{pycode/alpha_beta_33.pdf}
+  \caption{Naive Anpassung der Formfaktoren durch Faktoren $\alpha$ und $\beta$.}
+  \label{fig:alpha_beta}
+\end{figure}
+Exemplarisch wird im Folgenden der Punkt $\alpha = {1}, \: \beta = \input{pycode/beta_val_nul.tex}$ betrachtet.
+Die dazugehörigen differentiellen Zerfallsbreiten sind in Abbildung \ref{fig:alpha_beta_wq} dargestellt.
+Zum besseren Vergleich sind zusätzlich die unveränderten Zerfallsbreiten dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{pycode/plot_diff_wq_Rexp33.pdf}
+  \caption{Differenzielle Zerfallsbreite durch naive Anpassung der Formfaktoren für $\alpha = \num{1}$.}
+  \label{fig:alpha_beta_wq}
+\end{figure}
+Hierbei ist auffällig, dass eine solche Anpassung primär einen Einfluss auf die differentielle Zerfallsbreite der Tauonen darstellt.
+Der grundlegende Verlauf der Kurve verändert sich nur leicht, es wird jedoch über den gesamten kinematisch erlaubten Bereich eine erhöhte Zerfallsbreite vorhergesagt.
+Die Kurven für die leichten Leptonen hingegen werden nur leicht verändert.
+Für Myonen ist lediglich eine Veränderung im Bereich kleiner Impulsüberträge zu beobachten, während bei der Zerfallsbreite der Elektronen kein signifikanter Unterschied zur unveränderten Funktion auftritt.
