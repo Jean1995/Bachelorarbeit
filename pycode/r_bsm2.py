@@ -9,10 +9,12 @@ import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 plt.set_cmap('Set2')
 plt.rcParams['figure.figsize'] = (10, 8)
-plt.rcParams['font.size'] = 12
-plt.rcParams['lines.linewidth'] = 2
+plt.rcParams['font.size'] = 18
+plt.rcParams['lines.linewidth'] = 1.5
 plt.rcParams['text.usetex'] = True
-plt.rcParams['text.latex.preamble'] = ['\\usepackage{siunitx}']
+plt.rcParams['axes.formatter.use_locale'] = True # kommata
+plt.rcParams['text.latex.preamble'] = ['\\usepackage[locale=DE,separate-uncertainty=true,per-mode=symbol-or-fraction,]{siunitx} \\DeclareMathSymbol{,}{\mathord}{letters}{"3B}']
+plt.rc('font',family='Latin Modern')
 
 def z(w):
     return (np.sqrt(w+1) - np.sqrt(2)) / (np.sqrt(w+1) + np.sqrt(2))
@@ -183,6 +185,7 @@ plt.plot(R_plt_4, I_plt_4, 'm*',markersize=10, label=r'$\mathrm{Re}(C_{s1}) = \n
 plt.ylabel(r'$\mathrm{Im}(C_{s1})$')
 plt.xlabel(r'$\mathrm{Re}(C_{s1})$')
 plt.legend(loc='best')
+plt.tight_layout()
 plt.savefig('plot_wilson_1_' + str(N1) + str(N2) + '.pdf') #fancy
 plt.clf()
 
@@ -279,8 +282,9 @@ plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_4*red, label=r'Vorhersage mit $\
 plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_tau_up_4*red, dif_wq_tau_down_4*red, interpolate=True, alpha=0.5, color='m')
 
 plt.xlabel(r'$z$')
-plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D \tau \nu_\tau \right)_\text{BSM} \,/\, \num{e-15} \si{\giga \electronvolt} $')
-plt.legend(loc='best')
+plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D \tau \nu_{\tau} \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
+plt.legend(loc='best', prop={'size':16})
+plt.tight_layout()
 plt.savefig('plot_bsm_dif_wq_' + str(N1) + str(N2) + '.pdf') #fancy
 plt.clf()
 
