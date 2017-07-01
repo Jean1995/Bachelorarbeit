@@ -223,7 +223,7 @@ Die aus den totalen Zerfallsbreiten ermittelten Werte $R(D)$ für verschiedene O
     \label{tab:r_calc}
     \end{tabular}
 \end{table}
-\section{Betrachtung der Formfaktoren außerhalb des Standardmodelles}
+\section{Betrachtung des Zerfalles außerhalb des Standardmodelles}
 
 Für die Observable $R(D)$ existieren experimentelle Messungen der Experimente Belle \cite{PhysRevD.92.072014} und BaBar \cite{PhysRevLett.109.101802}.
 Diese Werte betragen
@@ -266,6 +266,48 @@ Zum besseren Vergleich sind zusätzlich die unveränderten Zerfallsbreiten darge
   \label{fig:alpha_beta_wq}
 \end{figure}
 Hierbei ist auffällig, dass eine solche Anpassung primär einen Einfluss auf die differentielle Zerfallsbreite der Tauonen darstellt.
-Der grundlegende Verlauf der Kurve verändert sich nur leicht, es wird jedoch über den gesamten kinematisch erlaubten Bereich eine erhöhte Zerfallsbreite vorhergesagt.
-Die Kurven für die leichten Leptonen hingegen werden nur leicht verändert.
+Dies ist darin begründet, dass sich die Veränderung durch $\beta$ lediglich auf den Formfaktor $f_0$ auswirkt.
+Dieser ist jedoch mit $m_l^3$ unterdrückt und hat somit primär Einfluss auf die Zerfallsbreite der Tauonen.
+Der grundlegende Verlauf der Kurve für $l = \tau$ verändert sich dabei nur leicht, es wird jedoch über den gesamten kinematisch erlaubten Bereich eine erhöhte Zerfallsbreite vorhergesagt.
+Die Kurven für die leichten Leptonen werden hingegen wie erwartet nur leicht verändert.
 Für Myonen ist lediglich eine Veränderung im Bereich kleiner Impulsüberträge zu beobachten, während bei der Zerfallsbreite der Elektronen kein signifikanter Unterschied zur unveränderten Funktion auftritt.
+
+\subsection{Korrektur durch Betrachtung von NP Prozessen}
+
+Alternativ zur Korrektur der Formfaktoren bietet die auftretende Diskrepanz Interpretationsspielraum für Einflüsse durch neue Physik, dessen Möglichkeiten im Folgenden untersucht werden.
+Dabei wird lediglich der mögliche Einfluss dieser Effekte auf Tauonen betrachtet.
+Der effektive Hamiltonian für den schwachen Zerfall $b \to c \tau \overline{\nu_l}$ kann dabei als
+\begin{equation}
+  \mathcal{H}_\text{eff} \propto (\overline{c}_L \gamma^\mu b_L)(\overline{\tau}_L \gamma_\mu \nu_L ) +  C_{S_1}^\tau (\overline {c}_L b_R) (\overline{\tau}_R \nu_L)
+\end{equation}
+geschrieben werden, wobei die Indizes $L$, $R$ ein links- bzw. ein rechtshändiges Teilchen kennzeichnen.
+Der erste Term beschreibt die bereits zuvor betrachtete Kopplung \todo{Wortwahl?} im Standardmodell, während der zweite Term eine konkrete, mögliche NP-Kopplung \todo{Abkürzung NP und Wortwahl.} darstellt.
+Der Wilson-Koeffizient $C_{S_1}^\tau$ ist eine im Allgemeinen komplexe Größe und beschreibt somit die Stärke des Einflusses der NP-Kopplung.
+Ziel ist es, den Koeffizienten $C_{S_1}^\tau$ so anzupassen, dass die theoretische Vorhersage für $R$ mit den experimentellen Werten aus Gleichung \eqref{eqn:R_exp} übereinstimmen.
+
+Die differentielle Zefallsbreite, welche die oben beschriebenen Anteile beinhaltet, kann geschrieben werden als \cite{PhysRevD.88.094012}
+\begin{equation}
+  \frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D \tau \overline{\nu_{\tau}} \right) = \alpha \left( c_+^{\tau} f_+(q^2)^2 + \left(c_0^{\tau} + \beta_1 \lvert C_{S_1}^{\tau} \rvert^2 + \beta_2 \operatorname{Re}(C_{S_1}^{\tau})\right) f_0(q^2)^2 \right)
+\end{equation}
+mit den Abkürzungen
+\begin{align*}
+  \beta_1 &= \frac{3}{2} ( \frac{m_B^2 - m_D^2}{m_b - m_c} )^2 \frac{q^2}{m_B^4} & \beta_2 &= 3  \frac{m_\tau}{m_B^4} \frac{(m_B^2 - m_D^2)^2}{m_b - m_c}
+\end{align*}
+und
+\begin{align*}
+  \alpha = \frac{\eta_\text{EW}^2 G_\text{F}^2 \lvert V_{cb} \rvert^2 m_B \sqrt{\lambda} }{192 \pi^3} \left( 1 - \frac{m_\tau^2}{q^2} \right)^2.
+\end{align*}
+Dabei beschreiben $m_b$ und $m_c$ Quarkmassen, welche hier als \todo{richtig?}
+\begin{align*}
+  m_b &= \input{pycode/m_bottom.tex} & m_c &= \input{pycode/m_charm.tex}
+\end{align*}
+gewählt werden \cite{Agashe:2014kda}.
+Integriert über den kinematisch erlaubten Bereich ergibt sich die abgekürzte Form
+\begin{equation}
+  {\mathbfcal{B}}\!\left(\overline{B} \to D \tau \overline{\nu_\tau} \right) = {\mathbfcal{B}}_\text{SM}\!\left(\overline{B} \to D \tau \overline{\nu_\tau} \right) + A_S \lvert C_{S_1}^{\tau} \rvert^2 + A_{VS} \operatorname{Re}(C_{S_1}^{\tau}).
+\end{equation}
+Diese Parameter lassen sich unter Nutzung der Fits für die Ordnungen $N_+ = N_0 = \num{3}$ zu
+\begin{align*}
+  A_S &= \input{pycode/As.tex}, \\
+  A_{VS} &= \input{pycode/Avs.tex}.
+\end{align*}

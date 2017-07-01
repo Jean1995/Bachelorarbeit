@@ -16,6 +16,14 @@ plt.rcParams['axes.formatter.use_locale'] = True # kommata
 plt.rcParams['text.latex.preamble'] = ['\\usepackage[locale=DE,separate-uncertainty=true,per-mode=symbol-or-fraction,]{siunitx} \\DeclareMathSymbol{,}{\mathord}{letters}{"3B}']
 plt.rc('font',family='Latin Modern')
 
+from table import (
+    make_table,
+    make_SI,
+    write,
+)
+from uncertainties import ufloat
+
+
 def z(w):
     return (np.sqrt(w+1) - np.sqrt(2)) / (np.sqrt(w+1) + np.sqrt(2))
 
@@ -294,3 +302,6 @@ print("Asv =", Avs_mean)
 print("As^ =", As_mean / wq_tau_mean, "+-", As_std / wq_tau_mean)
 print("Asv^ =", Avs_mean / wq_tau_mean, "+-", Avs_std / wq_tau_mean)
 print("wq(tau) =", wq_tau_mean)
+
+write('As.tex', make_SI(ufloat(As_mean / wq_tau_mean,As_std / wq_tau_mean), r'', figures=1))
+write('Avs.tex', make_SI(ufloat(Avs_mean / wq_tau_mean,Avs_std / wq_tau_mean), r'', figures=1))
