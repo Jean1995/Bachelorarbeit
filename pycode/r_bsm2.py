@@ -277,17 +277,19 @@ red = 1/(10**(-15) )#* 10**9 * const.eV)
 plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_0*red, label=r'Vorhersage im Standardmodell', color='r')
 plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_tau_up_0*red, dif_wq_tau_down_0*red, interpolate=True, alpha=0.5, color='r')
 
-plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_1*red, label=r'Vorhersage mit $\mathrm{Re}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_1) + r'}$ und $\mathrm{Re}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_1) + r'}$', color='y')
+plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_1*red, label=r'Vorhersage mit $\mathrm{Re}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_1) + r'}$ und $\mathrm{Im}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_1) + r'}$', color='y')
 plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_tau_up_1*red, dif_wq_tau_down_1*red, interpolate=True, alpha=0.5, color='y')
 
-plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_2*red, label=r'Vorhersage mit $\mathrm{Re}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_2) + r'}$ und $\mathrm{Re}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_2) + r'}$', color='g')
+plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_2*red, label=r'Vorhersage mit $\mathrm{Re}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_2) + r'}$ und $\mathrm{Im}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_2) + r'}$', color='g')
 plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_tau_up_2*red, dif_wq_tau_down_2*red, interpolate=True, alpha=0.5, color='g')
 
-plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_3*red, label=r'Vorhersage mit $\mathrm{Re}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_3) + r'}$ und $\mathrm{Re}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_3) + r'}$', color='b')
+plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_3*red, label=r'Vorhersage mit $\mathrm{Re}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_3) + r'}$ und $\mathrm{Im}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_3) + r'}$', color='b')
 plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_tau_up_3*red, dif_wq_tau_down_3*red, interpolate=True, alpha=0.5, color='b')
 
-plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_4*red, label=r'Vorhersage mit $\mathrm{Re}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_4) + r'}$ und $\mathrm{Re}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_4) + r'}$', color='m')
+plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_4*red, label=r'Vorhersage mit $\mathrm{Re}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_4) + r'}$ und $\mathrm{Im}(C_{s1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_4) + r'}$', color='m')
 plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_tau_up_4*red, dif_wq_tau_down_4*red, interpolate=True, alpha=0.5, color='m')
+
+
 
 plt.xlabel(r'$z$')
 plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D \tau \nu_{\tau} \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')

@@ -164,7 +164,7 @@ Um die Fitfunktion ist jeweils die $\num{1}$-$\sigma$-Umgebung eingezeichnet.
   \label{fig:fit33}
 \end{figure}
 
-\section{Berechnung der differentiellen Zerfallsbreite und von \texorpdfstring{$R(D)$}{R(D)}.}
+\section{Berechnung der differentiellen Zerfallsbreite und Berechnung von \texorpdfstring{$R(D)$}{R(D)}.}
 
 Durch Einsetzen der ermittelten Fitfunktion in Gleichung \eqref{eqn:difzb} lässt sich die differentielle Zerfallsbreite für Elektronen, Myonen sowie Tauonen bestimmen.
 Die berechneten Funktionen sind in den Abbildungen \ref{fig:difwq22} bis \ref{fig:difwq33} dargestellt, wobei jeweils zusätzlich das $\num{1}$-$\sigma$-Intervall angegeben ist.
@@ -197,6 +197,7 @@ Dies liegt an der größeren Masse des Tauons $m_{\tau}$ im Vergleich zur Elektr
 Durch Integration der partiellen Zerfallsbreiten über den kinematisch erlaubten Bereich ergeben sich die totalen Zerfallsbreiten $\Gamma \left(\overline{B} \to D l \overline{\nu_l} \right)$ für die einzelnen leptonischen Anteile\todo{Formulierung}. \nocite{scipy}
 Hieraus lässt sich die Größe
 \begin{equation}
+  \label{eqn:R}
   R(D) = \frac{{\mathbfcal{B}}\!\left(\overline{B} \to D \tau \overline{\nu_\tau} \right)}{{\mathbfcal{B}}\!\left(\overline{B} \to D l \overline{\nu_l} \right)}
 \end{equation}
 ermitteln, wobei ${\mathbfcal{B}} \!\left(\overline{B} \to D l \overline{\nu}_l \right)$ im Nenner einer Mittelung des Verzweigungsverhältnisses für $l = e$ und $l = \mu$ entspricht.
@@ -278,20 +279,21 @@ Alternativ zur Korrektur der Formfaktoren bietet die auftretende Diskrepanz Inte
 Dabei wird lediglich der mögliche Einfluss dieser Effekte auf Tauonen betrachtet.
 Der effektive Hamiltonian für den schwachen Zerfall $b \to c \tau \overline{\nu_l}$ kann dabei als
 \begin{equation}
-  \mathcal{H}_\text{eff} \propto (\overline{c}_L \gamma^\mu b_L)(\overline{\tau}_L \gamma_\mu \nu_L ) +  C_{S_1}^\tau (\overline {c}_L b_R) (\overline{\tau}_R \nu_L)
+  \mathcal{H}_\text{eff} \propto (\overline{c}_L \gamma^\mu b_L)(\overline{\tau}_L \gamma_\mu \nu_L ) +  C_{S1}^\tau (\overline {c}_L b_R) (\overline{\tau}_R \nu_L)
 \end{equation}
 geschrieben werden, wobei die Indizes $L$, $R$ ein links- bzw. ein rechtshändiges Teilchen kennzeichnen.
 Der erste Term beschreibt die bereits zuvor betrachtete Kopplung \todo{Wortwahl?} im Standardmodell, während der zweite Term eine konkrete, mögliche NP-Kopplung \todo{Abkürzung NP und Wortwahl.} darstellt.
-Der Wilson-Koeffizient $C_{S_1}^\tau$ ist eine im Allgemeinen komplexe Größe und beschreibt somit die Stärke des Einflusses der NP-Kopplung.
-Ziel ist es, den Koeffizienten $C_{S_1}^\tau$ so anzupassen, dass die theoretische Vorhersage für $R$ mit den experimentellen Werten aus Gleichung \eqref{eqn:R_exp} übereinstimmen.
+Der Wilson-Koeffizient $C_{S1}^\tau$ ist eine im Allgemeinen komplexe Größe und beschreibt somit die Stärke des Einflusses der NP-Kopplung.
+Ziel ist es, den Koeffizienten $C_{S1}^\tau$ so anzupassen, dass die theoretische Vorhersage für $R$ mit den experimentellen Werten aus Gleichung \eqref{eqn:R_exp} übereinstimmt.
 
 Die differentielle Zefallsbreite, welche die oben beschriebenen Anteile beinhaltet, kann geschrieben werden als \cite{PhysRevD.88.094012}
 \begin{equation}
-  \frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D \tau \overline{\nu_{\tau}} \right) = \alpha \left( c_+^{\tau} f_+(q^2)^2 + \left(c_0^{\tau} + \beta_1 \lvert C_{S_1}^{\tau} \rvert^2 + \beta_2 \operatorname{Re}(C_{S_1}^{\tau})\right) f_0(q^2)^2 \right)
+  \label{eqn:wq_bsm}
+  \frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D \tau \overline{\nu_{\tau}} \right) = \alpha \left( c_+^{\tau} f_+(q^2)^2 + \left(c_0^{\tau} + \beta_1 \lvert C_{S1}^{\tau} \rvert^2 + \beta_2 \operatorname{Re}(C_{S1}^{\tau})\right) f_0(q^2)^2 \right)
 \end{equation}
 mit den Abkürzungen
 \begin{align*}
-  \beta_1 &= \frac{3}{2} ( \frac{m_B^2 - m_D^2}{m_b - m_c} )^2 \frac{q^2}{m_B^4} & \beta_2 &= 3  \frac{m_\tau}{m_B^4} \frac{(m_B^2 - m_D^2)^2}{m_b - m_c}
+  \beta_1 &= \frac{3}{2} \left( \frac{m_B^2 - m_D^2}{m_b - m_c} \right)^2 \frac{q^2}{m_B^4} & \beta_2 &= 3  \frac{m_\tau}{m_B^4} \frac{(m_B^2 - m_D^2)^2}{m_b - m_c}
 \end{align*}
 und
 \begin{align*}
@@ -302,12 +304,33 @@ Dabei beschreiben $m_b$ und $m_c$ Quarkmassen, welche hier als \todo{richtig?}
   m_b &= \input{pycode/m_bottom.tex} & m_c &= \input{pycode/m_charm.tex}
 \end{align*}
 gewählt werden \cite{Agashe:2014kda}.
-Integriert über den kinematisch erlaubten Bereich ergibt sich die abgekürzte Form
+Integriert über den kinematisch erlaubten Bereich ergibt sich das Verzweigungsverhältnis außerhalb des Standardmodelles
 \begin{equation}
-  {\mathbfcal{B}}\!\left(\overline{B} \to D \tau \overline{\nu_\tau} \right) = {\mathbfcal{B}}_\text{SM}\!\left(\overline{B} \to D \tau \overline{\nu_\tau} \right) + A_S \lvert C_{S_1}^{\tau} \rvert^2 + A_{VS} \operatorname{Re}(C_{S_1}^{\tau}).
+  \label{eqn:R_bsm}
+  {\mathbfcal{B}}\!\left(\overline{B} \to D \tau \overline{\nu}_\tau \right) = {\mathbfcal{B}}_\text{SM}\!\left(\overline{B} \to D \tau \overline{\nu}_\tau \right) + A_S \lvert C_{S1}^{\tau} \rvert^2 + A_{VS} \operatorname{Re}(C_{S1}^{\tau}).
 \end{equation}
-Diese Parameter lassen sich unter Nutzung der Fits für die Ordnungen $N_+ = N_0 = \num{3}$ zu
+Die auftretenden Parameter lassen sich unter Nutzung der Fits für die Ordnungen $N_+ = N_0 = \num{3}$ zu
 \begin{align*}
   A_S &= \input{pycode/As.tex}, \\
-  A_{VS} &= \input{pycode/Avs.tex}.
+  A_{VS} &= \input{pycode/Avs.tex}
 \end{align*}
+bestimmen.
+Wird das Verzweigungsverhältnis außerhalb des Standardmodells für Tauonen \eqref{eqn:R_bsm} in Gleichung \eqref{eqn:R} eingesetzt, ergibt sich somit ein Wert $R(D)_{\text{BSM}}$, welcher durch die Wahl des Wilsonkoeffizienten $C_{S1}^{\tau}$ angepasst werden kann.
+In Abbildung \ref{fig:wilson_1} ist dargestellt, in welchem Bereich $C_{S1}$ gewählt werden kann, so dass $R(D)_{\text{BSM}} = R(D)_{\text{exp}}$ erfüllt ist.
+Der rot eingefärbte Bereich \todo{Wortwahl} stellt dabei den Bereich dar, in dem sich $C_{S1}$ befinden kann, so dass $R(D)_{\text{BSM}}$ noch in der $\num{1}\sigma$-Umgebung von $R(D)_{\text{exp}}$ liegt.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{pycode/plot_wilson_1_33.pdf}
+  \caption{Untersuchung des Wilsonkoeffizienten $C_{S1}$ im Hinblick auf $R(D)_{\text{BSM}} \stackrel{!}{=} R(D)_{\text{exp}}$.}
+  \label{fig:wilson_1}
+\end{figure}
+Durch die Anpassung von $C_{S1}$ ändert sich auch die Form der differentiellen Zerfallsbreiten, so wie durch Gleichung \eqref{eqn:wq_bsm} vorgegeben.
+In Abbildung \ref{fig:wilson_2} sind die differenziellen Zerfallsbreiten für vier exemplarisch ausgewählte und in Abbildung \ref{fig:wilson_1} dargestellte Werte von $C_{S1}$ dargestellt.
+Zum Vergleich ist zusätzlich der Kurvenverlauf für $C_{S1} = \num{0}$, d.h. für das Standardmodell, angegeben.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{pycode/plot_bsm_dif_wq_33.pdf}
+  \caption{Differentielle Zerfallsbreiten für verschiedene Werte $C_{S1}$ im Vergleich zum Standardmodell.}
+  \label{fig:wilson_2}
+\end{figure}
+Es ist zu beachten, dass die beiden letzten Kurven zusammenfallen, da sich dessen $C_{S1}$-Werte lediglich im Vorzeichen des Realteils unterscheiden, der Realteil jedoch ausschließlich betragsmäßig in die differentielle Zerfallsbreite eingeht.
