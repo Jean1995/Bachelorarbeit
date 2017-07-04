@@ -96,3 +96,6 @@ np.savetxt('R_babar_2.tex', ['\\num{' + str(R_babar_syst) + '}'], fmt='%s')
 np.savetxt('R_belle_0.tex', ['\\num{' + str(R_belle_m) + '}'], fmt='%s')
 np.savetxt('R_belle_1.tex', ['\\num{' + str(R_belle_stat) + '}'], fmt='%s')
 np.savetxt('R_belle_2.tex', ['\\num{' + str(R_belle_syst) + '}'], fmt='%s')
+
+R_quelle = ufloat(0.299,0.011)
+write('R_quelle.tex', make_SI(R_quelle, r'', figures=2))

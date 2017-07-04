@@ -73,8 +73,8 @@ qq_area = np.linspace(0, 13, 100000)
 plt.plot(qq_area, w(qq_area), color='r')
 
 plt.axvspan(qq_min, qq_max, alpha=0.2, color='blue', label=r'Kinematisch erlaubter Bereich')
-plt.axhline(y=w(qq_min), linewidth=1, color='g', linestyle='dashed', label=r'$w(q^2_\text{min})$')
-plt.axhline(y=w(qq_max), linewidth=1, color='y', linestyle='dashed', label=r'$w(q^2_\text{max})$')
+plt.axhline(y=w(qq_min), linewidth=1, color='g', linestyle='dashed')#, label=r'$w(q^2_\text{min})$')
+plt.axhline(y=w(qq_max), linewidth=1, color='y', linestyle='dashed')#, label=r'$w(q^2_\text{max})$')
 
 plt.xlabel(r'$q^2 \,/\, \si{\giga\electronvolt\squared}$')
 plt.legend(loc='best')
@@ -87,8 +87,8 @@ qq_area_2 = np.linspace(0, 13, 100000)
 plt.plot(qq_area_2, z(qq_area_2), color='r')
 
 plt.axvspan(qq_min, qq_max, alpha=0.2, color='blue', label=r'Kinematisch erlaubter Bereich')
-plt.axhline(y=z(qq_min), linewidth=1, color='g', linestyle='dashed', label=r'$z(q^2_\text{min})$')
-plt.axhline(y=z(qq_max), linewidth=1, color='y', linestyle='dashed', label=r'$z(q^2_\text{max})$')
+plt.axhline(y=z(qq_min), linewidth=1, color='g', linestyle='dashed')#, label=r'$z(q^2_\text{min})$')
+plt.axhline(y=z(qq_max), linewidth=1, color='y', linestyle='dashed')#, label=r'$z(q^2_\text{max})$')
 
 plt.xlabel(r'$q^2 \,/\, \si{\giga\electronvolt\squared}$')
 plt.legend(loc='best')

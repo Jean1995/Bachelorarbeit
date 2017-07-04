@@ -2,8 +2,8 @@
 
 \section{Qualitative Beschreibung}
 
-Das Feynman-Diagramm in führender Ordnung des untersuchten Zerfalles ist in Abbildung \ref{fig:feynman1} dargestellt.
-
+Das Feynman-Diagramm des hier untersuchten Zerfalles ist in führender Ordnung in Abbildung \ref{fig:feynman1} dargestellt.
+\nocite{tikzfeynman}
 \todo{Sich für den schönsten Feynmangraphen entscheiden}
 \begin{figure}
   \centering
@@ -22,7 +22,7 @@ Das Feynman-Diagramm in führender Ordnung des untersuchten Zerfalles ist in Abb
     %\vertex[right=1cm of b3] (b4) {\(\overline d\)};
     \vertex[below=2em of a6] (b5) {\(\overline q\)};
 
-    \vertex[above=of a6] (c1) {\(\overline \nu_l\)};
+    \vertex[above=of a6] (c1) {\(\overline{\nu}_l\)};
     \vertex[above=2em of c1] (c3) {\(l\)};
     \vertex at ($(c1)!0.5!(c3) - (1cm, 0)$) (c2);
 
@@ -46,7 +46,7 @@ Das Feynman-Diagramm in führender Ordnung des untersuchten Zerfalles ist in Abb
           node [pos=0.5, right] {\(D\)};
   \end{feynman}
   \end{tikzpicture}
-  \caption{Feynman-Diagramm des semileptonischen Zerfalles $B \to D l \overline \nu_l$ in führender Ordnung.}
+  \caption{Feynman-Diagramm des semileptonischen Zerfalles $B \to D l \overline{\nu}_l$ in führender Ordnung.}
   \label{fig:feynman1}
 \end{figure}
 
@@ -83,7 +83,7 @@ Der für den betrachteten Zerfall relevante Parameter $\lvert V_{cb} \rvert$ bet
     %\vertex[right=1cm of b3] (b4) {\(\overline d\)};
     \vertex[below=4em of a6] (b5) {\(\overline q\)};
 
-    \vertex[above=of a6] (c1) {\(\overline \nu_l\)};
+    \vertex[above=of a6] (c1) {\(\overline{\nu}_l\)};
     \vertex[above=2em of c1] (c3) {\(l\)};
     \vertex at ($(c1)!0.5!(c3) - (1cm, 0)$) (c2);
 
@@ -116,11 +116,11 @@ Der für den betrachteten Zerfall relevante Parameter $\lvert V_{cb} \rvert$ bet
           node [pos=0.5, right] {\(D\)};
   \end{feynman}
   \end{tikzpicture}
-  \caption{Exemplarisches Feynman-Diagramm des semileptonischen Zerfalles $B \to D l \overline \nu_l$ unter Berücksichtigung der starken Wechselwirkung zwischen den beteiligten Quarks.}
+  \caption{Exemplarisches Feynman-Diagramm des semileptonischen Zerfalles $B \to D l \overline{\nu}_l$ unter Berücksichtigung der starken Wechselwirkung zwischen den beteiligten Quarks.}
   \label{fig:feynman2}
 \end{figure}
 
-Zusätzlich ist bei der Beschreibung des vorliegenden Zerfalles die starke Wechselwirkung zu berücksichtigen.
+Bei der Beschreibung des vorliegenden Zerfalles ist zusätzlich die starke Wechselwirkung zu berücksichtigen.
 Sie führt, vermittelt durch den Austausch von Gluonen, zur Bindung zwischen dem als Zuschauerquark agierenden Antiquark sowie dem schwach wechselwirkenden Quark.
 Aufgrund des nicht-pertubativen Verhaltens der starken Wechselwirkung bei großen Abständen werden auch die Beiträge der Feynman-Diagramme höherer Ordnung, wie in Abbildung \ref{fig:feynman2} exemplarisch dargestellt, relevant.
 Primäres Ziel der Formfaktoren ist es, diese Effekte bei der Berechnung der Zerfallsraten quantitativ zu Berücksichtigen.
@@ -129,7 +129,7 @@ Primäres Ziel der Formfaktoren ist es, diese Effekte bei der Berechnung der Zer
 
 Das Matrixelement $M$ des Zerfalles lässt sich allgemein als \todo{Abstände zwischen den Bra/Kets optimieren}
 \begin{align*}
-  M = \bra{D \, l \, \overline{\nu_l}} H \ket{ \overline{B} }
+  M = \bra{D \, l \, \overline{\nu}_l} H \ket{ \overline{B} }
 \end{align*}
 mit dem Hamiltonian $H$ des Zerfalles beschreiben.
 Es ist außerdem möglich, das Matrixelement in einen hadronischen Anteil mit dem Hamiltonian $H_\text{had}$ und einen leptonischen Anteil mit dem Hamiltonian $H_\text{lep}$ zu faktorisieren, so dass sich das Matrixelement
@@ -148,7 +148,7 @@ Zusätzlich lässt sich hieraus der Lorentz-Skalar
 \begin{equation}
   q^2 = (p^B-p^D)^2
 \end{equation}
-konstruieren, welcher den Impulsübertrag zwischen den Mesonen ausdrückt.
+konstruieren, welcher den Impulsübertrag zwischen den Mesonen beschreibt.
 
 Sowohl die dynamische Variable $p^B$ als auch $p^D$ transformieren sich wie Vektoren.
 Aus diesen Größen lässt sich jedoch kein Ausdruck konstruieren, der sich wie ein Axialvektor transformiert.
@@ -166,7 +166,7 @@ Mithilfe dieser Parametrisierung kann, unter Nutzung der Feynmanregeln, die diff
 Sie ergibt sich zu \cite{PhysRevD.94.094008}
 \begin{equation}
   \label{eqn:difzb}
-  \frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D l \overline{\nu_l} \right) = \frac{\eta_\text{EW}^2 G_\text{F}^2 \lvert V_{cb} \rvert^2 m_B \sqrt{\lambda} }{192 \pi^3} \left( 1 - \frac{m_l^2}{q^2} \right)^2 \left( c_+^l f_+(q^2)^2 + c_0^l f_0(q^2)^2 \right)
+  \frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D l \overline{\nu}_l \right) = \frac{\eta_\text{EW}^2 G_\text{F}^2 \lvert V_{cb} \rvert^2 m_B \sqrt{\lambda} }{192 \pi^3} \left( 1 - \frac{m_l^2}{q^2} \right)^2 \left( c_+^l f_+(q^2)^2 + c_0^l f_0(q^2)^2 \right)
 \end{equation}
 mit den Abkürzungen
 \begin{align*}
@@ -183,15 +183,15 @@ und
 \end{equation}
 
 \section{Kinematik des Zerfalles}
-
-Aus der Viererimpulserhaltung $p^B = p^D + p^l + p^{\overline{\nu_l}}$ lassen sich Einschränkungen an den kinematisch erlaubten Bereich des Impulsübertrages $q^2$ stellen.
+\label{sec:kinematik}
+Aus der Viererimpulserhaltung $p^B = p^D + p^l + p^{\overline{\nu}_l}$ lassen sich Einschränkungen an den kinematisch erlaubten Bereich des Impulsübertrages $q^2$ stellen.
 Diese Einschränkungen ergeben sich, wenn die beiden kinematischen Extremfälle betrachtet werden, welche jeweils in Abbildung \ref{fig:recoil} skizziert sind.
-Es ergibt sich hieraus, dass der Impulsübertrag im Bereich
+Hieraus resultiert, dass der kinematisch erlaubte Impulsbetrag durch den Bereich
 \begin{equation}
   m_l^2 \leq q^2 \leq (m_B - m_D)^2
   \label{eqn:kinematik}
 \end{equation}
-liegen kann.
+vorgegeben ist.
 \begin{figure}
   \centering
   \begin{subfigure}{0.48\textwidth}
@@ -202,7 +202,7 @@ liegen kann.
       \draw (2,0) circle [radius=0.3] node {$D$};
       \draw (2.7,0) circle [radius=0.3] node {$l$};
       \draw[thick, ->] (2.7, 0.5) -- (2.7, 1.0);
-      \draw (3.4,0) circle [radius=0.3] node {$\overline{\nu_l}$};
+      \draw (3.4,0) circle [radius=0.3] node {$\overline{\nu}_l$};
       \draw[thick, ->] (3.4, -0.5) -- (3.4, -1.0);
     \end{tikzpicture}
     \caption{Kinematik bei $q_\text{max}^2 = (m_B - m_D)^2$.}
@@ -217,7 +217,7 @@ liegen kann.
       \draw[thick, ->] (2, 0.5) -- (2, 1.0);
       \draw (2.7,0) circle [radius=0.3] node {$l$};
       \draw[thick, ->] (2.7, -0.5) -- (2.7, -1.0);
-      \draw (3.4,0) circle [radius=0.3] node {$\overline{\nu_l}$};
+      \draw (3.4,0) circle [radius=0.3] node {$\overline{\nu}_l$};
       \draw[thick, ->] (3.4, -0.5) -- (3.4, -1.0);
     \end{tikzpicture}
     \caption{Kinematik bei $q_\text{min}^2 = m_l^2$.}
@@ -233,20 +233,21 @@ Eine Möglichkeit stellt die $w$-Parametrisierung
 \begin{equation}
   w(q^2) = \frac{m_B^2 + m_D^2 - q^2}{2 m_B m_D}
 \end{equation}
-dar, dessen Abhängigkeit von $q^2$ in Abbildung \ref{fig:w_param} dargestellt ist.
-Hierbei wird der maximale Impulsübertrag $q_\text{max}^2$ auf $w=0$ abgebildet.
+dar, dessen Abhängigkeit von $q^2$ in Abbildung \ref{fig:w_param} graphisch dargestellt ist.
+Hierbei wird der maximale Impulsübertrag $q_\text{max}^2$ auf $w=1$ abgebildet.
 
-Eine weitere Parametrisierung, welche für den im folgenden Kapitel durchgeführten Fit der Formfaktoren von Bedeutung ist, findet sich in der Variable
+Eine weitere Parametrisierung, welche für den im folgenden Kapitel durchgeführten Fit der Formfaktoren von Bedeutung ist, wird durch die Variable
 \begin{equation}
-  z(q^2) = \frac{\sqrt{w+1}-\sqrt{2}}{\sqrt{w+1}+\sqrt{2}}.
+  z(q^2) = \frac{\sqrt{w+1}-\sqrt{2}}{\sqrt{w+1}+\sqrt{2}}
 \end{equation}
+beschrieben.
 Diese Parametrisierung von $q^2$ bildet den maximalen Impulsübertrag $q_\text{max}^2$ auf $z=0$ ab, wie in Abbildung \ref{fig:z_param} dargestellt ist.
 Betrachtet man $z(q^2)$ zusätzlich außerhalb des kinematisch erlaubten Bereiches, so wird der Impulsübertrag, wie in Abbildung \ref{fig:z_kreis} dargestellt, auf die komplexe Ebene abgebildet.
 Dabei bewegt sich $z$ auf einem Einheitshalbkreis in der oberen komplexen Halbebene, so dass $\lvert z \rvert \leq \num{1}$ immer erfüllt ist.
 \begin{figure}
   \centering
   \includegraphics[width=0.9\textwidth]{pycode/plot_z_2.pdf}
-  \caption{Abbildung von $q^2$ durch $z$ auf die komplexe Ebene. In grün wird der nach Gleichung \eqref{eqn:kinematik} kinematisch erlaubte Bereich dargestellt. Die gestrichelte rote Line verdeutlicht den unphysikalischen Bereich negativer Impulsüberträge.}
+  \caption{Bildmenge der Abbildung $z(q^2)$ in der komplexe Ebene. In grün wird der nach Gleichung \eqref{eqn:kinematik} kinematisch erlaubte Bereich dargestellt. Die gestrichelte rote Line verdeutlicht den unphysikalischen Bereich negativer Impulsüberträge.}
   \label{fig:z_kreis}
 \end{figure}
 
