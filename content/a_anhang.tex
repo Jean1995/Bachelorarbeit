@@ -30,93 +30,91 @@ Im Folgenden sind die Korrelationsmatrizen für die Fitparameter aus Kapitel \re
   \label{fig:fitcor33}
 \end{figure}
 
-\section{Andere Sachen}
-
-
-\begin{tikzpicture}
-  \begin{feynman}
-    \vertex (a1) {\(b\)};
-    \vertex[right=1cm of a1] (a2);
-    \vertex[right=1cm of a2] (a3);
-    %\vertex[right=1cm of a3] (a4) {\(b\)};
-    \vertex[right=1cm of a3, label=125:\(V_{cb}\)] (a5);
-    \vertex[right=2cm of a5] (a6) {\(c\)};
-
-    \vertex[below=2em of a1] (b1) {\(\overline q\)};
-    \vertex[right=1cm of b1] (b2);
-    \vertex[right=1cm of b2] (b3);
-    %\vertex[right=1cm of b3] (b4) {\(\overline d\)};
-    \vertex[below=2em of a6] (b5) {\(\overline q\)};
-
-    \vertex[above=of a6] (c1) {\(\overline \nu_l\)};
-    \vertex[above=2em of c1] (c3) {\(l\)};
-    \vertex at ($(c1)!0.5!(c3) - (1cm, 0)$) (c2);
-
-    \diagram* {
-      {[edges=fermion]
-        (b5) -- (b1)
-        (a1) -- (a5) -- (a6)
-        %(b5) -- (b4) -- (b3) -- (a3) -- (a4) -- (a5) -- (a6),
-      },
-
-
-      (c1) -- [fermion, out=180, in=-45] (c2) -- [fermion, out=45, in=180] (c3),
-      (a5) -- [boson, bend left, edge label=\(W^{-}\)] (c2),
-    };
-
-    \draw [decoration={brace}, decorate] (b1.south west) -- (a1.north west)
-          node [pos=0.5, left] {\(\overline B\)};
-    %\draw [decoration={brace}, decorate] (c3.north east) -- (c1.south east)
-    %      node [pos=0.5, right] {\(\pi^{-}\)};
-    \draw [decoration={brace}, decorate] (a6.north east) -- (b5.south east)
-          node [pos=0.5, right] {\(D\)};
-  \end{feynman}
-\end{tikzpicture}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{pycode/plot_w.pdf}
-  \caption{Parametrisierung des Impulsübertrages mit $w(q^2)$. Der im vorliegenden Zerfall erlaubte kinematische Bereich nach Gleichung \eqref{eqn:kinematik} wird durch den blauen Kasten verdeutlicht.}
-  \label{fig:w_param_single}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{pycode/plot_z.pdf}
-  \caption{Parametrisierung des Impulsübertrages mit $z(q^2)$. Der im vorliegenden Zerfall erlaubte kinematische Bereich nach Gleichung \eqref{eqn:kinematik} wird durch den blauen Kasten verdeutlicht.}
-  \label{fig:z_param_single}
-\end{figure}
-
-%zweifach
-
-\begin{table}
-    \centering
-    \caption{Messdaten Modenbestimmung.}
-    \label{tab:moden}
-    \sisetup{parse-numbers=false}
-    \begin{tabular}{
-	S[table-format=-1.6]
-	@{${}\pm{}$}
-	S[table-format=-1.6]
-	}
-	\toprule
-	\multicolumn{2}{c}{$x$}		\\
-	\midrule
-    \input{pycode/params_33.tex}
-    \bottomrule
-    \end{tabular}
-    \end{table}
-
-
-
-% Tabelle Parameter lang
-
+%\section{Andere Sachen}
+%\begin{tikzpicture}
+%  \begin{feynman}
+%    \vertex (a1) {\(b\)};
+%    \vertex[right=1cm of a1] (a2);
+%    \vertex[right=1cm of a2] (a3);
+%    %\vertex[right=1cm of a3] (a4) {\(b\)};
+%    \vertex[right=1cm of a3, label=125:\(V_{cb}\)] (a5);
+%    \vertex[right=2cm of a5] (a6) {\(c\)};
+%
+%    \vertex[below=2em of a1] (b1) {\(\overline q\)};
+%    \vertex[right=1cm of b1] (b2);
+%    \vertex[right=1cm of b2] (b3);
+%    %\vertex[right=1cm of b3] (b4) {\(\overline d\)};
+%    \vertex[below=2em of a6] (b5) {\(\overline q\)};
+%
+%    \vertex[above=of a6] (c1) {\(\overline \nu_l\)};
+%    \vertex[above=2em of c1] (c3) {\(l\)};
+%    \vertex at ($(c1)!0.5!(c3) - (1cm, 0)$) (c2);
+%
+%    \diagram* {
+%      {[edges=fermion]
+%        (b5) -- (b1)
+%        (a1) -- (a5) -- (a6)
+%        %(b5) -- (b4) -- (b3) -- (a3) -- (a4) -- (a5) -- (a6),
+%      },
+%
+%
+%      (c1) -- [fermion, out=180, in=-45] (c2) -- [fermion, out=45, in=180] (c3),
+%      (a5) -- [boson, bend left, edge label=\(W^{-}\)] (c2),
+%    };
+%
+%    \draw [decoration={brace}, decorate] (b1.south west) -- (a1.north west)
+%          node [pos=0.5, left] {\(\overline B\)};
+%    %\draw [decoration={brace}, decorate] (c3.north east) -- (c1.south east)
+%    %      node [pos=0.5, right] {\(\pi^{-}\)};
+%    \draw [decoration={brace}, decorate] (a6.north east) -- (b5.south east)
+%          node [pos=0.5, right] {\(D\)};
+%  \end{feynman}
+%\end{tikzpicture}
+%
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.7\textwidth]{pycode/plot_w.pdf}
+%  \caption{Parametrisierung des Impulsübertrages mit $w(q^2)$. Der im vorliegenden Zerfall erlaubte %kinematische Bereich nach Gleichung \eqref{eqn:kinematik} wird durch den blauen Kasten %verdeutlicht.}
+%  \label{fig:w_param_single}
+%\end{figure}
+%
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.7\textwidth]{pycode/plot_z.pdf}
+%  \caption{Parametrisierung des Impulsübertrages mit $z(q^2)$. Der im vorliegenden Zerfall erlaubte %kinematische Bereich nach Gleichung \eqref{eqn:kinematik} wird durch den blauen Kasten %verdeutlicht.}
+%  \label{fig:z_param_single}
+%\end{figure}
+%
+%%zweifach
+%
 %\begin{table}
 %    \centering
 %    \caption{Messdaten Modenbestimmung.}
 %    \label{tab:moden}
 %    \sisetup{parse-numbers=false}
 %    \begin{tabular}{
+%	S[table-format=-1.6]
+%	@{${}\pm{}$}
+%	S[table-format=-1.6]
+%	}
+%	\toprule
+%	\multicolumn{2}{c}{$x$}		\\
+%	\midrule
+%    \input{pycode/params_33.tex}
+%    \bottomrule
+%    \end{tabular}
+%    \end{table}
+%
+%
+%
+%% Tabelle Parameter lang
+%
+%%\begin{table}
+%%    \centering
+%%    \caption{Messdaten Modenbestimmung.}
+%%    \label{tab:moden}
+%%    \sisetup{parse-numbers=false}
+%%    \begin{tabular}{
 %  S
 %	S[table-format=-1.6]
 %	@{${}\pm{}$}
@@ -138,38 +136,38 @@ Im Folgenden sind die Korrelationsmatrizen für die Fitparameter aus Kapitel \re
 %  \rule{0pt}{2ex}
 %  \input{pycode/params_33_5label.tex} \input{pycode/params_33_5val.tex}
 %
+%%    \bottomrule
+%%    \end{tabular}
+%%\end{table}
+%
+%\begin{table}
+%    \centering
+%    \caption{Fitparameter für die Ordnungen $N_+ = \num{3}$ und $N_0 = \num{3}$ der %Reihenentwicklung.}
+%    \label{tab:fitparams33}
+%    \sisetup{parse-numbers=false}
+%    \begin{tabular}{
+%  S
+%	S[table-format=-1.3]
+%	@{${}\pm{}$}
+%	S[table-format=-1.3]
+%	}
+%	\toprule
+%  \multicolumn{3}{c}{$N_1 = \num{3} \quad N_2 = \num{3}$} \\
+%  \midrule
+%  \rule{0pt}{2ex}
+%  \input{pycode/params_33_0label.tex} \input{pycode/params_33_0val.tex}
+%  \rule{0pt}{2ex}
+%  \input{pycode/params_33_1label.tex} \input{pycode/params_33_1val.tex}
+%  \rule{0pt}{2ex}
+%  \input{pycode/params_33_2label.tex} \input{pycode/params_33_2val.tex}
+%  \rule{0pt}{2ex}
+%  \input{pycode/params_33_3label.tex} \input{pycode/params_33_3val.tex}
+%  \rule{0pt}{2ex}
+%  \input{pycode/params_33_4label.tex} \input{pycode/params_33_4val.tex}
+%  \rule{0pt}{2ex}
+%  \input{pycode/params_33_5label.tex} \input{pycode/params_33_5val.tex}
+%  \midrule
+%  \multicolumn{3}{c}{$\chi^2 \,/\, df= \input{pycode/chisquared_sum_33.tex} \,/\, \num{2}$}		\\
 %    \bottomrule
 %    \end{tabular}
 %\end{table}
-
-\begin{table}
-    \centering
-    \caption{Fitparameter für die Ordnungen $N_+ = \num{3}$ und $N_0 = \num{3}$ der Reihenentwicklung.}
-    \label{tab:fitparams33}
-    \sisetup{parse-numbers=false}
-    \begin{tabular}{
-  S
-	S[table-format=-1.3]
-	@{${}\pm{}$}
-	S[table-format=-1.3]
-	}
-	\toprule
-  \multicolumn{3}{c}{$N_1 = \num{3} \quad N_2 = \num{3}$} \\
-  \midrule
-  \rule{0pt}{2ex}
-  \input{pycode/params_33_0label.tex} \input{pycode/params_33_0val.tex}
-  \rule{0pt}{2ex}
-  \input{pycode/params_33_1label.tex} \input{pycode/params_33_1val.tex}
-  \rule{0pt}{2ex}
-  \input{pycode/params_33_2label.tex} \input{pycode/params_33_2val.tex}
-  \rule{0pt}{2ex}
-  \input{pycode/params_33_3label.tex} \input{pycode/params_33_3val.tex}
-  \rule{0pt}{2ex}
-  \input{pycode/params_33_4label.tex} \input{pycode/params_33_4val.tex}
-  \rule{0pt}{2ex}
-  \input{pycode/params_33_5label.tex} \input{pycode/params_33_5val.tex}
-  \midrule
-  \multicolumn{3}{c}{$\chi^2 \,/\, df= \input{pycode/chisquared_sum_33.tex} \,/\, \num{2}$}		\\
-    \bottomrule
-    \end{tabular}
-\end{table}
