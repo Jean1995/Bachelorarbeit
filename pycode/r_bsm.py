@@ -117,10 +117,11 @@ good_values = np.array(good_values)
 good_values_up = np.array(good_values_up)
 good_values_down = np.array(good_values_down)
 
-
+plt.plot(1, beta_val_nul, 'g*',markersize=13, label=r'$ R = R_{\text{exp}}$ mit $\alpha = 1$ und $\beta = \num[round-mode=places,round-precision=2]{' + str(beta_val_nul) + r'}$')
+plt.plot(1, 1, 'b*',markersize=13, label=r'$ R = R_{\text{SM}}$ mit $\alpha = 1$ und $\beta = 1$')
 plt.plot(good_values[:,0], good_values[:,1], '--', label=r'Parameterbereich $(\alpha,\: \beta$) mit $ R_{\alpha, \beta} = R_{\text{exp}}$')
 plt.fill_between(good_values_up[:,0], good_values_up[:,1],  good_values_down[:,1], interpolate=True, alpha=0.5, label=r'Parameterbereich $(\alpha,\: \beta)$ mit $ R_{\alpha, \beta} \in \left[ R_{\text{exp}} - \sigma, R_{\text{exp}} + \sigma \right] $')
-plt.plot(1, beta_val_nul, 'g*',markersize=12, label=r'$ R = R_{\text{exp}}$ mit $\alpha = 1$ und $\beta = \num[round-mode=places,round-precision=2]{' + str(beta_val_nul) + r'}$')
+
 
 write('beta_val_nul.tex', make_SI(beta_val_nul, r'', figures=2))
 
@@ -150,17 +151,17 @@ qq_plot_tau = np.linspace(m_tau**2, (m_b-m_d)**2 , 300)
 qq_plot_e = np.linspace(m_e**2, (m_b-m_d)**2 , 300)
 qq_plot_mu = np.linspace(m_mu**2, (m_b-m_d)**2 , 300)
 
-plt.plot(z_from_qq(qq_plot_e) ,dif_wq_complete(qq_plot_e, m_e, a, 1, beta_val_nul)*red, 'b', label=r'Differentielle Zerfallsbreite mit $l = e$, $\beta = \num[round-mode=places,round-precision=2]{' + str(beta_val_nul) + r'}$')
+plt.plot(z_from_qq(qq_plot_e) ,dif_wq_complete(qq_plot_e, m_e, a, 1, beta_val_nul)*red, 'b', label=r'$l = e$, $\beta = \num[round-mode=places,round-precision=2]{' + str(beta_val_nul) + r'}$')
 
-plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_complete(qq_plot_tau, m_tau, a, 1, beta_val_nul)*red, 'r', label=r'Differentielle Zerfallsbreite mit $l = \tau$, $\beta = \num[round-mode=places,round-precision=2]{' + str(beta_val_nul) + r'}$')
+plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_complete(qq_plot_tau, m_tau, a, 1, beta_val_nul)*red, 'r', label=r'$l = \tau$, $\beta = \num[round-mode=places,round-precision=2]{' + str(beta_val_nul) + r'}$')
 
-plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_complete(qq_plot_mu, m_mu, a, 1, beta_val_nul)*red, 'g', label=r'Differentielle Zerfallsbreite mit $l = \mu$, $\beta = \num[round-mode=places,round-precision=2]{' + str(beta_val_nul) + r'}$')
+plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_complete(qq_plot_mu, m_mu, a, 1, beta_val_nul)*red, 'g', label=r'$l = \mu$, $\beta = \num[round-mode=places,round-precision=2]{' + str(beta_val_nul) + r'}$')
 
-plt.plot(z_from_qq(qq_plot_e) ,dif_wq_complete(qq_plot_e, m_e, a, 1, 1)*red, 'b--', label=r'Differentielle Zerfallsbreite mit $l = e$, $\beta = 1$')
+plt.plot(z_from_qq(qq_plot_e) ,dif_wq_complete(qq_plot_e, m_e, a, 1, 1)*red, 'b--', label=r'$l = e$, $\beta = 1$')
 
-plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_complete(qq_plot_tau, m_tau, a, 1, 1)*red, 'r--', label=r'Differentielle Zerfallsbreite mit $l = \tau$, $\beta = 1$')
+plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_complete(qq_plot_tau, m_tau, a, 1, 1)*red, 'r--', label=r'$l = \tau$, $\beta = 1$')
 
-plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_complete(qq_plot_mu, m_mu, a, 1, 1)*red, 'g--', label=r'Differentielle Zerfallsbreite mit $l = \mu$, $\beta = 1$')
+plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_complete(qq_plot_mu, m_mu, a, 1, 1)*red, 'g--', label=r'$l = \mu$, $\beta = 1$')
 
 plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D l \nu_l \right) \,/\, \left( \num{e-15} \si{\giga\electronvolt\tothe{-1}} \right)$')
 plt.xlabel(r'$z$')

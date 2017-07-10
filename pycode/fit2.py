@@ -230,6 +230,8 @@ plt.fill_between(x_plot, x_plot_p_up,  x_plot_p_down, interpolate=True, alpha=0.
 
 plt.errorbar( x, np.split(y,2)[0], yerr = np.split(s_y,2)[0], fmt=',', color='g', label=r'Theoriewerte $f_+$.', capsize=5,capthick=0.5, barsabove = True) # splitte in 2 Hälften und nehme die erste Hälfte
 
+
+
 #plt.ylabel(r'$f_+(z)$')
 #plt.xlabel(r'$z$')
 #plt.legend(loc='best')
@@ -262,7 +264,7 @@ plt.tight_layout()
 plt.savefig('plot_' + str(N1) + str(N2) + '.pdf') #fancy
 plt.clf()
 
-
+np.savetxt('fitkurve_n'+str(N1)+str(N2)+'.txt', np.column_stack([x_plot, y_plot_n]))
 
 ### Teste: fp(0) =? fn(0)
 

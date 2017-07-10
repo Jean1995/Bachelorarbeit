@@ -23,7 +23,7 @@ Das Feynman-Diagramm des hier untersuchten Zerfalles ist in führender Ordnung i
     \vertex[below=2em of a6] (b5) {\(\overline q\)};
 
     \vertex[above=of a6] (c1) {\(\overline{\nu}_l\)};
-    \vertex[above=2em of c1] (c3) {\(l\)};
+    \vertex[above=2em of c1] (c3) {\(l^-\)};
     \vertex at ($(c1)!0.5!(c3) - (1cm, 0)$) (c2);
 
     \diagram* {
@@ -46,12 +46,12 @@ Das Feynman-Diagramm des hier untersuchten Zerfalles ist in führender Ordnung i
           node [pos=0.5, right] {\(D\)};
   \end{feynman}
   \end{tikzpicture}
-  \caption{Feynman-Diagramm des semileptonischen Zerfalles $B \to D l \overline{\nu}_l$ in führender Ordnung.}
+  \caption{Feynman-Diagramm des semileptonischen Zerfalles $\overline{B} \to D l^- \overline{\nu}_l$ in führender Ordnung.}
   \label{fig:feynman1}
 \end{figure}
 
 Im Eingangszustand befindet sich ein $\overline B$-Meson, welches aus einem $b$-Quark und einem leichten Antiquark $\overline q$ ($ \overline q = \overline u, \overline d)$ besteht.
-Die schwache Wechselwirkung führt zu einer Umwandlung des beteiligten $b$-Quarks in ein $c$-Quark unter Emission eines $W^{-}$-Bosons. Dieses $W^{-}$-Boson ist ein virtuelles Teilchen und zerfällt direkt weiter in ein Lepton $l$ und das dazugehörige Antineutrino $\overline \nu_l$.
+Die schwache Wechselwirkung führt zu einer Umwandlung des beteiligten $b$-Quarks in ein $c$-Quark unter Emission eines $W^{-}$-Bosons. Dieses $W^{-}$-Boson ist ein virtuelles Teilchen und zerfällt direkt weiter in ein Lepton $l^-$ und das dazugehörige Antineutrino $\overline \nu_l$.  \todo{Wirklich immer l- schreiben?}
 Zusätzlich ist bei diesem Prozess zu beachten, dass die schwache Wechselwirkung nicht an die Masseneigenzustände der Quarks koppelt.
 Die korrekten Eigenzustände der Quarks $d'$, $s'$ und $b'$ für die schwache Wechselwirkung sind stattdessen Linearkombinationen der Masseneigenzustände von $d$, $s$ und $b$. Sie ergeben sich somit durch eine Rotation der ursprünglichen Eigenzustände.
 Diese Rotation wird durch die unitäre CKM-Matrix beschrieben.
@@ -84,7 +84,7 @@ Der für den betrachteten Zerfall relevante Parameter $\lvert V_{cb} \rvert$ bet
     \vertex[below=4em of a6] (b5) {\(\overline q\)};
 
     \vertex[above=of a6] (c1) {\(\overline{\nu}_l\)};
-    \vertex[above=2em of c1] (c3) {\(l\)};
+    \vertex[above=2em of c1] (c3) {\(l^-\)};
     \vertex at ($(c1)!0.5!(c3) - (1cm, 0)$) (c2);
 
     \diagram* {
@@ -116,14 +116,22 @@ Der für den betrachteten Zerfall relevante Parameter $\lvert V_{cb} \rvert$ bet
           node [pos=0.5, right] {\(D\)};
   \end{feynman}
   \end{tikzpicture}
-  \caption{Exemplarisches Feynman-Diagramm des semileptonischen Zerfalles $B \to D l \overline{\nu}_l$ unter Berücksichtigung der starken Wechselwirkung zwischen den beteiligten Quarks.}
+  \caption{Exemplarisches Feynman-Diagramm des semileptonischen Zerfalles $\overline{B} \to D l^- \overline{\nu}_l$ unter Berücksichtigung der starken Wechselwirkung zwischen den beteiligten Quarks.}
   \label{fig:feynman2}
 \end{figure}
 
 Bei der Beschreibung des vorliegenden Zerfalles ist zusätzlich die starke Wechselwirkung zu berücksichtigen.
 Sie führt, vermittelt durch den Austausch von Gluonen, zur Bindung zwischen dem als Zuschauerquark agierenden Antiquark sowie dem schwach wechselwirkenden Quark.
-Aufgrund des nicht-pertubativen Verhaltens der starken Wechselwirkung bei großen Abständen werden auch die Beiträge der Feynman-Diagramme höherer Ordnung, wie in Abbildung \ref{fig:feynman2} exemplarisch dargestellt, relevant.
-Primäres Ziel der Formfaktoren ist es, diese Effekte bei der Berechnung der Zerfallsraten quantitativ zu Berücksichtigen.
+Der Einfluss von Gluon-Gluon-Kopplungen führt dazu, dass die Kopplungskonstante $\alpha_\text{s}$, welche die Stärke der starken Wechselswirkung festlegt, für hohe Impulsüberträge logarithmisch abnimmt.
+Gleichzeitig nimmt $\alpha_\text{s}$ bei geringer werdenden Impulsüberträgen zu.
+Unterschreitet der Impulsübertrag dabei die Skala der Quantenchromodynamik $\Lambda_\text{QCD}$, welche sich in der Größenordnung
+\begin{align*}
+  \SI{100}{\mega\electronvolt} < \Lambda_\text{QCD} < \SI{500}{\mega\electronvolt}
+\end{align*}
+bewegt \cite{griffiths2008introduction}, wird $\alpha_\text{s} > 1$.
+Feynman-Diagramme in $n$-ter Ordnung, wie beispielsweise in Abbildung \ref{fig:feynman2} exemplarisch dargestellt, gehen jedoch mit einem Faktor $\alpha_\text{s}^n$ in die Berechnung der Zerfallsbreite ein.
+Für $\alpha_\text{s} > 1$ steigt dementsprechend der Einfluss von Diagrammen nicht-führender Ordnung $n>1$ und eine Entwicklung in $\alpha_\text{s}$ als Störungstheorie ist nicht mehr möglich.
+Primäres Ziel der Formfaktoren ist es, Effekte, die sich nicht mehr pertubativ entwickeln lassen, bei der Berechnung der Zerfallsbreite zu Berücksichtigen und weiterhin quantiative Aussagen treffen zu können.
 
 \section{Parametrisierung des Matrixelementes durch Formfaktoren}
 

@@ -144,6 +144,11 @@ Um die Fitfunktion ist jeweils die mit den zufallsgenerierten Daten generierte $
 Die Betrachtung der Ergebnisse zeigt, dass der Fit für $N_+ = N_0 = \num{2}$ keine angemessene Parametrisierung der theoretischen Daten darstellt.
 Quantitativ äußert sich dies darin, dass $\chi^2 \,/\, df \gg \num{1}$ ist.
 Der unzureichende Fit liegt darin begründet, dass die Methode der kleinsten Quadrate für hohe Korellationen mit identischem Vorzeichen, wie sie laut Abbildung \ref{fig:cor_daten} in diesem Fall vorliegen, keine guten Ergebnisse für zu geringe Ordnungen der Reihenentwicklung liefert.
+Werden höhere Ordnungen für $N_+$ und $N_0$ gewählt ergibt sich ein deutlich besserer Fit, was sich in einem geringeren $\chi^2$, insbesondere für $N_+=N_0=\num{3}$, bemerkbar macht.
+Allerdings besitzen die neu hinzukommenden Fitparameter $a_2^+$ und $a_2^0$ große Fehler, was die Aussagekraft des Fits verringert.
+Dieses Verhalten äußert sich in Abbildung \ref{fig:fit33} vor allem bei großem $z$, d.h. bei kleinen Impulsüberträgen, durch große $\num{1}\sigma$ Intervalle.
+Dementprechend ist die Aussagekraft des durchgeführten Fits mit $N_+=N_0=\num{3}$ im Bereich hoher Impulsüberträge, für welche auch die Gittereichrechnungen durchgeführt wurden, deutlich größer als die Aussagekraft für kleine Impulsüberträge.
+
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{pycode/plot_22.pdf}
@@ -171,7 +176,11 @@ Der unzureichende Fit liegt darin begründet, dass die Methode der kleinsten Qua
 
 \section{Berechnung der differentiellen Zerfallsbreite und Berechnung von \texorpdfstring{$R(D)$}{R(D)}.}
 Durch Einsetzen der ermittelten Fitfunktionen in Gleichung \eqref{eqn:difzb} lassen sich die differentiellen Zerfallsbreiten für Elektronen, Myonen sowie Tauonen bestimmen.
-Die berechneten Funktionen sind in den Abbildungen \ref{fig:difwq22} bis \ref{fig:difwq33} dargestellt, wobei jeweils zusätzlich das $\num{1}\sigma$-Intervall angegeben ist.
+Die berechneten differentiellen Zerfallsbreiten für Elektronen, Myonen und Tauonen sind jeweils in den Abbildungen \ref{fig:difwqe}, \ref{fig:difwqmu} bzw. \ref{fig:difwqtau} dargestellt.
+Hierbei sind die Ergebnisse für verschiedene Kombinationen von $N_+$ und $N_0$ eingezeichnet.
+In Abbildung \ref{fig:difwq33} sind für den Fall $N_+=N_0=\num{3}$ zusätzlich die Funktionen für alle Leptonen im direkten Vergleich angegeben.
+Zusätzlich wird hier das $\num{1}\sigma$ Intervall dargestellt.
+
 Bei den berechneten Zerfallsbreiten ist zu beachten, dass sich zwischen den Funktionen für $l = e$ und $l = \mu$ lediglich vernachlässigbar kleine Unterschiede zeigen, während sich die Funktion für $l = \tau$ deutlich unterscheidet.
 Dies liegt an der größeren Masse des Tauons $m_{\tau}$ im Vergleich zur Elektronenmasse $m_{e}$ oder der Myonenmasse $m_{\mu}$.
 
@@ -210,36 +219,39 @@ Dieses Verhalten kann so interpretiert werden, dass für geringere Ordnungen ein
 Dieser Fehler muss für $N_+ = \num{2}$ oder $N_0 = \num{2}$ in $R(D)$ zusätzlich berücksichtigt werden.
 Für $N_+ = N_0 = \num{3}$ ist davon auszugehen, dass der beschriebene systematische Fehler durch den angegebenen, statistischen Fehler von $R(D)$ berücksichtigt wird, da die maximale Anzahl an möglichen Fitparametern verwendet wird. \todo{Beschreibung des truncation errors}
 Um alle Fehler zu berücksichtigen wird im Folgenden mit den Ergebnissen der Fitparameter, bzw. der Variable $R(D)$, für $N_+ = N_0 = \num{3}$ gerechnet.
-Im Paper \cite{PhysRevD.92.034506} wird, ebenfalls auf Grundlage der hier verwendeten Gittereichrechnungen, ein Wert von
-\begin{align*}
+
+Im Paper \cite{PhysRevD.92.034506} wird, ebenfalls auf Grundlage der hier verwendeten Gittereichrechnungen, ein Ergebnis von
+\begin{align}
+  \label{eqn:R_quelle}
   R(D) = \input{pycode/R_quelle.tex}
-\end{align*}
-ermittelt.
-Die Unterschiede zum hier berechneten Wert lassen sich dadurch begründen, dass in der vorliegenden Quelle eine andere Parametrisierung der Formfaktoren verwendet wird.
+\end{align}
+angegeben.
+Zwar unterscheidet sich der in dieser Arbeit berechnete Wert für $R(D)$ aus Tabelle \ref{tab:r_calc} von dem Wert in \eqref{eqn:R_quelle}, die Differenz liegt jedoch noch innerhalb der $\num{1}\sigma$-Umgebung.
+Der Unterschied im Wert lässt sich dadurch begründen, dass in der vorliegenden Quelle eine andere Parametrisierung der Formfaktoren verwendet wird.
 Es wird einerseits der Einfluss durch Resonanzen vernachlässigt, andererseits wird die äußere Funktion $\Phi(z)$ in \eqref{eqn:reihenentwicklung} nicht gleich $1$ gesetzt sondern genauer berücksichtigt.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{pycode/plot_diff_wq22.pdf}
-  \caption{Vorhersage der differentiellen Zerfallsbreite für $N_0 = \num{2}$ und $N_+ = \num{2}$.}
-  \label{fig:difwq22}
+  \includegraphics[width=0.7\textwidth]{pycode/plot_diff_wq_ges_e.pdf}
+  \caption{Vorhersage der differentiellen Zerfallsbreite für $l=e$ unter Verwendung verschiedener Ordnungen $N_+$, $N_0$ der Fitparameter.}
+  \label{fig:difwqe}
 \end{figure}
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{pycode/plot_diff_wq32.pdf}
-  \caption{Vorhersage der differentiellen Zerfallsbreite für $N_0 = \num{3}$ und $N_+ = \num{2}$.}
-  \label{fig:difwq32}
+  \includegraphics[width=0.7\textwidth]{pycode/plot_diff_wq_ges_mu.pdf}
+  \caption{Vorhersage der differentiellen Zerfallsbreite für $l=\mu$ unter Verwendung verschiedener Ordnungen $N_+$, $N_0$ der Fitparameter.}
+  \label{fig:difwqmu}
 \end{figure}
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{pycode/plot_diff_wq23.pdf}
-  \caption{Vorhersage der differentiellen Zerfallsbreite für $N_0 = \num{2}$ und $N_+ = \num{3}$.}
-  \label{fig:difwq23}
+  \includegraphics[width=0.7\textwidth]{pycode/plot_diff_wq_ges_tau.pdf}
+  \caption{Vorhersage der differentiellen Zerfallsbreite für $l=\tau$ unter Verwendung verschiedener Ordnungen $N_+$, $N_0$ der Fitparameter.}
+  \label{fig:difwqtau}
 \end{figure}
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{pycode/plot_diff_wq33.pdf}
-  \caption{Vorhersage der differentiellen Zerfallsbreite für $N_0 = \num{3}$ und $N_+ = \num{3}$.}
+  \caption{Vorhersage der differentiellen Zerfallsbreite für $N_0 = \num{3}$ und $N_+ = \num{3}$. Der eingefärbte Bereich stellt jeweils die $\num{1}\sigma$ Umgebung dar.}
   \label{fig:difwq33}
 \end{figure}
 
@@ -256,7 +268,7 @@ Durch das Ermitteln des gewichteten Mittelwertes der beiden Messungen, wobei der
   \label{eqn:R_exp}
   R(D)_\text{exp} = \input{pycode/R_exp_mean.tex}.
 \end{equation}
-Dies entspricht einer Abweichung vom errechneten Theoriewert für $N_+=\num{3}$ und $N_0=\num{3}$ von $\input{pycode/R_abweichung_33.tex}\sigma$.
+Dies entspricht einer Abweichung vom errechneten Theoriewert für $N_+=\num{3}$ und $N_0=\num{3}$ in Tabelle \ref{tab:r_calc} von $\input{pycode/R_abweichung_33.tex}\sigma$.
 Es stellt sich dementsprechend die Frage, inwiefern diese Diskrepanz durch Veränderung der Formfaktoren oder der zugrunde liegenden Theorie des Zerfalles behoben werden kann.
 
 \subsection{Naive Korrektur der Formfaktoren}
@@ -282,7 +294,7 @@ Zum besseren Vergleich sind zusätzlich die unveränderten Zerfallsbreiten, d.h.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{pycode/plot_diff_wq_Rexp33.pdf}
-  \caption{Differenzielle Zerfallsbreite durch naive Anpassung der Formfaktoren für $\alpha = \num{1}$.}
+  \caption{Differenzielle Zerfallsbreite durch naive Anpassung der Formfaktoren für $\alpha = \num{1}$. Dargestellt sind die Funktionen sowohl für $\beta = \num{1}$, d.h. für unveränderte Formfaktoren, als auch für $\beta = $ $\protect\input{pycode/beta_val_nul.tex}$.}
   \label{fig:alpha_beta_wq}
 \end{figure}
 Hierbei ist auffällig, dass eine solche Anpassung primär einen Einfluss auf die differentielle Zerfallsbreite der Tauonen darstellt.
@@ -303,7 +315,7 @@ Der effektive Hamiltonian für den schwachen Zerfall $b \to c \tau \overline{\nu
 geschrieben werden, wobei die Indizes $L$, $R$ ein links- bzw. ein rechtshändiges Fermion kennzeichnen.
 Der erste Term beschreibt die bereits zuvor betrachtete Kopplung \todo{Wortwahl?} im Standardmodell, während der zweite Term eine konkrete, mögliche NP-Kopplung \todo{Abkürzung NP und Wortwahl.} darstellt.
 Der Wilson-Koeffizient $C_{S1}^\tau$ ist eine im Allgemeinen komplexe Größe und beschreibt die Stärke des Einflusses der NP-Kopplung.
-Ziel ist es, den Koeffizienten $C_{S1}^\tau$ so anzupassen, dass die theoretische Vorhersage für $R$ mit den experimentellen Werten aus Gleichung \eqref{eqn:R_exp} übereinstimmt.
+Ziel ist es, den Koeffizienten $C_{S1}^\tau$ so anzupassen, dass die theoretische Vorhersage für $R(D)$ mit den experimentellen Werten aus Gleichung \eqref{eqn:R_exp} übereinstimmt.
 
 Die differentielle Zefallsbreite, welche die oben beschriebenen Anteile beinhaltet, kann geschrieben werden als \cite{PhysRevD.88.094012}
 \begin{equation}
@@ -334,6 +346,12 @@ Die auftretenden Parameter lassen sich unter Nutzung der Fits für die Ordnungen
   \hat{A}_{VS} &= \input{pycode/Avs.tex}
 \end{align*}
 bestimmen, wobei $\hat{A}_i = A_i \,/\, {\mathbfcal{B}}_\text{SM}$ die normierten Parameter sind.
+Diese Werte stimmen dabei mit den Ergebnissen
+\begin{align*}
+  \hat{A}_S &= \num{1.36+-0.15}, \\
+  \hat{A}_{VS} &= \num{1.73+-0.19}
+\end{align*}
+aus \cite{Hiller2016} innerhalb der $\num{1}\sigma$-Umgebung gut überein.
 Wird das Verzweigungsverhältnis außerhalb des Standardmodells für Tauonen \eqref{eqn:R_bsm} in Gleichung \eqref{eqn:R} eingesetzt, ergibt sich somit ein Wert $R(D)_{\text{BSM}}$, welcher durch die Wahl des Wilsonkoeffizienten $C_{S1}^{\tau}$ angepasst werden kann.
 In Abbildung \ref{fig:wilson_1} ist dargestellt, in welchem Bereich $C_{S1}$ gewählt werden kann, so dass $R(D)_{\text{BSM}} = R(D)_{\text{exp}}$ erfüllt ist.
 Der rot eingefärbte Bereich \todo{Wortwahl} stellt dabei den Bereich dar, in dem sich $C_{S1}$ befinden kann, so dass $R(D)_{\text{BSM}}$ noch in der $\num{1}\sigma$-Umgebung von $R(D)_{\text{exp}}$ liegt.
@@ -352,5 +370,5 @@ Zum Vergleich ist zusätzlich der Kurvenverlauf für $C_{S1} = \num{0}$, d.h. f�
   \caption{Differentielle Zerfallsbreiten für verschiedene Werte $C_{S1}$ im Vergleich zum Standardmodell.}
   \label{fig:wilson_2}
 \end{figure}
-Es ist zu beachten, dass die beiden letzten Kurven zusammenfallen, da sich dessen $C_{S1}$-Werte lediglich im Vorzeichen des Realteils unterscheiden, der Realteil jedoch ausschließlich betragsmäßig in die differentielle Zerfallsbreite eingeht.
-Es fällt aus, dass durch der Wahl der Position von $C_{S1}$ auf der komplexen Ebene ausgewählt wird, für welchen Impulsübertrag die maximale differentielle Zerfallsbreite der Tauonen zu erwarten ist.
+Es ist zu beachten, dass die Kurven mit den Eigenschaften $\mathrm{Re}(C_{S1}) = \input{pycode/Cs1_Re.tex}$, $\mathrm{Im}(C_{S1}) = \pm\input{pycode/Cs1_Im.tex}$ zusammenfallen, da sich die $C_{S1}$-Werte lediglich im Vorzeichen des Realteils unterscheiden, der Realteil jedoch ausschließlich betragsmäßig in die differentielle Zerfallsbreite eingeht.
+Es fällt auf, dass durch der Wahl der Position von $C_{S1}$ auf der komplexen Ebene ausgewählt wird, für welchen Impulsübertrag die maximale differentielle Zerfallsbreite der Tauonen zu erwarten ist.

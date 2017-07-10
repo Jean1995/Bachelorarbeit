@@ -173,13 +173,13 @@ if plot_difwq != 0:
 
     red = 1/(10**(-15) )#* 10**9 * const.eV)
 
-    plt.plot(z_from_qq(qq_plot_e) ,dif_wq_val_e*red, label=r'Differentielle Zerfallsbreite, $l = e$.', color='b')
+    plt.plot(z_from_qq(qq_plot_e) ,dif_wq_val_e*red, label=r'Dif. Zerfallsbreite, $l = e$.', color='b')
     plt.fill_between(z_from_qq(qq_plot_e), dif_wq_val_e_up*red,  dif_wq_val_e_down*red, interpolate=True, alpha=0.3, color='b',linewidth=0.0)
 
-    plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_val_tau*red, label=r'Differentielle Zerfallsbreite, $l = \tau$.', color='r')
+    plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_val_tau*red, label=r'Dif. Zerfallsbreite, $l = \tau$.', color='r')
     plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_val_tau_up*red,  dif_wq_val_tau_down*red, interpolate=True, alpha=0.3, color='r',linewidth=0.0)
 
-    plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_val_mu*red, label=r'Differentielle Zerfallsbreite, $l = \mu$.', color='g')
+    plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_val_mu*red, label=r'Dif. Zerfallsbreite, $l = \mu$.', color='g')
     plt.fill_between(z_from_qq(qq_plot_mu), dif_wq_val_mu_up*red,  dif_wq_val_mu_down*red, interpolate=True, alpha=0.3, color='g',linewidth=0.0)
 
     plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D l \nu_l \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
@@ -188,3 +188,5 @@ if plot_difwq != 0:
     plt.tight_layout()
     plt.savefig('plot_diff_wq' + str(N1) + str(N2) + '.pdf') #fancy
     plt.clf()
+
+    np.savetxt('difwqges_'+str(N1)+str(N2)+'.txt', np.column_stack([dif_wq_val_e, dif_wq_val_tau, dif_wq_val_mu]))

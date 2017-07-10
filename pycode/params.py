@@ -10,7 +10,7 @@ from uncertainties import ufloat
 N1 = 3 #Parameter f+
 N2 = 3 #Parameter f0
 
-plot_difwq = 0 # entscheide, ob der differentielle WQ geplottet werden soll (zeitlicher Aufwand von ca. einer Minute)
+plot_difwq = 1 # entscheide, ob der differentielle WQ geplottet werden soll (zeitlicher Aufwand von ca. einer Minute)
 ### Konstanten
 
 m_b = 5279.26 *10**(-3) #* 10**6 * const.electron_volt#/const.c**2
@@ -27,8 +27,8 @@ m_0 = 6716*10**(-3) #* 10**6 * const.electron_volt#/const.c**2
 m_0_s = 0
 #^ Quelle 1606.08030
 
-write('mp.tex', make_SI(ufloat(m_p,m_p_s), r'\mega\electronvolt', figures=1))
-write('m0.tex', make_SI(m_0, r'\mega\electronvolt', figures=3))
+write('mp.tex', make_SI(ufloat(m_p,m_p_s), r'\giga\electronvolt', figures=1))
+write('m0.tex', make_SI(m_0, r'\giga\electronvolt', figures=3))
 
 
 m_e = 0.510998928 * 10 **(-3)
