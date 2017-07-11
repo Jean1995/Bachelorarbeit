@@ -81,6 +81,13 @@ def f_R_exp(val_b, val_a, offset):
     R_tmp = 2*tot_wq_tau/(tot_wq_e + tot_wq_mu)
     return R_tmp - (R_exp + offset)
 
+def f_R_exp_alpha(val_a, val_b, offset):
+    tot_wq_e = quad(dif_wq_new, m_e**2, (m_b-m_d)**2, args=(m_e, a, val_a, val_b))[0]
+    tot_wq_tau = quad(dif_wq_new, m_tau**2, (m_b-m_d)**2, args=(m_tau, a, val_a, val_b))[0]
+    tot_wq_mu = quad(dif_wq_new, m_mu**2, (m_b-m_d)**2, args=(m_mu, a, val_a, val_b))[0]
+    R_tmp = 2*tot_wq_tau/(tot_wq_e + tot_wq_mu)
+    return R_tmp - (R_exp + offset)
+
 
 ### Bestimme Vorfaktoren vor Formfaktoren
 
@@ -92,9 +99,11 @@ beta_max = 2.0 # wenn es einen ValueError gibt: beta_max höher setzen
 
 ### Zusatzbestimmung Alpha = 1
 
-beta_val_nul = bisect(f_R_exp, beta_min, beta_max, args=(1, 0)) # suche das beta zum alpha welches R_exp ergibt
+beta_val_nul = bisect(f_R_exp, beta_min, beta_max, args=(1, 0)) # suche das beta zum alpha=1 welches R_exp ergibt
 beta_val_up_nul = bisect(f_R_exp, beta_min, beta_max, args=(1, R_exp_s))
 beta_val_down_nul = bisect(f_R_exp, beta_min, beta_max, args=(1, -R_exp_s))
+
+alpha_val_nul = bisect(f_R_exp_alpha, 0.5, alpha_max, args=(1, 0)) # suche das alpha zum beta=1 welches R_exp ergibt
 
 good_values = []
 good_values_up = []
@@ -118,7 +127,7 @@ good_values_up = np.array(good_values_up)
 good_values_down = np.array(good_values_down)
 
 plt.plot(1, beta_val_nul, 'g*',markersize=13, label=r'$ R = R_{\text{exp}}$ mit $\alpha = 1$ und $\beta = \num[round-mode=places,round-precision=2]{' + str(beta_val_nul) + r'}$')
-plt.plot(1, 1, 'b*',markersize=13, label=r'$ R = R_{\text{SM}}$ mit $\alpha = 1$ und $\beta = 1$')
+plt.plot(1, 1, 'b*',markersize=13, label=r'$R$ mit $\alpha = 1$ und $\beta = 1$')
 plt.plot(good_values[:,0], good_values[:,1], '--', label=r'Parameterbereich $(\alpha,\: \beta$) mit $ R_{\alpha, \beta} = R_{\text{exp}}$')
 plt.fill_between(good_values_up[:,0], good_values_up[:,1],  good_values_down[:,1], interpolate=True, alpha=0.5, label=r'Parameterbereich $(\alpha,\: \beta)$ mit $ R_{\alpha, \beta} \in \left[ R_{\text{exp}} - \sigma, R_{\text{exp}} + \sigma \right] $')
 
@@ -169,3 +178,31 @@ plt.legend(loc='best', prop={'size':17})
 plt.tight_layout()
 plt.savefig('plot_diff_wq_Rexp' + str(N1) + str(N2) + '.pdf') #fancy
 plt.clf()
+
+# Plot für beta = 1
+
+plt.plot(z_from_qq(qq_plot_e) ,dif_wq_complete(qq_plot_e, m_e, a, alpha_val_nul, 1)*red, 'b', label=r'$l = e$, $\alpha = \num[round-mode=places,round-precision=2]{' + str(alpha_val_nul) + r'}$')
+
+plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_complete(qq_plot_tau, m_tau, a, alpha_val_nul, 1)*red, 'r', label=r'$l = \tau$, $\alpha = \num[round-mode=places,round-precision=2]{' + str(alpha_val_nul) + r'}$')
+
+plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_complete(qq_plot_mu, m_mu, a, alpha_val_nul,1)*red, 'g', label=r'$l = \mu$, $\alpha = \num[round-mode=places,round-precision=2]{' + str(alpha_val_nul) + r'}$')
+
+plt.plot(z_from_qq(qq_plot_e) ,dif_wq_complete(qq_plot_e, m_e, a, 1, 1)*red, 'b--', label=r'$l = e$, $\alpha = 1$')
+
+plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_complete(qq_plot_tau, m_tau, a, 1, 1)*red, 'r--', label=r'$l = \tau$, $\alpha = 1$')
+
+plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_complete(qq_plot_mu, m_mu, a, 1, 1)*red, 'g--', label=r'$l = \mu$, $\alpha = 1$')
+
+plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D l \nu_l \right) \,/\, \left( \num{e-15} \si{\giga\electronvolt\tothe{-1}} \right)$')
+plt.xlabel(r'$z$')
+plt.legend(loc='best', prop={'size':17})
+plt.tight_layout()
+plt.savefig('plot_diff_wq_Rexp_beta1_' + str(N1) + str(N2) + '.pdf') #fancy
+plt.clf()
+
+test_bereich = np.linspace(1,2,50)
+test_maxima = []
+for i in test_bereich:
+    test_maxima.append( np.argmax(dif_wq_complete(qq_plot_tau, m_tau, a,i, 1)) )
+
+print(test_maxima)

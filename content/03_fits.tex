@@ -177,7 +177,7 @@ Dementprechend ist die Aussagekraft des durchgeführten Fits mit $N_+=N_0=\num{3
 \section{Berechnung der differentiellen Zerfallsbreite und Berechnung von \texorpdfstring{$R(D)$}{R(D)}.}
 Durch Einsetzen der ermittelten Fitfunktionen in Gleichung \eqref{eqn:difzb} lassen sich die differentiellen Zerfallsbreiten für Elektronen, Myonen sowie Tauonen bestimmen.
 Die berechneten differentiellen Zerfallsbreiten für Elektronen, Myonen und Tauonen sind jeweils in den Abbildungen \ref{fig:difwqe}, \ref{fig:difwqmu} bzw. \ref{fig:difwqtau} dargestellt.
-Hierbei sind die Ergebnisse für verschiedene Kombinationen von $N_+$ und $N_0$ eingezeichnet.
+Hierbei sind die Ergebnisse für verschiedene Kombinationen von $N_+$ und $N_0$ abgebildet.
 In Abbildung \ref{fig:difwq33} sind für den Fall $N_+=N_0=\num{3}$ zusätzlich die Funktionen für alle Leptonen im direkten Vergleich angegeben.
 Zusätzlich wird hier das $\num{1}\sigma$ Intervall dargestellt.
 
@@ -227,7 +227,7 @@ Im Paper \cite{PhysRevD.92.034506} wird, ebenfalls auf Grundlage der hier verwen
 \end{align}
 angegeben.
 Zwar unterscheidet sich der in dieser Arbeit berechnete Wert für $R(D)$ aus Tabelle \ref{tab:r_calc} von dem Wert in \eqref{eqn:R_quelle}, die Differenz liegt jedoch noch innerhalb der $\num{1}\sigma$-Umgebung.
-Der Unterschied im Wert lässt sich dadurch begründen, dass in der vorliegenden Quelle eine andere Parametrisierung der Formfaktoren verwendet wird.
+Dieser quantiative Unterschied lässt sich dadurch begründen, dass in der vorliegenden Quelle eine andere Parametrisierung der Formfaktoren verwendet wird.
 Es wird einerseits der Einfluss durch Resonanzen vernachlässigt, andererseits wird die äußere Funktion $\Phi(z)$ in \eqref{eqn:reihenentwicklung} nicht gleich $1$ gesetzt sondern genauer berücksichtigt.
 
 \begin{figure}
@@ -272,7 +272,7 @@ Dies entspricht einer Abweichung vom errechneten Theoriewert für $N_+=\num{3}$ 
 Es stellt sich dementsprechend die Frage, inwiefern diese Diskrepanz durch Veränderung der Formfaktoren oder der zugrunde liegenden Theorie des Zerfalles behoben werden kann.
 
 \subsection{Naive Korrektur der Formfaktoren}
-
+\label{sec:naiv}
 Zunächst wird die naive Multiplikation von allgemeinen Vorfaktoren an die Formfaktoren $f_+$ und $f_0$ untersucht.
 Hierfür werden in Gleichung \eqref{eqn:difzb} die Faktoren
 \begin{align*}
@@ -294,7 +294,7 @@ Zum besseren Vergleich sind zusätzlich die unveränderten Zerfallsbreiten, d.h.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{pycode/plot_diff_wq_Rexp33.pdf}
-  \caption{Differenzielle Zerfallsbreite durch naive Anpassung der Formfaktoren für $\alpha = \num{1}$. Dargestellt sind die Funktionen sowohl für $\beta = \num{1}$, d.h. für unveränderte Formfaktoren, als auch für $\beta = $ $\protect\input{pycode/beta_val_nul.tex}$.}
+  \caption{Differentielle Zerfallsbreite durch naive Anpassung der Formfaktoren für $\alpha = \num{1}$. Dargestellt sind die Funktionen sowohl für $\beta = \num{1}$, d.h. für unveränderte Formfaktoren, als auch für $\beta = $ $\protect\input{pycode/beta_val_nul.tex}$.}
   \label{fig:alpha_beta_wq}
 \end{figure}
 Hierbei ist auffällig, dass eine solche Anpassung primär einen Einfluss auf die differentielle Zerfallsbreite der Tauonen darstellt.
@@ -364,11 +364,16 @@ Der rot eingefärbte Bereich \todo{Wortwahl} stellt dabei den Bereich dar, in de
 Durch die Anpassung von $C_{S1}$ ändert sich auch die Form der differentiellen Zerfallsbreiten, so wie durch Gleichung \eqref{eqn:wq_bsm} vorgegeben.
 In Abbildung \ref{fig:wilson_2} sind diese differenziellen Zerfallsbreiten für vier exemplarisch ausgewählte und in Abbildung \ref{fig:wilson_1} dargestellte Werte von $C_{S1}$ dargestellt.
 Zum Vergleich ist zusätzlich der Kurvenverlauf für $C_{S1} = \num{0}$, d.h. für das Standardmodell, angegeben.
+
+Es ist zu beachten, dass die Kurven mit den Eigenschaften $\mathrm{Re}(C_{S1}) = \input{pycode/Cs1_Re.tex}$, $\mathrm{Im}(C_{S1}) = \pm\input{pycode/Cs1_Im.tex}$ zusammenfallen, da sich die $C_{S1}$-Werte lediglich im Vorzeichen des Realteils unterscheiden, der Realteil jedoch ausschließlich betragsmäßig in die differentielle Zerfallsbreite eingeht.
+Zusätzlich fällt auf, dass durch der Wahl der Position von $C_{S1}$ auf der komplexen Ebene ausgewählt wird, für welchen Impulsübertrag die maximale differentielle Zerfallsbreite der Tauonen zu erwarten ist.
+Eine Messung der Position des Maximums lässt dementsprechend Rückschlüsse auf mögliche Werte von $C_{S1}$ zu.
+Bei der Betrachtung der Korrekturen der Formfaktoren innerhalb des Standardmodelles, siehe Kapitel \ref{sec:naiv}, hat sich das Maximum der Verteilung für die hier betrachteten Parameterpaare ($\alpha,\: \beta$) nur geringfügig verändert.
+Somit würde eine große Abweichung des Maximums vom zu erwartenden Theoriewert einen Hinweis darauf geben, dass eine Korrektur außerhalb des Standardmodelles, beispielsweise durch die Einführung von $C_{S1}$, zu erwarten ist.
+
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{pycode/plot_bsm_dif_wq_33.pdf}
   \caption{Differentielle Zerfallsbreiten für verschiedene Werte $C_{S1}$ im Vergleich zum Standardmodell.}
   \label{fig:wilson_2}
 \end{figure}
-Es ist zu beachten, dass die Kurven mit den Eigenschaften $\mathrm{Re}(C_{S1}) = \input{pycode/Cs1_Re.tex}$, $\mathrm{Im}(C_{S1}) = \pm\input{pycode/Cs1_Im.tex}$ zusammenfallen, da sich die $C_{S1}$-Werte lediglich im Vorzeichen des Realteils unterscheiden, der Realteil jedoch ausschließlich betragsmäßig in die differentielle Zerfallsbreite eingeht.
-Es fällt auf, dass durch der Wahl der Position von $C_{S1}$ auf der komplexen Ebene ausgewählt wird, für welchen Impulsübertrag die maximale differentielle Zerfallsbreite der Tauonen zu erwarten ist.

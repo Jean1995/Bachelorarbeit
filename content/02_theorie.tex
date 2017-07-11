@@ -129,7 +129,7 @@ Unterschreitet der Impulsübertrag dabei die Skala der Quantenchromodynamik $\La
   \SI{100}{\mega\electronvolt} < \Lambda_\text{QCD} < \SI{500}{\mega\electronvolt}
 \end{align*}
 bewegt \cite{griffiths2008introduction}, wird $\alpha_\text{s} > 1$.
-Feynman-Diagramme in $n$-ter Ordnung, wie beispielsweise in Abbildung \ref{fig:feynman2} exemplarisch dargestellt, gehen jedoch mit einem Faktor $\alpha_\text{s}^n$ in die Berechnung der Zerfallsbreite ein.
+Feynman-Diagramme in höherer Ordnung, wie beispielsweise in Abbildung \ref{fig:feynman2} exemplarisch dargestellt, gehen jedoch im Allgemeinen mit einem Faktor $\alpha_\text{s}^n$ in die Berechnung der Zerfallsbreite ein.
 Für $\alpha_\text{s} > 1$ steigt dementsprechend der Einfluss von Diagrammen nicht-führender Ordnung $n>1$ und eine Entwicklung in $\alpha_\text{s}$ als Störungstheorie ist nicht mehr möglich.
 Primäres Ziel der Formfaktoren ist es, Effekte, die sich nicht mehr pertubativ entwickeln lassen, bei der Berechnung der Zerfallsbreite zu Berücksichtigen und weiterhin quantiative Aussagen treffen zu können.
 
@@ -252,12 +252,6 @@ beschrieben.
 Diese Parametrisierung von $q^2$ bildet den maximalen Impulsübertrag $q_\text{max}^2$ auf $z=0$ ab, wie in Abbildung \ref{fig:z_param} dargestellt ist.
 Betrachtet man $z(q^2)$ zusätzlich außerhalb des kinematisch erlaubten Bereiches, so wird der Impulsübertrag, wie in Abbildung \ref{fig:z_kreis} dargestellt, auf die komplexe Ebene abgebildet.
 Dabei bewegt sich $z$ auf einem Einheitshalbkreis in der oberen komplexen Halbebene, so dass $\lvert z \rvert \leq \num{1}$ immer erfüllt ist.
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\textwidth]{pycode/plot_z_2.pdf}
-  \caption{Bildmenge der Abbildung $z(q^2)$ in der komplexe Ebene. In grün wird der nach Gleichung \eqref{eqn:kinematik} kinematisch erlaubte Bereich dargestellt. Die gestrichelte rote Line verdeutlicht den unphysikalischen Bereich negativer Impulsüberträge.}
-  \label{fig:z_kreis}
-\end{figure}
 
 \begin{figure}
   \centering
@@ -274,4 +268,11 @@ Dabei bewegt sich $z$ auf einem Einheitshalbkreis in der oberen komplexen Halbeb
     \label{fig:z_param}
   \end{subfigure}
   \caption{Parametrisierung des Impulsübertrages. Der im vorliegenden Zerfall erlaubte kinematische Bereich nach Gleichung \eqref{eqn:kinematik} wird durch den blauen Kasten verdeutlicht.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\textwidth]{pycode/plot_z_2.pdf}
+  \caption{Bildmenge der Abbildung $z(q^2)$ in der komplexe Ebene. In grün wird der nach Gleichung \eqref{eqn:kinematik} kinematisch erlaubte Bereich dargestellt. Die gestrichelte rote Line verdeutlicht den unphysikalischen Bereich negativer Impulsüberträge.}
+  \label{fig:z_kreis}
 \end{figure}
