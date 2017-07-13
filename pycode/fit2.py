@@ -133,7 +133,7 @@ print(a)
 x_plot = np.linspace(z_from_qq(0), z_from_qq((m_b-m_d)**2), 1000)
 
 ### Mr. Monte Carlo
-samples = 1000
+samples = 10000
 write('samples.tex', make_SI(samples, r'', figures=0))
 x_plot_p_up = np.zeros(len(x_plot))
 x_plot_p_down = np.zeros(len(x_plot))
@@ -224,7 +224,7 @@ y_plot_p = np.zeros(len(x_plot))
 for i in range(N1):
     y_plot_p = y_plot_p + a[i] * f(x_plot, i, m_p)
 
-plt.plot(x_plot,y_plot_p, label=r'Fit $f_+$ mit Paramterzahl $N_+ = ' + str(N1) + r'$.', color='r')
+plt.plot(x_plot,y_plot_p, label=r'Fit $f_+$ mit Parameterzahl $N_+ = ' + str(N1-1) + r'$.', color='r')
 
 plt.fill_between(x_plot, x_plot_p_up,  x_plot_p_down, interpolate=True, alpha=0.3, color='r',linewidth=0.0)
 
@@ -250,7 +250,7 @@ y_plot_n = np.zeros(len(x_plot))
 for i in range(N2):
     y_plot_n = y_plot_n + a[i+N1] * f(x_plot, i, m_0)
 
-plt.plot(x_plot,y_plot_n, label=r'Fit $f_0$ mit Paramterzahl $N_0 = ' + str(N2) + r'$.', color='b')
+plt.plot(x_plot,y_plot_n, label=r'Fit $f_0$ mit Parameterzahl $N_0 = ' + str(N2-1) + r'$.', color='b')
 
 plt.fill_between(x_plot, x_plot_n_up,  x_plot_n_down, interpolate=True, alpha=0.3, color='b', linewidth=0.0)
 

@@ -182,7 +182,7 @@ if plot_difwq != 0:
     plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_val_mu*red, label=r'Dif. Zerfallsbreite, $l = \mu$.', color='g')
     plt.fill_between(z_from_qq(qq_plot_mu), dif_wq_val_mu_up*red,  dif_wq_val_mu_down*red, interpolate=True, alpha=0.3, color='g',linewidth=0.0)
 
-    plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D l \nu_l \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
+    plt.ylabel(r'$\frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D l \nu_l \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
     plt.xlabel(r'$z$')
     plt.legend(loc='best', prop={'size':20})
     plt.tight_layout()

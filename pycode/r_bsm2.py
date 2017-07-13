@@ -185,13 +185,13 @@ R_plt_3 = R_fc_up(I_plt_3, As_exact, Avs_exact, wq_mu_exact, wq_e_exact, wq_tau_
 I_plt_4 = I_min+0.000001
 R_plt_4 = R_fc_down(I_plt_4, As_exact, Avs_exact, wq_mu_exact, wq_e_exact, wq_tau_exact, R_exp)
 
-plt.plot(R_plt_1, I_plt_1, 'y*',markersize=10, label=r'$\mathrm{Re}(C_{S1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_1) + r'}$ und $\mathrm{Im}(C_{S1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_1) + r'}$')
-plt.plot(R_plt_2, I_plt_2, 'b*',markersize=10, label=r'$\mathrm{Re}(C_{S1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_2) + r'}$ und $\mathrm{Im}(C_{S1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_2) + r'}$')
-plt.plot(R_plt_3, I_plt_3, 'g*',markersize=10, label=r'$\mathrm{Re}(C_{S1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_3) + r'}$ und $\mathrm{Im}(C_{S1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_3) + r'}$')
-plt.plot(R_plt_4, I_plt_4, 'm*',markersize=10, label=r'$\mathrm{Re}(C_{S1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_4) + r'}$ und $\mathrm{Im}(C_{S1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_4) + r'}$')
+plt.plot(R_plt_2, I_plt_2, 'b*',markersize=10, label=r'$\mathrm{Re}(C_{\text{S}1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_2) + r'}$ und $\mathrm{Im}(C_{\text{S}1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_2) + r'}$')
+plt.plot(R_plt_1, I_plt_1, 'y*',markersize=10, label=r'$\mathrm{Re}(C_{\text{S}1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_1) + r'}$ und $\mathrm{Im}(C_{\text{S}1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_1) + r'}$')
+plt.plot(R_plt_3, I_plt_3, 'g*',markersize=10, label=r'$\mathrm{Re}(C_{\text{S}1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_3) + r'}$ und $\mathrm{Im}(C_{\text{S}1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_3) + r'}$')
+plt.plot(R_plt_4, I_plt_4, 'm*',markersize=10, label=r'$\mathrm{Re}(C_{\text{S}1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_4) + r'}$ und $\mathrm{Im}(C_{\text{S}1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_4) + r'}$')
 
-plt.ylabel(r'$\mathrm{Im}(C_{s1})$')
-plt.xlabel(r'$\mathrm{Re}(C_{s1})$')
+plt.ylabel(r'$\mathrm{Im}(C_{\text{S}1})$')
+plt.xlabel(r'$\mathrm{Re}(C_{\text{S}1})$')
 plt.legend(loc='best')
 plt.tight_layout()
 plt.savefig('plot_wilson_1_' + str(N1) + str(N2) + '.pdf') #fancy
@@ -275,13 +275,13 @@ dif_wq_tau_down_4 = np.array(dif_wq_tau_down_4)
 red = 1/(10**(-15) )#* 10**9 * const.eV)
 
 
-plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_2*red, label=r'$\mathrm{Re}(C_{S1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_2) + r'}$ und $\mathrm{Im}(C_{S1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_2) + r'}$', color='b')
+plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_2*red, label=r'$\mathrm{Re}(C_{\text{S}1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_2) + r'}$ und $\mathrm{Im}(C_{\text{S}1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_2) + r'}$', color='b')
 plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_tau_up_2*red, dif_wq_tau_down_2*red, interpolate=True, alpha=0.5, color='b')
 
-plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_3*red, label=r'$\mathrm{Re}(C_{S1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_3) + r'}$ und $\mathrm{Im}(C_{S1}) = \pm\num[round-mode=places,round-precision=2]{' + str(I_plt_3) + r'}$', color='g')
+plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_3*red, label=r'$\mathrm{Re}(C_{\text{S}1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_3) + r'}$ und $\mathrm{Im}(C_{\text{S}1}) = \pm\num[round-mode=places,round-precision=2]{' + str(I_plt_3) + r'}$', color='g')
 plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_tau_up_3*red, dif_wq_tau_down_3*red, interpolate=True, alpha=0.5, color='g')
 
-plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_1*red, label=r'$\mathrm{Re}(C_{S1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_1) + r'}$ und $\mathrm{Im}(C_{S1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_1) + r'}$', color='y')
+plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_1*red, label=r'$\mathrm{Re}(C_{\text{S}1}) = \num[round-mode=places,round-precision=2]{' + str(R_plt_1) + r'}$ und $\mathrm{Im}(C_{\text{S}1}) = \num[round-mode=places,round-precision=2]{' + str(I_plt_1) + r'}$', color='y')
 plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_tau_up_1*red, dif_wq_tau_down_1*red, interpolate=True, alpha=0.5, color='y')
 
 plt.plot(z_from_qq(qq_plot_tau), dif_wq_val_tau_0*red, label=r'Standardmodell', color='r')
@@ -297,7 +297,7 @@ write('Cs1_Im.tex', make_SI(I_plt_3, r'', figures=2))
 
 
 plt.xlabel(r'$z$')
-plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D \tau \nu_{\tau} \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
+plt.ylabel(r'$\frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D \tau \nu_{\tau} \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
 plt.legend(loc='best', prop={'size':16})
 plt.tight_layout()
 plt.savefig('plot_bsm_dif_wq_' + str(N1) + str(N2) + '.pdf') #fancy

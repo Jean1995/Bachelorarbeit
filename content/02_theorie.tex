@@ -2,9 +2,8 @@
 \label{sec:theorie}
 \section{Qualitative Beschreibung}
 
-Das Feynman-Diagramm des hier untersuchten Zerfalles ist in führender Ordnung in Abbildung \ref{fig:feynman1} dargestellt.
+Das Feynman-Diagramm des in dieser Arbeit untersuchten Zerfalles ist in führender Ordnung in Abbildung \ref{fig:feynman1} dargestellt.
 \nocite{tikzfeynman}
-\todo{Sich für den schönsten Feynmangraphen entscheiden}
 \begin{figure}
   \centering
   \begin{tikzpicture}
@@ -23,7 +22,7 @@ Das Feynman-Diagramm des hier untersuchten Zerfalles ist in führender Ordnung i
     \vertex[below=2em of a6] (b5) {\(\overline q\)};
 
     \vertex[above=of a6] (c1) {\(\overline{\nu}_l\)};
-    \vertex[above=2em of c1] (c3) {\(l^-\)};
+    \vertex[above=2em of c1] (c3) {\(l\)};
     \vertex at ($(c1)!0.5!(c3) - (1cm, 0)$) (c2);
 
     \diagram* {
@@ -46,12 +45,12 @@ Das Feynman-Diagramm des hier untersuchten Zerfalles ist in führender Ordnung i
           node [pos=0.5, right] {\(D\)};
   \end{feynman}
   \end{tikzpicture}
-  \caption{Feynman-Diagramm des semileptonischen Zerfalles $\overline{B} \to D l^- \overline{\nu}_l$ in führender Ordnung.}
+  \caption{Feynman-Diagramm des semileptonischen Zerfalles $\overline{B} \to D l \overline{\nu}_l$ in führender Ordnung.}
   \label{fig:feynman1}
 \end{figure}
 
 Im Eingangszustand befindet sich ein $\overline B$-Meson, welches aus einem $b$-Quark und einem leichten Antiquark $\overline q$ ($ \overline q = \overline u, \overline d)$ besteht.
-Die schwache Wechselwirkung führt zu einer Umwandlung des beteiligten $b$-Quarks in ein $c$-Quark unter Emission eines $W^{-}$-Bosons. Dieses $W^{-}$-Boson ist ein virtuelles Teilchen und zerfällt direkt weiter in ein Lepton $l^-$ und das dazugehörige Antineutrino $\overline \nu_l$.  \todo{Wirklich immer l- schreiben?}
+Die schwache Wechselwirkung führt zu einer Umwandlung des beteiligten $b$-Quarks in ein $c$-Quark unter Emission eines $W^{-}$-Bosons. Dieses $W^{-}$-Boson ist ein virtuelles Teilchen und zerfällt unmittelbar in ein Lepton $l$ und das dazugehörige Antineutrino $\overline \nu_l$.  \todo{Wirklich immer l- schreiben?}
 Zusätzlich ist bei diesem Prozess zu beachten, dass die schwache Wechselwirkung nicht an die Masseneigenzustände der Quarks koppelt.
 Die korrekten Eigenzustände der Quarks $d'$, $s'$ und $b'$ für die schwache Wechselwirkung sind stattdessen Linearkombinationen der Masseneigenzustände von $d$, $s$ und $b$. Sie ergeben sich somit durch eine Rotation der ursprünglichen Eigenzustände.
 Diese Rotation wird durch die unitäre CKM-Matrix beschrieben.
@@ -84,7 +83,7 @@ Der für den betrachteten Zerfall relevante Parameter $\lvert V_{cb} \rvert$ bet
     \vertex[below=4em of a6] (b5) {\(\overline q\)};
 
     \vertex[above=of a6] (c1) {\(\overline{\nu}_l\)};
-    \vertex[above=2em of c1] (c3) {\(l^-\)};
+    \vertex[above=2em of c1] (c3) {\(l\)};
     \vertex at ($(c1)!0.5!(c3) - (1cm, 0)$) (c2);
 
     \diagram* {
@@ -116,13 +115,13 @@ Der für den betrachteten Zerfall relevante Parameter $\lvert V_{cb} \rvert$ bet
           node [pos=0.5, right] {\(D\)};
   \end{feynman}
   \end{tikzpicture}
-  \caption{Exemplarisches Feynman-Diagramm des semileptonischen Zerfalles $\overline{B} \to D l^- \overline{\nu}_l$ unter Berücksichtigung der starken Wechselwirkung zwischen den beteiligten Quarks.}
+  \caption{Exemplarisches Feynman-Diagramm des semileptonischen Zerfalles $\overline{B} \to D l \overline{\nu}_l$ unter Berücksichtigung der starken Wechselwirkung zwischen den beteiligten Quarks.}
   \label{fig:feynman2}
 \end{figure}
 
 Bei der Beschreibung des vorliegenden Zerfalles ist zusätzlich die starke Wechselwirkung zu berücksichtigen.
-Sie führt, vermittelt durch den Austausch von Gluonen, zur Bindung zwischen dem als Zuschauerquark agierenden Antiquark sowie dem schwach wechselwirkenden Quark.
-Der Einfluss von Gluon-Gluon-Kopplungen führt dazu, dass die Kopplungskonstante $\alpha_\text{s}$, welche die Stärke der starken Wechselswirkung festlegt, für hohe Impulsüberträge logarithmisch abnimmt.
+Sie führt, vermittelt durch den Austausch von Gluonen, zur Bindung zwischen dem als Zuschauerquark agierenden Antiquark sowie dem schwach wechselwirkenden Quark. \todo{Folgender Textabschnitt sachlich korrekt?}
+Der Einfluss von Gluon-Gluon-Kopplungen führt dazu, dass die Kopplungskonstante $\alpha_\text{s}$, welche die Stärke der starken Wechselwirkung festlegt, für hohe Impulsüberträge logarithmisch abnimmt.
 Gleichzeitig nimmt $\alpha_\text{s}$ bei geringer werdenden Impulsüberträgen zu.
 Unterschreitet der Impulsübertrag dabei die Skala der Quantenchromodynamik $\Lambda_\text{QCD}$, welche sich in der Größenordnung
 \begin{align*}
@@ -131,23 +130,23 @@ Unterschreitet der Impulsübertrag dabei die Skala der Quantenchromodynamik $\La
 bewegt \cite{griffiths2008introduction}, wird $\alpha_\text{s} > 1$.
 Feynman-Diagramme in höherer Ordnung, wie beispielsweise in Abbildung \ref{fig:feynman2} exemplarisch dargestellt, gehen jedoch im Allgemeinen mit einem Faktor $\alpha_\text{s}^n$ in die Berechnung der Zerfallsbreite ein.
 Für $\alpha_\text{s} > 1$ steigt dementsprechend der Einfluss von Diagrammen nicht-führender Ordnung $n>1$ und eine Entwicklung in $\alpha_\text{s}$ als Störungstheorie ist nicht mehr möglich.
-Primäres Ziel der Formfaktoren ist es, Effekte, die sich nicht mehr pertubativ entwickeln lassen, bei der Berechnung der Zerfallsbreite zu Berücksichtigen und weiterhin quantiative Aussagen treffen zu können.
+Primäres Ziel der Formfaktoren ist es, Effekte, die sich nicht mehr pertubativ entwickeln lassen, bei der Berechnung der Zerfallsbreite zu Berücksichtigen und weiterhin quantitative Aussagen treffen zu können.
 
 \section{Parametrisierung des Matrixelementes durch Formfaktoren}
 
-Das Matrixelement $M$ des Zerfalles lässt sich allgemein als \todo{Abstände zwischen den Bra/Kets optimieren}
+Das Matrixelement $M$ des Zerfalles lässt sich allgemein als
 \begin{align*}
-  M = \bra{D \, l \, \overline{\nu}_l} H \ket{ \overline{B} }
+  M = \bra{D \, l \, \overline{\nu}_l} \, H \, \ket{ \overline{B} }
 \end{align*}
-mit dem Hamiltonian $H$ des Zerfalles beschreiben.
-Es ist außerdem möglich, das Matrixelement in einen hadronischen Anteil mit dem Hamiltonian $H_\text{had}$ und einen leptonischen Anteil mit dem Hamiltonian $H_\text{lep}$ zu faktorisieren, so dass sich das Matrixelement
+mit dem den Zerfall beschreibenden Hamiltonian $H$ schreiben.
+Es ist außerdem möglich, das Matrixelement in einen hadronischen Anteil mit dem Hamiltonian $H_\text{had}$ und einen leptonischen Anteil mit dem Hamiltonian $H_\text{lep}$ zu faktorisieren, sodass sich das Matrixelement
 \begin{align*}
-  M = \bra{ l \, \overline{\nu_l}} H_\text{lep} \ket{0}  \bra{D} H_\text{had}  \ket{ \overline{B} }
+  M = \bra{ l \, \overline{\nu_l}} \, H_\text{lep} \, \ket{0}  \bra{D} \, H_\text{had} \, \ket{ \overline{B} }
 \end{align*}
 ergibt.
 Der hadronische Faktor wird durch einen V-A-Strom
 \begin{align*}
-  \bra{D} H_\text{had}  \ket{ \overline{B} } = \bra{D} \, \overline{c} \gamma_\mu (1 - \gamma_5) b \, \ket{ \overline{B} } = \bra{D} \underbrace{\overline{c} \gamma_\mu b }_{= V_\mu} \ket{\overline{B} } - \bra{D} \, \underbrace{ \overline{c} \gamma_\mu \gamma_5 b}_{= A_\mu}\, \ket{ \overline{B} }
+  \bra{D} \, H_\text{had} \, \ket{ \overline{B} } = \bra{D} \, \overline{c} \gamma_\mu (1 - \gamma_5) b \, \ket{ \overline{B} } = \bra{D} \underbrace{\overline{c} \gamma_\mu b \, }_{= V_\mu} \ket{\overline{B} } - \bra{D} \, \underbrace{ \overline{c} \gamma_\mu \gamma_5 b}_{= A_\mu}\, \ket{ \overline{B} }
 \end{align*}
 beschrieben, wobei $b$ hier der Spinor des $b$-Quarks und $\overline{c}$ der adjungierte Spinor des $c$-Quarks ist.
 Die Bezeichnungen $V_\mu$ und $A_\mu$ für die Ströme drücken aus, dass sich unter Parität $V_\mu = \overline{c} \gamma_\mu b$ wie ein Vektor und $A_\mu = \overline{c} \gamma_\mu \gamma_5 b$ wie ein Axialvektor transformiert.
@@ -160,13 +159,13 @@ konstruieren, welcher den Impulsübertrag zwischen den Mesonen beschreibt.
 
 Sowohl die dynamische Variable $p^B$ als auch $p^D$ transformieren sich wie Vektoren.
 Aus diesen Größen lässt sich jedoch kein Ausdruck konstruieren, der sich wie ein Axialvektor transformiert.
-Da die Quantenchromodynamik die Parität erhält, folgt hieraus direkt, dass der axiale Anteil des hadonischen Matrixelementes verschwinden muss:
+Da die Quantenchromodynamik die Parität erhält, folgt hieraus direkt, dass der axiale Anteil des hadronischen Matrixelementes verschwinden muss:
 \begin{align*}
   \bra{D} A_\mu \ket{\overline{B}} = 0.
 \end{align*}
 Somit verbleibt der vektorielle Anteil des hadronischen Matrixelementes, welcher durch
 \begin{equation}
-  \bra{D} V_\mu \ket{\overline{B}} = f_+(q^2)(p^B + p^D)_\mu + f_{-}(q^2)(p^B - p^D)_\mu
+  \bra{D} \, V_\mu \, \ket{\overline{B}} = f_+(q^2)(p^B + p^D)_\mu + f_{-}(q^2)(p^B - p^D)_\mu
 \end{equation}
 mit den Formfaktoren $f_+(q^2)$, $f_{-}(q^2)$ parametrisiert wird.
 
@@ -192,9 +191,9 @@ und
 
 \section{Kinematik des Zerfalles}
 \label{sec:kinematik}
-Aus der Viererimpulserhaltung $p^B = p^D + p^l + p^{\overline{\nu}_l}$ lassen sich Einschränkungen an den kinematisch erlaubten Bereich des Impulsübertrages $q^2$ stellen.
-Diese Einschränkungen ergeben sich, wenn die beiden kinematischen Extremfälle betrachtet werden, welche jeweils in Abbildung \ref{fig:recoil} skizziert sind.
-Hieraus resultiert, dass der kinematisch erlaubte Impulsbetrag durch den Bereich
+Aus der Viererimpulserhaltung $p^B = p^D + p^l + p^{\overline{\nu}_l}$ folgen Einschränkungen an den kinematisch erlaubten Bereich des Impulsübertrages $q^2$.
+Diese Einschränkungen ergeben sich, wenn die beiden kinematischen Extremfälle, welche jeweils in Abbildung \ref{fig:recoil} skizziert sind, betrachtet werden.
+Aus dieser Betrachtung resultiert, dass der kinematisch erlaubte Impulsbetrag durch den Bereich
 \begin{equation}
   m_l^2 \leq q^2 \leq (m_B - m_D)^2
   \label{eqn:kinematik}
@@ -234,7 +233,6 @@ vorgegeben ist.
   \caption{Kinematische Extremfälle beim Impulsübertrag.}
   \label{fig:recoil}
 \end{figure}
-\todo{Wirklich dieses Diagramm behalten? Und "zero-recoil"-Begriff bei a) einbringen?}
 
 Für den Impulsübertrag $q^2$ werden häufig alternative Parametrisierungen verwendet.
 Eine Möglichkeit stellt die $w$-Parametrisierung
@@ -251,7 +249,7 @@ Eine weitere Parametrisierung, welche für den im folgenden Kapitel durchgeführ
 beschrieben.
 Diese Parametrisierung von $q^2$ bildet den maximalen Impulsübertrag $q_\text{max}^2$ auf $z=0$ ab, wie in Abbildung \ref{fig:z_param} dargestellt ist.
 Betrachtet man $z(q^2)$ zusätzlich außerhalb des kinematisch erlaubten Bereiches, so wird der Impulsübertrag, wie in Abbildung \ref{fig:z_kreis} dargestellt, auf die komplexe Ebene abgebildet.
-Dabei bewegt sich $z$ auf einem Einheitshalbkreis in der oberen komplexen Halbebene, so dass $\lvert z \rvert \leq \num{1}$ immer erfüllt ist.
+Dabei bewegt sich $z$ auf einem Einheitshalbkreis in der oberen komplexen Halbebene, sodass $\lvert z \rvert \leq \num{1}$ immer erfüllt ist.
 
 \begin{figure}
   \centering
@@ -273,6 +271,6 @@ Dabei bewegt sich $z$ auf einem Einheitshalbkreis in der oberen komplexen Halbeb
 \begin{figure}
   \centering
   \includegraphics[width=0.9\textwidth]{pycode/plot_z_2.pdf}
-  \caption{Bildmenge der Abbildung $z(q^2)$ in der komplexe Ebene. In grün wird der nach Gleichung \eqref{eqn:kinematik} kinematisch erlaubte Bereich dargestellt. Die gestrichelte rote Line verdeutlicht den unphysikalischen Bereich negativer Impulsüberträge.}
+  \caption{Bildmenge der Abbildung $z(q^2)$ in der komplexe Ebene. In Grün wird der nach Gleichung \eqref{eqn:kinematik} kinematisch erlaubte Bereich dargestellt. Die gestrichelte rote Line verdeutlicht den unphysikalischen Bereich negativer Impulsüberträge.}
   \label{fig:z_kreis}
 \end{figure}

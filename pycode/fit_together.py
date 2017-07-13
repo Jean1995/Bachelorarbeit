@@ -1,3 +1,5 @@
+# Vorheriges Ausführen von R.py für vier verschiedene Parameterkombis nötig (und mit dif_wq=1)
+
 import fit2
 from scipy.integrate import quad
 import numpy as np
@@ -63,34 +65,34 @@ red = 1/(10**(-15) )#* 10**9 * const.eV)
 
 
 #Elektronen
-plt.plot(z_from_qq(qq_plot_e) ,y_e_22*red, label=r'$N_+=2,\: N_0 = 2$.', color='y')
-plt.plot(z_from_qq(qq_plot_e) ,y_e_23*red, label=r'$N_+=2,\: N_0 = 3$.', color='g')
-plt.plot(z_from_qq(qq_plot_e) ,y_e_32*red, label=r'$N_+=3,\: N_0 = 2$.', color='b')
+plt.plot(z_from_qq(qq_plot_e) ,y_e_22*red, label=r'$N_+=1,\: N_0 = 1$.', color='y')
+plt.plot(z_from_qq(qq_plot_e) ,y_e_23*red, label=r'$N_+=1,\: N_0 = 2$.', color='g')
+plt.plot(z_from_qq(qq_plot_e) ,y_e_32*red, label=r'$N_+=2,\: N_0 = 1$.', color='b')
 plt.plot(z_from_qq(qq_plot_e) ,y_e_33*red, label=r'$N_+=2,\: N_0 = 2$.', color='r')
 
-plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D e \nu_e \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
+plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(\overline{B} \to D e \nu_e \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
 plt.xlabel(r'$z$')
 plt.legend(loc='best', prop={'size':20})
 plt.tight_layout()
 plt.savefig('plot_diff_wq_ges_e.pdf') #fancy
 plt.clf()
 
-plt.plot(z_from_qq(qq_plot_e) ,y_mu_22*red, label=r'$N_+=2,\: N_0 = 2$.', color='y')
-plt.plot(z_from_qq(qq_plot_e) ,y_mu_23*red, label=r'$N_+=2,\: N_0 = 3$.', color='g')
-plt.plot(z_from_qq(qq_plot_e) ,y_mu_32*red, label=r'$N_+=3,\: N_0 = 2$.', color='b')
+plt.plot(z_from_qq(qq_plot_e) ,y_mu_22*red, label=r'$N_+=1,\: N_0 = 1$.', color='y')
+plt.plot(z_from_qq(qq_plot_e) ,y_mu_23*red, label=r'$N_+=1,\: N_0 = 2$.', color='g')
+plt.plot(z_from_qq(qq_plot_e) ,y_mu_32*red, label=r'$N_+=2,\: N_0 = 1$.', color='b')
 plt.plot(z_from_qq(qq_plot_e) ,y_mu_33*red, label=r'$N_+=2,\: N_0 = 2$.', color='r')
-plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D \mu \nu_{\mu} \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
+plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(\overline{B} \to D \mu \nu_{\mu} \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
 plt.xlabel(r'$z$')
 plt.legend(loc='best', prop={'size':20})
 plt.tight_layout()
 plt.savefig('plot_diff_wq_ges_mu.pdf') #fancy
 plt.clf()
 
-plt.plot(z_from_qq(qq_plot_e) ,y_tau_22*red, label=r'$N_+ =2, \:N_0 = 2$.', color='y')
-plt.plot(z_from_qq(qq_plot_e) ,y_tau_23*red, label=r'$N_+ =2, \:N_0 = 3$.', color='g')
-plt.plot(z_from_qq(qq_plot_e) ,y_tau_32*red, label=r'$N_+ =3, \:N_0 = 2$.', color='b')
+plt.plot(z_from_qq(qq_plot_e) ,y_tau_22*red, label=r'$N_+ =1, \:N_0 = 1$.', color='y')
+plt.plot(z_from_qq(qq_plot_e) ,y_tau_23*red, label=r'$N_+ =1, \:N_0 = 2$.', color='g')
+plt.plot(z_from_qq(qq_plot_e) ,y_tau_32*red, label=r'$N_+ =2, \:N_0 = 1$.', color='b')
 plt.plot(z_from_qq(qq_plot_e) ,y_tau_33*red, label=r'$N_+ =2, \:N_0 = 2$.', color='r')
-plt.ylabel(r'$\frac{d \Gamma}{d q^2} \left(B \to D \tau \nu_{\tau} \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
+plt.ylabel(r'$\frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D \tau \nu_{\tau} \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
 plt.xlabel(r'$z$')
 plt.legend(loc='best', prop={'size':20})
 plt.tight_layout()
