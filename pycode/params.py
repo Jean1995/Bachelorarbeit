@@ -42,10 +42,10 @@ m_bottom = 4180 * 10**(-3)
 m_bottom_s = 10 * 10**(-3)
 m_charm = 1275 * 10**(-3)
 m_charm_s = 25 * 10**(-3)
-#^ Quelle PDG (alles obrigen leptonen/quarks)
+#^ Quelle jetzt nicht mehr PDG sondern paper https://arxiv.org/pdf/1309.0301.pdf
 
-write('m_bottom.tex', make_SI(ufloat(m_bottom,m_bottom_s), r'\mega\electronvolt', figures=2))
-write('m_charm.tex', make_SI(ufloat(m_charm,m_charm_s), r'\mega\electronvolt', figures=2))
+write('m_bottom.tex', make_SI(ufloat(m_bottom,m_bottom_s), r'\giga\electronvolt', figures=2))
+write('m_charm.tex', make_SI(ufloat(m_charm,m_charm_s), r'\giga\electronvolt', figures=2))
 
 eta = 1.0066 #src https://arxiv.org/pdf/1606.08030.pdf
 G_f = 1.1663787*10**(-5) #* 1/(10**9 * const.electron_volt)**2  #* (const.hbar * const.c)**3

@@ -1,8 +1,8 @@
 \chapter{Fitten der Formfaktoren innerhalb und außerhalb des Standardmodells}\label{make}
-Das Paper \cite{PhysRevD.92.034506} stellt Theoriewerte für die Formfaktoren $f_+(w)$ und $f_0(w)$ für verschiedene Impulsüberträge $w$ zur Verfügung, welche aus Gittereichrechnungen für den exklusiven Zerfall $\overline{B} \to D l \overline{\nu}_l$ resultieren.
+Die Arbeit \cite{PhysRevD.92.034506} stellt Theoriewerte für die Formfaktoren $f_+(w)$ und $f_0(w)$ für verschiedene Impulsüberträge $w$ zur Verfügung, welche aus Gittereichrechnungen für den exklusiven Zerfall $\overline{B} \to D l \overline{\nu}_l$ resultieren.
 Die Berechnungen sind dabei \enquote{unquenched}, berücksichtigen dementsprechend die Dynamik von involvierten Seequarks.
 Die Gittereichrechnungen werden unter Verwendung von 14 verschiedenen Konfigurationen, d.\,h. Kombinationen von Gitterabständen und Massenverhältnissen von leichten Seequarks zu Strange-Seequarks, durchgeführt. \todo{Korrektheit und Vollständigkeit der Sachinhalte?}
-In Tabelle \ref{tab:data} sind die dem Paper entnommenen Daten und ihre Fehler, sowie in Abbildung \ref{fig:cor_daten} die Korrelationen der Daten untereinander angegeben.
+In Tabelle \ref{tab:data} sind die der Arbeit entnommenen Daten und ihre Fehler, sowie in Abbildung \ref{fig:cor_daten} die Korrelationen der Daten untereinander angegeben.
 Alle folgenden Berechnungen werden unter Verwendung dieser Werte durchgeführt.
 \begin{figure}
   \centering
@@ -35,7 +35,8 @@ Alle folgenden Berechnungen werden unter Verwendung dieser Werte durchgeführt.
 \end{table}
 \section{Beschreibung der Fitmethodik für die Formfaktoren}
 
-Das Ziel ist es, aus den diskreten Werten für einzelne Impulsüberträge in Tabelle \ref{tab:data} die Formfaktoren zu einer kontinuierlichen Größe in $z$ zu erweitern, um beispielsweise aus Gleichung \eqref{eqn:difzb} die totale Zerfallsbreite ermitteln  und somit Aussagen über experimentelle Größen treffen zu können.
+Das Ziel ist es, aus den diskreten Werten für einzelne Impulsüberträge in Tabelle \ref{tab:data} die Formfaktoren zu einer kontinuierlichen Größe in $z$ zu erweitern.
+Somit können beispielsweise aus Gleichung \eqref{eqn:difzb} die totale Zerfallsbreite ermittelt und weiterführend Aussagen über experimentelle Größen getroffen werden.
 Hierzu wird ein Fit an die gegebenen Daten durchgeführt.
 
 Als Fitfunktion wird eine allgemeine Potenzreihenentwicklung in $z$ der Form
@@ -56,9 +57,9 @@ Die Blaschkefaktoren werden hierbei als
 definiert, um die Resonanzen durch angeregte Zustände in den Formfaktoren zu berücksichtigen.
 Dabei wird als $m_i$ jeweils die niedrigste Resonanz gewählt, da diese den größten Einfluss auf den Formfaktor im kinematisch erlaubten Bereich ausübt.
 Außerdem muss beachtet werden, dass die Quantenzahlen der Resonanzen mit den jeweiligen Quantenzahlen der Formfaktoren, $J^P = 0^{+}$ für $f_+$ und $J^P = 1^-$ für $f_0$, übereinstimmen.
-Dem Paper \cite{PhysRevD.94.094008} werden die hier verwendeten Resonanzmassen zu
+Der Arbeit \cite{PhysRevD.94.094008} werden die hier verwendeten Resonanzmassen zu
 \begin{align*}
-  m_p &= \input{pycode/mp.tex}.\\
+  m_+ &= \input{pycode/mp.tex}.\\
   m_0 & = \input{pycode/m0.tex}.
 \end{align*}
 entnommen.
@@ -218,7 +219,7 @@ Dieser Fehler muss für $N_+ = \num{1}$ oder $N_0 = \num{1}$ in $R(D)$ zusätzli
 Für $N_+ = N_0 = \num{2}$ ist davon auszugehen, dass der beschriebene systematische Fehler durch den angegebenen, statistischen Fehler von $R(D)$ berücksichtigt wird, da die maximale Anzahl an möglichen Fitparametern genutzt wird. \todo{Beschreibung des truncation errors}
 Um alle Fehler zu berücksichtigen wird im Folgenden das Ergebnis der Fitparameter, bzw. der Variable $R(D)$, für $N_+ = N_0 = \num{2}$ verwendet.
 
-Im Paper \cite{PhysRevD.92.034506} wird, ebenfalls auf Grundlage der hier verwendeten Gittereichrechnungen, ein Ergebnis von
+In \cite{PhysRevD.92.034506} wird, ebenfalls auf Grundlage der hier verwendeten Gittereichrechnungen, ein Ergebnis von
 \begin{align}
   \label{eqn:R_quelle}
   R(D) = \input{pycode/R_quelle.tex}
