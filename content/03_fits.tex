@@ -1,8 +1,8 @@
 \chapter{Fitten der Formfaktoren innerhalb und außerhalb des Standardmodells}\label{make}
 Die Arbeit \cite{PhysRevD.92.034506} stellt Theoriewerte für die Formfaktoren $f_+(w)$ und $f_0(w)$ für verschiedene Impulsüberträge $w$ zur Verfügung, welche aus Gittereichrechnungen für den exklusiven Zerfall $\overline{B} \to D l \overline{\nu}_l$ resultieren.
-Die Berechnungen sind dabei \enquote{unquenched}, berücksichtigen dementsprechend die Dynamik von involvierten Seequarks.
-Die Gittereichrechnungen werden unter Verwendung von 14 verschiedenen Konfigurationen, d.\,h. Kombinationen von Gitterabständen und Massenverhältnissen von leichten Seequarks zu Strange-Seequarks, durchgeführt. \todo{Korrektheit und Vollständigkeit der Sachinhalte?}
-In Tabelle \ref{tab:data} sind die der Arbeit entnommenen Daten und ihre Fehler, sowie in Abbildung \ref{fig:cor_daten} die Korrelationen der Daten untereinander angegeben.
+Die Berechnungen sind dabei \enquote{unquenched}, berücksichtigen also dementsprechend die Dynamik von involvierten Seequarks.
+Die Gittereichrechnungen werden, unter Verwendung von 14 verschiedenen Konfigurationen, d.\,h. Kombinationen von Gitterabständen und Massenverhältnissen von leichten Seequarks zu Strange-Seequarks, durchgeführt.
+In Tabelle \ref{tab:data} sind die der Arbeit entnommenen Daten und ihre Fehler, sowie in Abbildung \ref{fig:cor_daten} die Korrelationen der Daten untereinander, angegeben.
 Alle folgenden Berechnungen werden unter Verwendung dieser Werte durchgeführt.
 \begin{figure}
   \centering
@@ -35,9 +35,9 @@ Alle folgenden Berechnungen werden unter Verwendung dieser Werte durchgeführt.
 \end{table}
 \section{Beschreibung der Fitmethodik für die Formfaktoren}
 
-Das Ziel ist es, aus den diskreten Werten für einzelne Impulsüberträge in Tabelle \ref{tab:data} die Formfaktoren zu einer kontinuierlichen Größe in $z$ zu erweitern.
+Das Ziel ist es, aus den diskreten Werten für einzelne Impulsüberträge in Tabelle \ref{tab:data}, die Formfaktoren zu einer kontinuierlichen Größe in $z$ zu erweitern.
 Somit können beispielsweise aus Gleichung \eqref{eqn:difzb} die totale Zerfallsbreite ermittelt und weiterführend Aussagen über experimentelle Größen getroffen werden.
-Hierzu wird ein Fit an die gegebenen Daten durchgeführt.
+Hierzu wird ein Fit an die gegebenen Daten durchgeführt. \todo{An die gegebenen Daten? Oder an den gegebenen Daten?}
 
 Als Fitfunktion wird eine allgemeine Potenzreihenentwicklung in $z$ der Form
 \begin{equation}
@@ -85,7 +85,7 @@ Grundlage dieser Methode ist es, die Summe der Residuenquadrate
 durch die passende Wahl der Fitparameter $\vec{a_+}$ und $\vec{a_0}$ zu minimieren.
 Hierbei stellt $y_i$ die Daten der Gittereichtheorie aus Tabelle \ref{tab:data} und $f(z_i)$ die dazugehörige Vorhersage durch die Fitfunktion dar.
 
-Um die Korrelationen der Daten zu berücksichtigen, wird statt der normalen Summe der Residuenquadrate die gewichtete Summe
+Um die Korrelationen der Daten zu berücksichtigen, wird, statt der normalen Summe der Residuenquadrate, die gewichtete Summe
 \begin{align*}
   S = \vec{r}^T \symbf{W} \vec{r},
 \end{align*}
@@ -93,14 +93,14 @@ minimiert, wobei $\vec{r}$ als Vektorkomponenten die einzelnen Residuen $y_i - f
 %Als Gewichtsmatrix wird hier eine Diagonalmatrix gewählt, dessen Diagonalelemente jeweils die Inversen der Varianzen von $y_i$ sind.
 Als Gewichtsmatrix wird die Inverse der Kovarianzmatrix $\symbf{V}$ der Daten gewählt, sodass die Residuen mit der Inverse der Varianz der jeweiligen Theoriewerte gewichtet werden.
 
-Um ein Konfidenzintervall für die gefittete Funktion zu bestimmen, werden $\input{pycode/samples.tex}$ verschiedene Konfigurationen der fehlerbehafteten Eingangsdaten sowie der fehlerbehafteten Fitparameter zufallsgeneriert, wobei alle Daten als normalverteilt angenommen werden.
+Um ein Konfidenzintervall für die gefittete Funktion zu bestimmen, werden $\input{pycode/samples.tex}$ verschiedene Konfigurationen der fehlerbehafteten Eingangsdaten und Fitparameter zufallsgeneriert, wobei alle Daten als normalverteilt angenommen werden.
 
 %\subsection{Fit der Formfaktoren für \texorpdfstring{$N_+ = \num{2}$, $N_0 = \num{1}$}{N+ = 2, N0 = 1}.}
 \section{Ergebnisse der Fits für verschiedene Parameterkombinationen}
 \label{sec:fits}
 
 Die Fitparameter werden für verschiedene Kombinationen der Ordnungen $N_+$ der Reihenentwicklung von $f_+$ sowie $N_0$ der Reihenentwicklung von $f_0$ berechnet.
-Ein Maß für die Güte des Fits stellt die Anpassungsgüte \todo{Begriff richtig?}
+Ein Maß für die Güte des Fits stellt die Anpassungsgüte
 \begin{equation}
   \label{eqn:apg}
   \chi^2 = \sum_{i=0}^{} \left( \frac{y_{i,+}(z_i) - f_{+}(z_i, \vec{a_+})}{\sigma_{y_{i,+}}} \right)^2 + \sum_{i=0}^{} \left( \frac{y_{i,0}(z_i) - f_{0}(z_i, \vec{a_0})}{\sigma_{y_{i,0}}}  \right)^2
@@ -110,7 +110,7 @@ Im vorliegenden Fall gilt
 \begin{align*}
   df = 6 - (N_+ + N_0 + 1),
 \end{align*}
-bei sechs vorhandenen Theoriewerten sowie der Nutzung der Nebenbedingung \eqref{eqn:einschr}.
+unter Verwendung von sechs vorhandenen Theoriewerten und Nutzung der Nebenbedingung \eqref{eqn:einschr}.
 Die berechneten Fitparameter für vier unterschiedliche Kombinationen von $N_+$ und $N_0$ sowie die jeweilige Anpassungsgüte des Fits sind in Tabelle \ref{tab:fitparams} angegeben.
 \begin{table}
   \centering
@@ -136,14 +136,14 @@ Die berechneten Fitparameter für vier unterschiedliche Kombinationen von $N_+$ 
   \vspace{10px}
   \label{tab:fitparams}
 \end{table}
-Zusätzlich sind die berechneten Korrelationen der Fitparameter im Anhang in den Abbildungen \ref{fig:fitcor22} bis \ref{fig:fitcor33} angegeben.
+Zusätzlich sind die berechneten Korrelationen der Fitparameter im Anhang in den Abbildungen \ref{fig:fitcor22} bis \ref{fig:fitcor33} zu finden.
 Die hieraus folgenden Fitfunktionen sind zusammen mit den Theoriedaten in den Abbildungen \ref{fig:fit22} bis \ref{fig:fit33} dargestellt.
-Um die Fitfunktion ist jeweils die mit den zufallsgenerierten Daten generierte $\num{1}\sigma$-Umgebung eingezeichnet.
+Um die Fitfunktion ist jeweils die, mit den zufallsgenerierten Daten generierte, $\num{1}\sigma$-Umgebung eingezeichnet.
 
 Die Betrachtung der Ergebnisse zeigt, dass der Fit für $N_+ = N_0 = \num{1}$ keine angemessene Parametrisierung der theoretischen Daten darstellt.
 Quantitativ äußert sich dies darin, dass $\chi^2 \,/\, df \gg \num{1}$ ist.
 Der unzureichende Fit liegt darin begründet, dass die Methode der kleinsten Quadrate für hohe Korrelationen mit identischem Vorzeichen, wie sie laut Abbildung \ref{fig:cor_daten} in diesem Fall vorliegen, keine guten Ergebnisse für zu geringe Ordnungen der Reihenentwicklung liefert.
-Werden höhere Ordnungen für $N_+$ und $N_0$ gewählt ergibt sich ein deutlich besserer Fit, was sich in einem geringeren $\chi^2$, insbesondere für $N_+=N_0=\num{2}$, bemerkbar macht.
+Werden höhere Ordnungen für $N_+$ und $N_0$ gewählt, ergibt sich ein deutlich besserer Fit, was sich in einem geringeren $\chi^2$, insbesondere für $N_+=N_0=\num{2}$, bemerkbar macht.
 Allerdings besitzen die neu hinzukommenden Fitparameter $a_2^+$ und $a_2^0$ große Fehler, was wiederum die Aussagekraft des Fits verringert.
 Dieses Verhalten äußert sich in Abbildung \ref{fig:fit33} vor allem bei großem $z$, d.\,h. bei kleinen Impulsüberträgen, durch große $\num{1}\sigma$ Intervalle.
 Dementsprechend ist die Aussagekraft des durchgeführten Fits mit $N_+=N_0=\num{2}$ im Bereich hoher Impulsüberträge, für welche auch die Gittereichrechnungen durchgeführt wurden, deutlich größer als die Aussagekraft für kleine Impulsüberträge.
@@ -183,7 +183,7 @@ Zusätzlich wird hier das $\num{1}\sigma$ Intervall dargestellt.
 Bei den berechneten Zerfallsbreiten ist zu beachten, dass sich zwischen den Funktionen für $l = e$ und $l = \mu$ lediglich vernachlässigbar kleine Unterschiede zeigen, während sich die Funktion für $l = \tau$ deutlich unterscheidet.
 Dies liegt an der größeren Masse des Tauons $m_{\tau}$ im Vergleich zur Elektronenmasse $m_{e}$ oder der Myonenmasse $m_{\mu}$.
 
-Durch Integration der partiellen Zerfallsbreiten über den kinematisch erlaubten Bereich ergeben sich die totalen Zerfallsbreiten $\Gamma \left(\overline{B} \to D l \overline{\nu_l} \right)$ für die einzelnen leptonischen Anteile\todo{Formulierung}. \nocite{scipy}
+Durch Integration der partiellen Zerfallsbreiten über den kinematisch erlaubten Bereich ergeben sich die totalen Zerfallsbreiten $\Gamma \left(\overline{B} \to D l \overline{\nu_l} \right)$ für die einzelnen leptonischen Anteile. \nocite{scipy}
 Hieraus lässt sich die Größe
 \begin{equation}
   \label{eqn:R}
@@ -216,8 +216,8 @@ Die aus den totalen Zerfallsbreiten ermittelten Werte $R(D)$ für verschiedene O
 Bei Betrachtung der Ergebnisse von $R(D)$ für verschiedene $N_+$, $N_0$ ist auffällig, dass der Fehler für höhere Ordnungen von $N$ ansteigt.
 Dieses Verhalten kann so interpretiert werden, dass für geringere Ordnungen ein systematischer Fehler durch das frühzeitige Abbrechen der Potenzreihenentwicklung, ein sogenannter \enquote{truncation error}, auftritt.
 Dieser Fehler muss für $N_+ = \num{1}$ oder $N_0 = \num{1}$ in $R(D)$ zusätzlich berücksichtigt werden.
-Für $N_+ = N_0 = \num{2}$ ist davon auszugehen, dass der beschriebene systematische Fehler durch den angegebenen, statistischen Fehler von $R(D)$ berücksichtigt wird, da die maximale Anzahl an möglichen Fitparametern genutzt wird. \todo{Beschreibung des truncation errors}
-Um alle Fehler zu berücksichtigen wird im Folgenden das Ergebnis der Fitparameter, bzw. der Variable $R(D)$, für $N_+ = N_0 = \num{2}$ verwendet.
+Für $N_+ = N_0 = \num{2}$ ist davon auszugehen, dass der beschriebene systematische Fehler durch den angegebenen, statistischen Fehler von $R(D)$ berücksichtigt wird, da die maximale Anzahl an möglichen Fitparametern genutzt wird.
+Um alle Fehler zu berücksichtigen wird im Folgenden das Ergebnis der Fitparameter bzw. der Variable $R(D)$, für $N_+ = N_0 = \num{2}$ verwendet.
 
 In \cite{PhysRevD.92.034506} wird, ebenfalls auf Grundlage der hier verwendeten Gittereichrechnungen, ein Ergebnis von
 \begin{align}
@@ -279,7 +279,7 @@ Hierfür werden in Gleichung \eqref{eqn:difzb} die Faktoren
 \end{align*}
 ergänzt und dessen Auswirkung auf $R(D)$ untersucht.
 Als Ausgangsfunktionen werden dabei die gefitteten Formfaktoren für $N_+ = N_0 = \num{2}$ verwendet.
-In Abbildung \ref{fig:alpha_beta} ist dargestellt, in welchem Parameterbereich sich $(\alpha, \: \beta)$ befinden muss, um mit den experimentellen Werten für $R(D)$ aus Gleichung \eqref{eqn:R_exp} übereinzustimmen.
+In Abbildung \ref{fig:alpha_beta} ist dargestellt, in welchem Parameterbereich sich $(\alpha, \: \beta)$ befinden müssen\todo{Müssen oder muss?}, um mit den experimentellen Werten für $R(D)$ aus Gleichung \eqref{eqn:R_exp} übereinzustimmen.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{pycode/alpha_beta_33.pdf}
@@ -299,7 +299,7 @@ Zum besseren Vergleich sind zusätzlich die unveränderten Zerfallsbreiten, d.\,
 Hierbei ist auffällig, dass eine solche Anpassung primär einen Einfluss auf die differentielle Zerfallsbreite der Tauonen darstellt.
 Dies liegt darin begründet, dass sich die Veränderung durch $\beta$ lediglich auf den Formfaktor $f_0$ auswirkt.
 Dieser ist jedoch mit $m_l^3$ unterdrückt und hat somit primär Einfluss auf die Zerfallsbreite der Tauonen.
-Die grundlegende Form der Kurve für $l = \tau$ verändert sich dabei zwar nur leicht, es wird jedoch über den gesamten kinematisch erlaubten Bereich eine erhöhte Zerfallsbreite vorhergesagt.
+Die grundlegende Form der Kurve für $l = \tau$ verändert sich dabei zwar nur leicht, es wird jedoch, über den gesamten kinematisch erlaubten Bereich, eine erhöhte Zerfallsbreite vorhergesagt.
 Die Kurven für die leichten Leptonen werden hingegen, wie erwartet, nur leicht verändert.
 Für Myonen ist lediglich eine Veränderung im Bereich kleiner Impulsüberträge zu beobachten, während bei der Zerfallsbreite der Elektronen kein signifikanter Unterschied zur unveränderten Funktion auftritt.
 
@@ -312,9 +312,9 @@ Der effektive Hamiltonian für den schwachen Zerfall $b \to c \tau \overline{\nu
   \mathcal{H}_\text{eff} \propto (\overline{c}_\text{L} \gamma^\mu b_\text{L})(\overline{\tau}_\text{L} \gamma_\mu \nu_\text{L} ) +  C_{\text{S}1}^\tau (\overline {c}_\text{L} b_\text{R}) (\overline{\tau}_\text{R} \nu_\text{L})
 \end{equation}
 geschrieben werden, wobei die Indizes $\text{L}$, $\text{R}$ ein links- bzw. ein rechtshändiges Fermion kennzeichnen.
-Der erste Summand beschreibt die bereits zuvor betrachtete Kopplung \todo{Wortwahl?} im Standardmodell, während der zweite Summand eine konkrete, mögliche NP-Kopplung darstellt.
+Der erste Summand beschreibt die bereits zuvor betrachtete Kopplung im Standardmodell, während der zweite Summand eine konkrete, mögliche NP-Kopplung darstellt.
 Der Wilson-Koeffizient $C_{\text{S}1}^\tau$ ist eine im Allgemeinen komplexe Größe und beschreibt die Stärke des Einflusses der NP-Kopplung.
-Ziel ist es den Koeffizienten $C_{\text{S}1}^\tau$ so anzupassen, dass die theoretische Vorhersage für $R(D)$ mit dem experimentellen Wert aus Gleichung \eqref{eqn:R_exp} übereinstimmt.
+Ziel ist es, den Koeffizienten $C_{\text{S}1}^\tau$ so anzupassen, dass die theoretische Vorhersage für $R(D)$ mit dem experimentellen Wert aus Gleichung \eqref{eqn:R_exp} übereinstimmt.
 
 Die differentielle Zerfallsbreite, welche die oben beschriebenen Anteile beinhaltet, kann geschrieben werden als \cite{PhysRevD.88.094012}
 \begin{equation}
@@ -329,7 +329,7 @@ und
 \begin{align*}
   \xi = \frac{\eta_\text{EW}^2 G_\text{F}^2 \lvert V_{cb} \rvert^2 m_B \sqrt{\lambda} }{192 \pi^3} \left( 1 - \frac{m_\tau^2}{q^2} \right)^2.
 \end{align*}
-Dabei beschreiben $m_b$ und $m_c$ Quarkmassen, welche hier als \todo{richtig?}
+Dabei beschreiben $m_b$ und $m_c$ Quarkmassen, welche hier als
 \begin{align*}
   m_b &= \input{pycode/m_bottom.tex} & m_c &= \input{pycode/m_charm.tex}
 \end{align*}
@@ -361,10 +361,10 @@ Der rot eingefärbte Bereich stellt dabei den Bereich dar, in dem sich $C_{\text
   \label{fig:wilson_1}
 \end{figure}
 Durch die Anpassung von $C_{\text{S}1}$ ändert sich auch die Form der differentiellen Zerfallsbreiten, so wie durch Gleichung \eqref{eqn:wq_bsm} vorgegeben.
-In Abbildung \ref{fig:wilson_2} sind diese differenziellen Zerfallsbreiten für vier exemplarisch ausgewählte und in Abbildung \ref{fig:wilson_1} dargestellte Werte von $C_{\text{S}1}$ dargestellt.
+In Abbildung \ref{fig:wilson_2} sind diese differenziellen Zerfallsbreiten für vier exemplarisch ausgewählte und in Abbildung \ref{fig:wilson_1} hervorgehobene Werte von $C_{\text{S}1}$ dargestellt.
 Zum Vergleich ist zusätzlich der Kurvenverlauf für $C_{\text{S}1} = \num{0}$, d.\,h. für das Standardmodell, angegeben.
 
-Es ist zu beachten, dass die Kurven mit den Eigenschaften $\mathrm{Re}(C_{\text{S}1}) = \input{pycode/Cs1_Re.tex}$, $\mathrm{Im}(C_{\text{S}1}) = \pm\input{pycode/Cs1_Im.tex}$ zusammenfallen, da sich die $C_{\text{S}1}$-Werte lediglich im Vorzeichen des Realteils unterscheiden, der Realteil jedoch ausschließlich betragsmäßig in die differentielle Zerfallsbreite eingeht.
+Es ist zu beachten, dass die Kurven mit den Eigenschaften $\mathrm{Re}(C_{\text{S}1}) = \input{pycode/Cs1_Re.tex}$, $\mathrm{Im}(C_{\text{S}1}) = \pm\input{pycode/Cs1_Im.tex}$ zusammenfallen, da sich die $C_{\text{S}1}$-Werte lediglich im Vorzeichen des Imaginärteils unterscheiden, der Imaginärteil jedoch ausschließlich betragsmäßig in die differentielle Zerfallsbreite eingeht.
 Zusätzlich fällt auf, dass durch die Wahl der Position von $C_{\text{S}1}$ auf der komplexen Ebene ausgewählt wird, für welchen Impulsübertrag die maximale differentielle Zerfallsbreite der Tauonen zu erwarten ist.
 Eine Messung der Position des Maximums lässt dementsprechend Rückschlüsse auf mögliche Werte von $C_{\text{S}1}$ zu.
 Bei der Betrachtung der Korrekturen der Formfaktoren innerhalb des Standardmodells, siehe Kapitel \ref{sec:naiv}, hat sich dies Lage des Maximums der Verteilung für die hier betrachteten Parameterpaare ($\alpha,\: \beta$) nur geringfügig verändert.
