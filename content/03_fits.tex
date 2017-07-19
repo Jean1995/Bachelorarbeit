@@ -80,16 +80,16 @@ an die Fitparameter.%, welche die Gesamtheit der Freiheitsgrade des Fits um eine
 Die Bestimmung der Fitparameter erfolgt mithilfe der Methode der kleinsten Quadrate.
 Grundlage dieser Methode ist es, die Summe der Residuenquadrate
 \begin{align*}
-  S = \sum_{i=0}^{} \left( y_{i,+}(z_i) - f_{+}(z_i, \overrightarrow{a_+}) \right)^2 + \sum_{i=0}^{} \left( y_{i,0}(z_i) - f_{0}(z_i, \overrightarrow{a_0}) \right)^2
+  S = \sum_{i=0}^{} \left( y_{i,+}(z_i) - f_{+}(z_i, \xvec{a}_+) \right)^2 + \sum_{i=0}^{} \left( y_{i,0}(z_i) - f_{0}(z_i, \xvec{a}_0) \right)^2
 \end{align*}
-durch die passende Wahl der Fitparameter $\overrightarrow{a_+}$ und $\overrightarrow{a_0}$ zu minimieren.
+durch die passende Wahl der Fitparameter $\xvec{a}_+$ und $\xvec{a}_0$ zu minimieren.
 Hierbei stellt $y_i$ die Daten der Gittereichtheorie aus Tabelle \ref{tab:data} und $f(z_i)$ die dazugehörige Vorhersage durch die Fitfunktion dar.
 
 Um die Korrelationen der Daten zu berücksichtigen, wird, statt der normalen Summe der Residuenquadrate, die gewichtete Summe
 \begin{align*}
-  S = \overrightarrow{r}^T \, \symbf{W} \, \overrightarrow{r},
+  S = \xvec{r}^T \, \symbf{W} \, \xvec{r},
 \end{align*}
-minimiert, wobei $\overrightarrow{r}$ als Vektorkomponenten die einzelnen Residuen $y_i - f(z_i)$ beinhaltet und $\symbf{W}$ die Gewichtsmatrix ist.
+minimiert, wobei $\xvec{r}$ als Vektorkomponenten die einzelnen Residuen $y_i - f(z_i)$ beinhaltet und $\symbf{W}$ die Gewichtsmatrix ist.
 %Als Gewichtsmatrix wird hier eine Diagonalmatrix gewählt, dessen Diagonalelemente jeweils die Inversen der Varianzen von $y_i$ sind.
 Als Gewichtsmatrix wird die Inverse der Kovarianzmatrix $\symbf{V}$ der Daten gewählt, sodass die Residuen mit der Inverse der Varianz der jeweiligen Theoriewerte gewichtet werden.
 
@@ -103,7 +103,7 @@ Die Fitparameter werden für verschiedene Kombinationen der Ordnungen $N_+$ der 
 Ein Maß für die Güte des Fits stellt die Anpassungsgüte
 \begin{equation}
   \label{eqn:apg}
-  \chi^2 = \sum_{i=0}^{} \left( \frac{y_{i,+}(z_i) - f_{+}(z_i, \overrightarrow{a_+})}{\sigma_{y_{i,+}}} \right)^2 + \sum_{i=0}^{} \left( \frac{y_{i,0}(z_i) - f_{0}(z_i, \overrightarrow{a_0})}{\sigma_{y_{i,0}}}  \right)^2
+  \chi^2 = \sum_{i=0}^{} \left( \frac{y_{i,+}(z_i) - f_{+}(z_i, \xvec{a}_+)}{\sigma_{y_{i,+}}} \right)^2 + \sum_{i=0}^{} \left( \frac{y_{i,0}(z_i) - f_{0}(z_i, \xvec{a}_0)}{\sigma_{y_{i,0}}}  \right)^2
 \end{equation}
 dar, welche jeweils durch die Anzahl der Freiheitsgrade $df$ dividiert wird.
 Im vorliegenden Fall gilt
@@ -132,10 +132,9 @@ Die berechneten Fitparameter für vier unterschiedliche Kombinationen von $N_+$ 
   \begin{subtable}[t]{0.49\textwidth}
     \hspace{\fill}
     \centering
-    \vspace{25px}
+    \vspace{24px}
     \input{content/tab33.tex}
   \end{subtable}
-  \vspace{10px}
   \label{tab:fitparams}
 \end{table}
 Zusätzlich sind die berechneten Korrelationen der Fitparameter im Anhang in den Abbildungen \ref{fig:fitcor22} bis \ref{fig:fitcor33} zu finden.
@@ -185,11 +184,11 @@ Zusätzlich wird hier das $\num{1}\sigma$ Intervall dargestellt.
 Bei den berechneten Zerfallsbreiten ist zu beachten, dass sich zwischen den Funktionen für $l = e$ und $l = \mu$ lediglich vernachlässigbar kleine Unterschiede zeigen, während sich die Funktion für $l = \tau$ deutlich unterscheidet.
 Dies liegt an der größeren Masse des Tauons $m_{\tau}$ im Vergleich zur Elektronenmasse $m_{e}$ oder der Myonenmasse $m_{\mu}$.
 
-Durch Integration der partiellen Zerfallsbreiten über den kinematisch erlaubten Bereich ergeben sich die totalen Zerfallsbreiten $\Gamma \left(\overline{B} \to D l \overline{\nu_l} \right)$ für die einzelnen leptonischen Anteile. \nocite{scipy}
+Durch Integration der partiellen Zerfallsbreiten über den kinematisch erlaubten Bereich ergeben sich die totalen Zerfallsbreiten $\Gamma \left(\overline{B} \to D l \overline{\nu}_l \right)$ für die einzelnen leptonischen Anteile. \nocite{scipy}
 Hieraus lässt sich die Größe
 \begin{equation}
   \label{eqn:R}
-  R(D) = \frac{{\mathbfcal{B}}\!\left(\overline{B} \to D \tau \overline{\nu_\tau} \right)}{{\mathbfcal{B}}\!\left(\overline{B} \to D l \overline{\nu_l} \right)}
+  R(D) = \frac{{\mathbfcal{B}}\!\left(\overline{B} \to D \tau \overline{\nu}_\tau \right)}{{\mathbfcal{B}}\!\left(\overline{B} \to D l \overline{\nu}_l \right)}
 \end{equation}
 ermitteln, wobei ${\mathbfcal{B}} \!\left(\overline{B} \to D l \overline{\nu}_l \right)$ im Nenner einer Mittelung des Verzweigungsverhältnisses für $l = e$ und $l = \mu$ entspricht.
 Die aus den totalen Zerfallsbreiten ermittelten Werte $R(D)$ für verschiedene Ordnungen $N_+$ und $N_0$ sind in Tabelle \ref{tab:r_calc} angegeben.
@@ -256,7 +255,7 @@ Es wird einerseits der Einfluss durch Resonanzen vernachlässigt, andererseits w
   \label{fig:difwq33}
 \end{figure}
 
-\section{Korrekturen der Formfaktoren im Hinblick auf \texorpdfstring{${R(D)_\text{exp}}$}{R(D)_exp}}
+\section{Korrekturen der Formfaktoren im Hinblick auf \texorpdfstring{${R(D)_\mathrm{exp}}$}{R(D)_exp}}
 
 Für die Observable $R(D)$ existieren experimentelle Messungen der Experimente Belle \cite{PhysRevD.92.072014} und BaBar \cite{PhysRevLett.109.101802}.
 Diese angegebenen Ergebnisse der Messungen betragen
