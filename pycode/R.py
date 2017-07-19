@@ -107,24 +107,24 @@ write('R_abweichung_' + str(N1) + str(N2) +'.tex', make_SI(abs(R_exp - R_mean)/R
 
 
 # R-Schlange: Integriere nur von (m_b-m_d)**2 bis zu m_tau^2, um die größer werdenden Fehler des dif. WQ zu beheben
-R_values_schlange = np.array([])
-
-for a, m in zip(a_mc, m_mc):
-    tot_wq_e_schlange = quad(dif_wq, m[5]**2, (m[2]-m[3])**2, args=(m[4], a, m[2], m[3], m[0], m[1]))[0]
-    tot_wq_tau_schlange = quad(dif_wq, m[5]**2, (m[2]-m[3])**2, args=(m[5], a, m[2], m[3], m[0], m[1]))[0]
-    tot_wq_mu_schlange = quad(dif_wq, m[5]**2, (m[2]-m[3])**2, args=(m[6], a, m[2], m[3], m[0], m[1]))[0]
-    #print(tot_wq_e)
-    R_values_schlange = np.append(R_values_schlange, 2*tot_wq_tau_schlange/(tot_wq_e_schlange + tot_wq_mu_schlange))
-
-R_error_schlange = np.std(R_values_schlange)
-R_mean_schlange = np.mean(R_values_schlange)
-
-print("R~", R_mean_schlange, "+-", R_error_schlange)
-write('Rschlange_si' + str(N1) + str(N2) +  '.tex', make_SI(ufloat(R_mean_schlange,R_error_schlange), r'', figures=2))
-write('Rschlange_' + str(N1) + str(N2) + '.tex', make_table([[ufloat(R_mean_schlange, R_error_schlange)]], [1]))
-
-### Differentieller Wirkungsquerschnitt Elektronen / Tauonen
-
+#R_values_schlange = np.array([])
+#
+#for a, m in zip(a_mc, m_mc):
+#    tot_wq_e_schlange = quad(dif_wq, m[5]**2, (m[2]-m[3])**2, args=(m[4], a, m[2], m[3], m[0], m[1]))[0]
+#    tot_wq_tau_schlange = quad(dif_wq, m[5]**2, (m[2]-m[3])**2, args=(m[5], a, m[2], m[3], m[0], m[1]))[0]
+#    tot_wq_mu_schlange = quad(dif_wq, m[5]**2, (m[2]-m[3])**2, args=(m[6], a, m[2], m[3], m[0], m[1]))[0]
+#    #print(tot_wq_e)
+#    R_values_schlange = np.append(R_values_schlange, 2*tot_wq_tau_schlange/(tot_wq_e_schlange + tot_wq_mu_schlange))
+#
+#R_error_schlange = np.std(R_values_schlange)
+#R_mean_schlange = np.mean(R_values_schlange)
+#
+#print("R~", R_mean_schlange, "+-", R_error_schlange)
+#write('Rschlange_si' + str(N1) + str(N2) +  '.tex', make_SI(ufloat(R_mean_schlange,R_error_schlange), r'', figures=2))
+#write('Rschlange_' + str(N1) + str(N2) + '.tex', make_table([[ufloat(R_mean_schlange, R_error_schlange)]], [1]))
+#
+#### Differentieller Wirkungsquerschnitt Elektronen / Tauonen
+#
 if plot_difwq != 0:
 
     qq_plot_tau = np.linspace(m_tau**2, (m_b-m_d)**2 , 300)
@@ -173,16 +173,16 @@ if plot_difwq != 0:
 
     red = 1/(10**(-15) )#* 10**9 * const.eV)
 
-    plt.plot(z_from_qq(qq_plot_e) ,dif_wq_val_e*red, label=r'Dif. Zerfallsbreite, $l = e$.', color='b')
+    plt.plot(z_from_qq(qq_plot_e) ,dif_wq_val_e*red, label=r'Dif. Zerfallsbreite, $l = e$', color='b')
     plt.fill_between(z_from_qq(qq_plot_e), dif_wq_val_e_up*red,  dif_wq_val_e_down*red, interpolate=True, alpha=0.3, color='b',linewidth=0.0)
 
-    plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_val_tau*red, label=r'Dif. Zerfallsbreite, $l = \tau$.', color='r')
+    plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_val_tau*red, label=r'Dif. Zerfallsbreite, $l = \tau$', color='r')
     plt.fill_between(z_from_qq(qq_plot_tau), dif_wq_val_tau_up*red,  dif_wq_val_tau_down*red, interpolate=True, alpha=0.3, color='r',linewidth=0.0)
 
-    plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_val_mu*red, label=r'Dif. Zerfallsbreite, $l = \mu$.', color='g')
+    plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_val_mu*red, label=r'Dif. Zerfallsbreite, $l = \mu$', color='g')
     plt.fill_between(z_from_qq(qq_plot_mu), dif_wq_val_mu_up*red,  dif_wq_val_mu_down*red, interpolate=True, alpha=0.3, color='g',linewidth=0.0)
 
-    plt.ylabel(r'$\frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D l \nu_l \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
+    plt.ylabel(r'$\frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D l \overline{\nu}_l \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
     plt.xlabel(r'$z$')
     plt.legend(loc='best', prop={'size':20})
     plt.tight_layout()

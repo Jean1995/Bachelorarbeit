@@ -172,7 +172,7 @@ plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_complete(qq_plot_tau, m_tau, a, 1, 1)*re
 
 plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_complete(qq_plot_mu, m_mu, a, 1, 1)*red, 'g--', label=r'$l = \mu$, $\beta = 1$')
 
-plt.ylabel(r'$\frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(B \to D l \nu_l \right) \,/\, \left( \num{e-15} \si{\giga\electronvolt\tothe{-1}} \right)$')
+plt.ylabel(r'$\frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(B \to D l \overline{\nu}_l \right) \,/\, \left( \num{e-15} \si{\giga\electronvolt\tothe{-1}} \right)$')
 plt.xlabel(r'$z$')
 plt.legend(loc='best', prop={'size':17})
 plt.tight_layout()
@@ -193,7 +193,7 @@ plt.plot(z_from_qq(qq_plot_tau) ,dif_wq_complete(qq_plot_tau, m_tau, a, 1, 1)*re
 
 plt.plot(z_from_qq(qq_plot_mu) ,dif_wq_complete(qq_plot_mu, m_mu, a, 1, 1)*red, 'g--', label=r'$l = \mu$, $\alpha = 1$')
 
-plt.ylabel(r'$\frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(B \to D l \nu_l \right) \,/\, \left( \num{e-15} \si{\giga\electronvolt\tothe{-1}} \right)$')
+plt.ylabel(r'$\frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(B \to D l \overline{\nu}_l \right) \,/\, \left( \num{e-15} \si{\giga\electronvolt\tothe{-1}} \right)$')
 plt.xlabel(r'$z$')
 plt.legend(loc='best', prop={'size':17})
 plt.tight_layout()

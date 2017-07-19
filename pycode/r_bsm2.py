@@ -297,7 +297,7 @@ write('Cs1_Im.tex', make_SI(I_plt_3, r'', figures=2))
 
 
 plt.xlabel(r'$z$')
-plt.ylabel(r'$\frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D \tau \nu_{\tau} \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
+plt.ylabel(r'$\frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D \tau \overline{\nu}_{\tau} \right) \,/\, \left( \num{e-15} \si{\giga \electronvolt\tothe{-1}} \right)$')
 plt.legend(loc='best', prop={'size':16})
 plt.tight_layout()
 plt.savefig('plot_bsm_dif_wq_' + str(N1) + str(N2) + '.pdf') #fancy

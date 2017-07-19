@@ -7,7 +7,7 @@ Alle folgenden Berechnungen werden unter Verwendung dieser Werte durchgeführt.
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{pycode/cormatrix_daten.pdf}
-  \caption{Korrelationsmatrix der Daten der Gittereichrechnungen aus \cite{PhysRevD.92.034506}.}
+  \caption{Korrelationsmatrix der Daten der Gittereichrechnungen aus \cite{PhysRevD.92.034506}. Zu beachten sind die hohen Korrelationen der Werte.}
   \label{fig:cor_daten}
 \end{figure}
 \begin{table}
@@ -35,7 +35,7 @@ Alle folgenden Berechnungen werden unter Verwendung dieser Werte durchgeführt.
 \end{table}
 \section{Beschreibung der Fitmethodik für die Formfaktoren}
 
-Das Ziel ist es, aus den diskreten Werten für einzelne Impulsüberträge in Tabelle \ref{tab:data} die Formfaktoren zu einer kontinuierlichen Größe in $z$ zu erweitern.
+Das Ziel ist es, aus den diskreten Werten für einzelne Impulsüberträge in Tabelle \ref{tab:data}, die Formfaktoren zu einer kontinuierlichen Größe in $z$ zu erweitern.
 Somit können beispielsweise aus Gleichung \eqref{eqn:difzb} die totale Zerfallsbreite ermittelt und weiterführend Aussagen über experimentelle Größen getroffen werden.
 Hierzu wird ein Fit an die gegebenen Daten durchgeführt. \todo{An die gegebenen Daten? Oder an den gegebenen Daten?}
 
@@ -87,7 +87,7 @@ Hierbei stellt $y_i$ die Daten der Gittereichtheorie aus Tabelle \ref{tab:data} 
 
 Um die Korrelationen der Daten zu berücksichtigen, wird, statt der normalen Summe der Residuenquadrate, die gewichtete Summe
 \begin{align*}
-  S = \xvec{r}^T \, \symbf{W} \, \xvec{r},
+  S = \xvec{r}^T \, \symbf{W} \, \xvec{r}
 \end{align*}
 minimiert, wobei $\xvec{r}$ als Vektorkomponenten die einzelnen Residuen $y_i - f(z_i)$ beinhaltet und $\symbf{W}$ die Gewichtsmatrix ist.
 %Als Gewichtsmatrix wird hier eine Diagonalmatrix gewählt, dessen Diagonalelemente jeweils die Inversen der Varianzen von $y_i$ sind.
@@ -110,7 +110,7 @@ Im vorliegenden Fall gilt
 \begin{align*}
   df = 6 - (N_+ + N_0 + 1),
 \end{align*}
-unter Verwendung von sechs vorhandenen Theoriewerten und Nutzung der Nebenbedingung \eqref{eqn:einschr}.
+bei Verwendung von sechs vorhandenen Theoriewerten und Nutzung der Nebenbedingung \eqref{eqn:einschr}.
 Die berechneten Fitparameter für vier unterschiedliche Kombinationen von $N_+$ und $N_0$ sowie die jeweilige Anpassungsgüte des Fits sind in Tabelle \ref{tab:fitparams} angegeben.
 \begin{table}
   %\centering
@@ -139,7 +139,7 @@ Die berechneten Fitparameter für vier unterschiedliche Kombinationen von $N_+$ 
 \end{table}
 Zusätzlich sind die berechneten Korrelationen der Fitparameter im Anhang in den Abbildungen \ref{fig:fitcor22} bis \ref{fig:fitcor33} zu finden.
 Die hieraus folgenden Fitfunktionen sind zusammen mit den Theoriedaten in den Abbildungen \ref{fig:fit22} bis \ref{fig:fit33} dargestellt.
-Um die Fitfunktion ist jeweils die, mit den zufallsgenerierten Daten generierte, $\num{1}\sigma$-Umgebung eingezeichnet.
+Um die Fitfunktion ist jeweils die, mit den zufallsgenerierten Daten erstellte, $\num{1}\sigma$-Umgebung eingezeichnet.
 
 Die Betrachtung der Ergebnisse zeigt, dass der Fit für $N_+ = N_0 = \num{1}$ keine angemessene Parametrisierung der theoretischen Daten darstellt.
 Quantitativ äußert sich dies darin, dass $\chi^2 \,/\, df \gg \num{1}$ ist.
@@ -226,7 +226,7 @@ In \cite{PhysRevD.92.034506} wird, ebenfalls auf Grundlage der hier verwendeten 
   R(D) = \input{pycode/R_quelle.tex}
 \end{align}
 angegeben.
-Zwar unterscheidet sich der in dieser Arbeit berechnete Wert für $R(D)$ aus Tabelle \ref{tab:r_calc} von dem Wert in \eqref{eqn:R_quelle}, die Differenz liegt jedoch noch innerhalb der $\num{1}\sigma$-Umgebung.
+Zwar unterscheidet sich der in dieser Arbeit berechnete Wert für $R(D)$ aus Tabelle \ref{tab:r_calc} von dem Wert in \eqref{eqn:R_quelle}, die Differenz liegt jedoch nur knapp außerhalb der $\num{1}\sigma$-Umgebung.
 Dieser quantitative Unterschied lässt sich dadurch begründen, dass in der vorliegenden Quelle eine andere Parametrisierung der Formfaktoren verwendet wird.
 Es wird einerseits der Einfluss durch Resonanzen vernachlässigt, andererseits wird die äußere Funktion $\Phi(z)$ in \eqref{eqn:reihenentwicklung} nicht gleich $1$ gesetzt, sondern genauer berücksichtigt.
 
@@ -257,7 +257,7 @@ Es wird einerseits der Einfluss durch Resonanzen vernachlässigt, andererseits w
 
 \section{Korrekturen der Formfaktoren im Hinblick auf \texorpdfstring{${R(D)_\mathrm{exp}}$}{R(D)_exp}}
 
-Für die Observable $R(D)$ existieren experimentelle Messungen der Experimente Belle \cite{PhysRevD.92.072014} und BaBar \cite{PhysRevLett.109.101802}.
+Für die Observable $R(D)$ existieren Messungen der Experimente Belle \cite{PhysRevD.92.072014} und BaBar \cite{PhysRevLett.109.101802}.
 Diese angegebenen Ergebnisse der Messungen betragen
 \begin{align*}
   R(D)_\text{Belle} &= \input{pycode/R_belle_0.tex} \pm \input{pycode/R_belle_1.tex} \pm \input{pycode/R_belle_2.tex} ,\\
@@ -307,7 +307,7 @@ Für Myonen ist lediglich eine Veränderung im Bereich kleiner Impulsüberträge
 \subsection{Korrektur durch Berücksichtigung von NP-Prozessen}
 
 Alternativ zur Korrektur der Formfaktoren bietet die auftretende Diskrepanz Interpretationsspielraum für Einflüsse durch neue Physik (NP), was im Folgenden genauer untersucht wird.
-Dabei wird lediglich der mögliche Einfluss dieser Effekte auf Tauonen betrachtet, Elektronen und Myonen werden weiterhin wie im Standardmodell behandelt.
+Dabei wird lediglich der mögliche Einfluss dieser Effekte auf Tauonen betrachtet; Elektronen und Myonen werden weiterhin wie im Standardmodell behandelt.
 Der effektive Hamiltonian für den schwachen Zerfall $b \to c \tau \overline{\nu}_\tau$ kann als
 \begin{equation}
   \mathcal{H}_\text{eff} \propto (\overline{c}_\text{L} \gamma^\mu b_\text{L})(\overline{\tau}_\text{L} \gamma_\mu \nu_\text{L} ) +  C_{\text{S}1}^\tau (\overline {c}_\text{L} b_\text{R}) (\overline{\tau}_\text{R} \nu_\text{L})
@@ -320,7 +320,7 @@ Ziel ist es, den Koeffizienten $C_{\text{S}1}^\tau$ so anzupassen, dass die theo
 Die differentielle Zerfallsbreite, welche die oben beschriebenen Anteile beinhaltet, kann geschrieben werden als \cite{PhysRevD.88.094012}
 \begin{equation}
   \label{eqn:wq_bsm}
-  \frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D \tau \overline{\nu_{\tau}} \right) = \xi \left\lbrace c_+^{\tau} f_+(q^2)^2 + \left\lbrack c_0^{\tau} + \kappa_1 \lvert C_{\text{S}1}^{\tau} \rvert^2 + \kappa_2 \operatorname{Re}(C_{\text{S}1}^{\tau}) \right\rbrack f_0(q^2)^2 \right\rbrace
+  \frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D \tau \overline{\nu}_{\tau} \right) = \xi \left\lbrace c_+^{\tau} f_+(q^2)^2 + \left\lbrack c_0^{\tau} + \kappa_1 \lvert C_{\text{S}1}^{\tau} \rvert^2 + \kappa_2 \operatorname{Re}(C_{\text{S}1}^{\tau}) \right\rbrack f_0(q^2)^2 \right\rbrace
 \end{equation}
 mit den Abkürzungen
 \begin{align*}
@@ -352,7 +352,7 @@ Diese Werte stimmen dabei mit den Ergebnissen
   \hat{A}_{\text{VS}} &= \num{1.73+-0.19}
 \end{align*}
 aus \cite{Hiller2016} innerhalb der $\num{1}\sigma$-Umgebung gut überein.
-Wird das Verzweigungsverhältnis außerhalb des Standardmodells für Tauonen \eqref{eqn:R_bsm} in Gleichung \eqref{eqn:R} eingesetzt, ergibt sich somit ein Wert $R(D)_{\text{BSM}}$, welcher durch die Wahl des Wilsonkoeffizienten $C_{\text{S}1}^{\tau}$ angepasst werden kann.
+Wird das Verzweigungsverhältnis außerhalb des Standardmodells für Tauonen \eqref{eqn:R_bsm} in Gleichung \eqref{eqn:R} eingesetzt, ergibt sich somit ein Wert $R(D)_{\text{BSM}}$, welcher durch die Wahl des Wilsonkoeffizienten $C_{\text{S}1}$ angepasst werden kann.
 In Abbildung \ref{fig:wilson_1} ist dargestellt, in welchem Bereich $C_{\text{S}1}$ gewählt werden kann, sodass $R(D)_{\text{BSM}} = R(D)_{\text{exp}}$ erfüllt ist.
 Der rot eingefärbte Bereich stellt dabei den Bereich dar, in dem sich $C_{\text{S}1}$ befinden kann, sodass $R(D)_{\text{BSM}}$ noch in der $\num{1}\sigma$-Umgebung von $R(D)_{\text{exp}}$ liegt.
 \begin{figure}
@@ -362,7 +362,7 @@ Der rot eingefärbte Bereich stellt dabei den Bereich dar, in dem sich $C_{\text
   \label{fig:wilson_1}
 \end{figure}
 Durch die Anpassung von $C_{\text{S}1}$ ändert sich auch die Form der differentiellen Zerfallsbreiten, so wie durch Gleichung \eqref{eqn:wq_bsm} vorgegeben.
-In Abbildung \ref{fig:wilson_2} sind diese differenziellen Zerfallsbreiten für vier exemplarisch ausgewählte und in Abbildung \ref{fig:wilson_1} hervorgehobene Werte von $C_{\text{S}1}$ dargestellt.
+In Abbildung \ref{fig:wilson_2} sind diese differentiellen Zerfallsbreiten für vier exemplarisch ausgewählte und in Abbildung \ref{fig:wilson_1} hervorgehobene Werte von $C_{\text{S}1}$ dargestellt.
 Zum Vergleich ist zusätzlich der Kurvenverlauf für $C_{\text{S}1} = \num{0}$, d.\,h. für das Standardmodell, angegeben.
 
 Es ist zu beachten, dass die Kurven mit den Eigenschaften $\mathrm{Re}(C_{\text{S}1}) = \input{pycode/Cs1_Re.tex}$, $\mathrm{Im}(C_{\text{S}1}) = \pm\input{pycode/Cs1_Im.tex}$ zusammenfallen, da sich die $C_{\text{S}1}$-Werte lediglich im Vorzeichen des Imaginärteils unterscheiden, der Imaginärteil jedoch ausschließlich betragsmäßig in die differentielle Zerfallsbreite eingeht.

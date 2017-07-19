@@ -45,7 +45,7 @@ plt.plot(list(map(re_z, qq_area_32)), list(map(im_z, qq_area_32)), 'r')
 qq_area_33 = np.linspace(-1000000,qq_min, 1000)
 plt.plot(list(map(re_z, qq_area_33)), list(map(im_z, qq_area_33)), 'r--')
 qq_area_4 = np.linspace(qq_min,qq_max, 100)
-plt.plot(list(map(re_z, qq_area_4)), list(map(im_z, qq_area_4)), 'g', label=r'Kinematisch erlaubter Bereich.')
+plt.plot(list(map(re_z, qq_area_4)), list(map(im_z, qq_area_4)), 'g', label=r'Kinematisch erlaubter Bereich')
 
 plt.ylabel(r'$\mathrm{Im}(z)$')
 plt.xlabel(r'$\mathrm{Re}(z)$')

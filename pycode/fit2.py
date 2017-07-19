@@ -224,7 +224,7 @@ y_plot_p = np.zeros(len(x_plot))
 for i in range(N1):
     y_plot_p = y_plot_p + a[i] * f(x_plot, i, m_p)
 
-plt.plot(x_plot,y_plot_p, label=r'Fit $f_+$ mit Parameterzahl $N_+ = ' + str(N1-1) + r'$.', color='r', zorder=100)
+plt.plot(x_plot,y_plot_p, label=r'Fit $f_+$ mit Parameterzahl $N_+ = ' + str(N1-1) + r'$', color='r', zorder=100)
 
 plt.fill_between(x_plot, x_plot_p_up,  x_plot_p_down, interpolate=True, alpha=0.3, color='r',linewidth=0.0, zorder=50)
 
@@ -249,13 +249,13 @@ y_plot_n = np.zeros(len(x_plot))
 for i in range(N2):
     y_plot_n = y_plot_n + a[i+N1] * f(x_plot, i, m_0)
 
-plt.plot(x_plot,y_plot_n, label=r'Fit $f_0$ mit Parameterzahl $N_0 = ' + str(N2-1) + r'$.', color='b', zorder=100)
+plt.plot(x_plot,y_plot_n, label=r'Fit $f_0$ mit Parameterzahl $N_0 = ' + str(N2-1) + r'$', color='b', zorder=100)
 
 plt.fill_between(x_plot, x_plot_n_up,  x_plot_n_down, interpolate=True, alpha=0.3, color='b', linewidth=0.0, zorder=50)
 
-plt.errorbar( x, np.split(y,2)[1], yerr = np.split(s_y,2)[1], fmt=',', label=r'Theoriewerte $f_0$.', capsize=5,capthick=0.5, barsabove = True, color='y', zorder=500) # splitte in 2 Hälften und nehme die erste Hälfte
+plt.errorbar( x, np.split(y,2)[0], yerr = np.split(s_y,2)[0], fmt=',', color='g', label=r'Theoriewerte $f_+$', capsize=5,capthick=0.5, barsabove = True, zorder=500) # splitte in 2 Hälften und nehme die erste Hälfte
 
-plt.errorbar( x, np.split(y,2)[0], yerr = np.split(s_y,2)[0], fmt=',', color='g', label=r'Theoriewerte $f_+$.', capsize=5,capthick=0.5, barsabove = True, zorder=500) # splitte in 2 Hälften und nehme die erste Hälfte
+plt.errorbar( x, np.split(y,2)[1], yerr = np.split(s_y,2)[1], fmt=',', label=r'Theoriewerte $f_0$', capsize=5,capthick=0.5, barsabove = True, color='y', zorder=500) # splitte in 2 Hälften und nehme die erste Hälfte
 
 
 plt.ylabel(r'$f_i(z)$')
@@ -286,7 +286,7 @@ D_inv = inv(np.sqrt(np.diag(np.diag(V))))
 cor = np.matmul(D_inv, np.matmul(V, D_inv))
 fig = plt.figure()
 ax = fig.add_subplot(111)
-cax = ax.matshow(cor, interpolation='nearest', cmap='seismic')
+cax = ax.matshow(cor, interpolation='nearest', cmap='coolwarm')
 cb = fig.colorbar(cax)
 cb.ax.set_yticklabels(cb.ax.get_yticklabels(), fontsize=15)
 cax.set_clim(vmin=-1, vmax=1)
@@ -296,8 +296,8 @@ for (i, j), z in np.ndenumerate(cor):
     plt.text(j, i, r'$\num{'+str('{:0.2f}'.format(z))+r'}$', ha='center', va='center', fontsize=15,
             bbox=dict(boxstyle='round', facecolor='grey', edgecolor='0.3'))
 
-ax.set_xticklabels(['']+x_label, fontsize=15)
-ax.set_yticklabels(['']+x_label, fontsize=15)
+ax.set_xticklabels(['']+x_label, fontsize=20)
+ax.set_yticklabels(['']+x_label, fontsize=20)
 
 plt.tight_layout()
 plt.savefig('cormatrix_a_N' + str(N1) + str(N2) + '.pdf')
@@ -316,7 +316,7 @@ for i in range(len(x_roh)):
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
-cax = ax.matshow(cor, interpolation='nearest', cmap='seismic')
+cax = ax.matshow(cor, interpolation='nearest', cmap='coolwarm')
 #plt.colorbar(cax)
 cb = fig.colorbar(cax)
 cb.ax.set_yticklabels(cb.ax.get_yticklabels(), fontsize=15)
