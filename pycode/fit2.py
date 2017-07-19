@@ -162,9 +162,9 @@ a_print = unp.uarray(a, np.insert(np.diag(V),1,np.std(a_00_vals))
 
 tab_label = []
 for i in range(N1):
-    tab_label.append('a^+_' + str(i) + ': &')
+    tab_label.append('a_\\text{+,' + str(i) + '}: &')
 for i in range(N2):
-    tab_label.append('a^0_' + str(i) + ': &')
+    tab_label.append('a_\\text{0,' + str(i) + '}: &')
 
 write('params_' + str(N1) + str(N2) + '.tex', make_table([a_print],[1]))
 
@@ -224,11 +224,10 @@ y_plot_p = np.zeros(len(x_plot))
 for i in range(N1):
     y_plot_p = y_plot_p + a[i] * f(x_plot, i, m_p)
 
-plt.plot(x_plot,y_plot_p, label=r'Fit $f_+$ mit Parameterzahl $N_+ = ' + str(N1-1) + r'$.', color='r')
+plt.plot(x_plot,y_plot_p, label=r'Fit $f_+$ mit Parameterzahl $N_+ = ' + str(N1-1) + r'$.', color='r', zorder=100)
 
-plt.fill_between(x_plot, x_plot_p_up,  x_plot_p_down, interpolate=True, alpha=0.3, color='r',linewidth=0.0)
+plt.fill_between(x_plot, x_plot_p_up,  x_plot_p_down, interpolate=True, alpha=0.3, color='r',linewidth=0.0, zorder=50)
 
-plt.errorbar( x, np.split(y,2)[0], yerr = np.split(s_y,2)[0], fmt=',', color='g', label=r'Theoriewerte $f_+$.', capsize=5,capthick=0.5, barsabove = True) # splitte in 2 Hälften und nehme die erste Hälfte
 
 
 
@@ -250,11 +249,14 @@ y_plot_n = np.zeros(len(x_plot))
 for i in range(N2):
     y_plot_n = y_plot_n + a[i+N1] * f(x_plot, i, m_0)
 
-plt.plot(x_plot,y_plot_n, label=r'Fit $f_0$ mit Parameterzahl $N_0 = ' + str(N2-1) + r'$.', color='b')
+plt.plot(x_plot,y_plot_n, label=r'Fit $f_0$ mit Parameterzahl $N_0 = ' + str(N2-1) + r'$.', color='b', zorder=100)
 
-plt.fill_between(x_plot, x_plot_n_up,  x_plot_n_down, interpolate=True, alpha=0.3, color='b', linewidth=0.0)
+plt.fill_between(x_plot, x_plot_n_up,  x_plot_n_down, interpolate=True, alpha=0.3, color='b', linewidth=0.0, zorder=50)
 
-plt.errorbar( x, np.split(y,2)[1], yerr = np.split(s_y,2)[1], fmt=',', label=r'Theoriewerte $f_0$.', capsize=5,capthick=0.5, barsabove = True, color='y') # splitte in 2 Hälften und nehme die erste Hälfte
+plt.errorbar( x, np.split(y,2)[1], yerr = np.split(s_y,2)[1], fmt=',', label=r'Theoriewerte $f_0$.', capsize=5,capthick=0.5, barsabove = True, color='y', zorder=500) # splitte in 2 Hälften und nehme die erste Hälfte
+
+plt.errorbar( x, np.split(y,2)[0], yerr = np.split(s_y,2)[0], fmt=',', color='g', label=r'Theoriewerte $f_+$.', capsize=5,capthick=0.5, barsabove = True, zorder=500) # splitte in 2 Hälften und nehme die erste Hälfte
+
 
 plt.ylabel(r'$f_i(z)$')
 plt.xlabel(r'$z$')
@@ -275,9 +277,9 @@ print("f0+(qq=0): ", y_plot_n[0])
 x_label = []
 for i in range(N1):
     if i > 0:
-        x_label.append('$a^+_' + str(i) + '$')
+        x_label.append('$a_{+,' + str(i) + '}$')
 for i in range(N2):
-    x_label.append('$a^0_' + str(i) + '$')
+    x_label.append('$a_{0,' + str(i) + '}$')
 
 
 D_inv = inv(np.sqrt(np.diag(np.diag(V))))
@@ -318,7 +320,7 @@ cax = ax.matshow(cor, interpolation='nearest', cmap='seismic')
 #plt.colorbar(cax)
 cb = fig.colorbar(cax)
 cb.ax.set_yticklabels(cb.ax.get_yticklabels(), fontsize=15)
-#cax.set_clim(vmin=-1, vmax=1)
+cax.set_clim(vmin=-1, vmax=1)
 #plt.title(r'Korrelationsmatrix Gittereichrechnungen.')
 
 for (i, j), z in np.ndenumerate(cor):

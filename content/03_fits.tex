@@ -35,17 +35,17 @@ Alle folgenden Berechnungen werden unter Verwendung dieser Werte durchgeführt.
 \end{table}
 \section{Beschreibung der Fitmethodik für die Formfaktoren}
 
-Das Ziel ist es, aus den diskreten Werten für einzelne Impulsüberträge in Tabelle \ref{tab:data}, die Formfaktoren zu einer kontinuierlichen Größe in $z$ zu erweitern.
+Das Ziel ist es, aus den diskreten Werten für einzelne Impulsüberträge in Tabelle \ref{tab:data} die Formfaktoren zu einer kontinuierlichen Größe in $z$ zu erweitern.
 Somit können beispielsweise aus Gleichung \eqref{eqn:difzb} die totale Zerfallsbreite ermittelt und weiterführend Aussagen über experimentelle Größen getroffen werden.
 Hierzu wird ein Fit an die gegebenen Daten durchgeführt. \todo{An die gegebenen Daten? Oder an den gegebenen Daten?}
 
 Als Fitfunktion wird eine allgemeine Potenzreihenentwicklung in $z$ der Form
 \begin{equation}
   \label{eqn:reihenentwicklung}
-  f_i(z) = \frac{1}{P_i(z) \Phi_i(z)} \sum_{k=0}^{N_i} a_{k}^{i} z^{k}
+  f_i(z) = \frac{1}{P_i(z) \Phi_i(z)} \sum_{k=0}^{N_i} a_{i,k} z^{k}
 \end{equation}
 verwendet, wobei die Indizes als $i=+$ für $f_+$ und $i=0$ für $f_0$ gewählt werden.
-Hierbei stellen die $a_{k}^{i}$ die zu bestimmenden Fitparameter und $N_i$ die Ordnung, in der die Formfaktoren jeweils entwickelt werden, dar.
+Hierbei stellen die $a_{i,k}$ die zu bestimmenden Fitparameter und $N_i$ die Ordnung, in der die Formfaktoren jeweils entwickelt werden, dar.
 Die Reihenentwicklung in $z$ durchzuführen verbessert die Konvergenz der Funktion, da der Impulsübertrag über die $z$-Parametrisierung, wie in Kapitel \ref{sec:kinematik} erläutert, auf $\lvert z \rvert \leq 1$ abgebildet wird.
 Somit wird der Einfluss höherer Ordnungen von $z$ auf den Formfaktor verringert.
 
@@ -73,27 +73,27 @@ mit $q^2(z_\text{max}) = 0$.
 Eingesetzt in die Reihenentwicklung \eqref{eqn:reihenentwicklung} folgt daraus die Einschränkung
 \begin{equation}
   \label{eqn:einschr}
-  a_0^+ = P_+(z_\text{max}) \left( \sum_{k=0}^{N_0} a_k^0 \frac{z_{\text{max}}^k}{P_0(z_\text{max})} - \sum_{k=1}^{N_+} a_k^+ \frac{z_{\text{max}}^k}{P_+(z_\text{max})} \right)
+  a_{+,0} = P_+(z_\text{max}) \left( \sum_{k=0}^{N_0} a_{0,k} \frac{z_{\text{max}}^k}{P_0(z_\text{max})} - \sum_{k=1}^{N_+} a_{+,k} \frac{z_{\text{max}}^k}{P_+(z_\text{max})} \right)
 \end{equation}
 an die Fitparameter.%, welche die Gesamtheit der Freiheitsgrade des Fits um einen Freiheitsgrad erniedrigt.
 
 Die Bestimmung der Fitparameter erfolgt mithilfe der Methode der kleinsten Quadrate.
 Grundlage dieser Methode ist es, die Summe der Residuenquadrate
 \begin{align*}
-  S = \sum_{i=0}^{} \left( y_{i,+}(z_i) - f_{+}(z_i, \vec{a_+}) \right)^2 + \sum_{i=0}^{} \left( y_{i,0}(z_i) - f_{0}(z_i, \vec{a_0}) \right)^2
+  S = \sum_{i=0}^{} \left( y_{i,+}(z_i) - f_{+}(z_i, \overrightarrow{a_+}) \right)^2 + \sum_{i=0}^{} \left( y_{i,0}(z_i) - f_{0}(z_i, \overrightarrow{a_0}) \right)^2
 \end{align*}
-durch die passende Wahl der Fitparameter $\vec{a_+}$ und $\vec{a_0}$ zu minimieren.
+durch die passende Wahl der Fitparameter $\overrightarrow{a_+}$ und $\overrightarrow{a_0}$ zu minimieren.
 Hierbei stellt $y_i$ die Daten der Gittereichtheorie aus Tabelle \ref{tab:data} und $f(z_i)$ die dazugehörige Vorhersage durch die Fitfunktion dar.
 
 Um die Korrelationen der Daten zu berücksichtigen, wird, statt der normalen Summe der Residuenquadrate, die gewichtete Summe
 \begin{align*}
-  S = \vec{r}^T \symbf{W} \vec{r},
+  S = \overrightarrow{r}^T \, \symbf{W} \, \overrightarrow{r},
 \end{align*}
-minimiert, wobei $\vec{r}$ als Vektorkomponenten die einzelnen Residuen $y_i - f(z_i)$ beinhaltet und $\symbf{W}$ die Gewichtsmatrix ist.
+minimiert, wobei $\overrightarrow{r}$ als Vektorkomponenten die einzelnen Residuen $y_i - f(z_i)$ beinhaltet und $\symbf{W}$ die Gewichtsmatrix ist.
 %Als Gewichtsmatrix wird hier eine Diagonalmatrix gewählt, dessen Diagonalelemente jeweils die Inversen der Varianzen von $y_i$ sind.
 Als Gewichtsmatrix wird die Inverse der Kovarianzmatrix $\symbf{V}$ der Daten gewählt, sodass die Residuen mit der Inverse der Varianz der jeweiligen Theoriewerte gewichtet werden.
 
-Um ein Konfidenzintervall für die gefittete Funktion zu bestimmen, werden $\input{pycode/samples.tex}$ verschiedene Konfigurationen der fehlerbehafteten Eingangsdaten und Fitparameter zufallsgeneriert, wobei alle Daten als normalverteilt angenommen werden.
+Um ein Konfidenzintervall für die gefittete Funktion zu bestimmen, werden $\input{pycode/samples.tex}$ verschiedene Konfigurationen der fehlerbehafteten Eingangsdaten und Fitparameter im Rahmen einer Monte-Carlo-Simulation zufallsgeneriert, wobei alle Daten als normalverteilt angenommen werden.
 
 %\subsection{Fit der Formfaktoren für \texorpdfstring{$N_+ = \num{2}$, $N_0 = \num{1}$}{N+ = 2, N0 = 1}.}
 \section{Ergebnisse der Fits für verschiedene Parameterkombinationen}
@@ -103,7 +103,7 @@ Die Fitparameter werden für verschiedene Kombinationen der Ordnungen $N_+$ der 
 Ein Maß für die Güte des Fits stellt die Anpassungsgüte
 \begin{equation}
   \label{eqn:apg}
-  \chi^2 = \sum_{i=0}^{} \left( \frac{y_{i,+}(z_i) - f_{+}(z_i, \vec{a_+})}{\sigma_{y_{i,+}}} \right)^2 + \sum_{i=0}^{} \left( \frac{y_{i,0}(z_i) - f_{0}(z_i, \vec{a_0})}{\sigma_{y_{i,0}}}  \right)^2
+  \chi^2 = \sum_{i=0}^{} \left( \frac{y_{i,+}(z_i) - f_{+}(z_i, \overrightarrow{a_+})}{\sigma_{y_{i,+}}} \right)^2 + \sum_{i=0}^{} \left( \frac{y_{i,0}(z_i) - f_{0}(z_i, \overrightarrow{a_0})}{\sigma_{y_{i,0}}}  \right)^2
 \end{equation}
 dar, welche jeweils durch die Anzahl der Freiheitsgrade $df$ dividiert wird.
 Im vorliegenden Fall gilt
@@ -113,24 +113,26 @@ Im vorliegenden Fall gilt
 unter Verwendung von sechs vorhandenen Theoriewerten und Nutzung der Nebenbedingung \eqref{eqn:einschr}.
 Die berechneten Fitparameter für vier unterschiedliche Kombinationen von $N_+$ und $N_0$ sowie die jeweilige Anpassungsgüte des Fits sind in Tabelle \ref{tab:fitparams} angegeben.
 \begin{table}
-  \centering
+  %\centering
   \caption{Fitparameter und Anpassungsgüte nach Gleichung \eqref{eqn:apg} für verschiedene Ordnungen der Reihenentwicklung $N_+$ und $N_0$.}
-  \begin{subtable}{0.48\textwidth}
+  \begin{subtable}[t]{0.49\textwidth}
     \centering
     \input{content/tab32.tex}
   \end{subtable}
-  \begin{subtable}{0.48\textwidth}
+  \begin{subtable}[t]{0.49\textwidth}
     \centering
     \input{content/tab23.tex}
   \end{subtable}
-  \begin{subtable}[t]{0.48\textwidth}
-    \vspace{15px}
+  \begin{subtable}[t]{0.49\textwidth}
     \centering
+    \vspace{25px}
     \input{content/tab22.tex}
   \end{subtable}
-  \begin{subtable}[t]{0.48\textwidth}
-    \vspace{15px}
+  \hspace{\fill}
+  \begin{subtable}[t]{0.49\textwidth}
+    \hspace{\fill}
     \centering
+    \vspace{25px}
     \input{content/tab33.tex}
   \end{subtable}
   \vspace{10px}
@@ -144,7 +146,7 @@ Die Betrachtung der Ergebnisse zeigt, dass der Fit für $N_+ = N_0 = \num{1}$ ke
 Quantitativ äußert sich dies darin, dass $\chi^2 \,/\, df \gg \num{1}$ ist.
 Der unzureichende Fit liegt darin begründet, dass die Methode der kleinsten Quadrate für hohe Korrelationen mit identischem Vorzeichen, wie sie laut Abbildung \ref{fig:cor_daten} in diesem Fall vorliegen, keine guten Ergebnisse für zu geringe Ordnungen der Reihenentwicklung liefert.
 Werden höhere Ordnungen für $N_+$ und $N_0$ gewählt, ergibt sich ein deutlich besserer Fit, was sich in einem geringeren $\chi^2$, insbesondere für $N_+=N_0=\num{2}$, bemerkbar macht.
-Allerdings besitzen die neu hinzukommenden Fitparameter $a_2^+$ und $a_2^0$ große Fehler, was wiederum die Aussagekraft des Fits verringert.
+Allerdings besitzen die neu hinzukommenden Fitparameter $a_{+,2}$ und $a_{0,2}$ große Fehler, was wiederum die Aussagekraft des Fits verringert.
 Dieses Verhalten äußert sich in Abbildung \ref{fig:fit33} vor allem bei großem $z$, d.\,h. bei kleinen Impulsüberträgen, durch große $\num{1}\sigma$ Intervalle.
 Dementsprechend ist die Aussagekraft des durchgeführten Fits mit $N_+=N_0=\num{2}$ im Bereich hoher Impulsüberträge, für welche auch die Gittereichrechnungen durchgeführt wurden, deutlich größer als die Aussagekraft für kleine Impulsüberträge.
 
@@ -173,7 +175,7 @@ Dementsprechend ist die Aussagekraft des durchgeführten Fits mit $N_+=N_0=\num{
   \label{fig:fit33}
 \end{figure}
 
-\section{Berechnung der differentiellen Zerfallsbreite und Berechnung von \texorpdfstring{$R(D)$}{R(D)}}
+\section{Berechnung der differentiellen Zerfallsbreite und Berechnung von \texorpdfstring{${R(D)}$}{R(D)}}
 Durch Einsetzen der ermittelten Fitfunktionen in Gleichung \eqref{eqn:difzb} lassen sich die differentiellen Zerfallsbreiten für den Zerfall $\overline{B} \to D l \overline{\nu}_l$ bestimmen.
 Die berechneten differentiellen Zerfallsbreiten für Elektronen, Myonen und Tauonen sind jeweils in den Abbildungen \ref{fig:difwqe}, \ref{fig:difwqmu} bzw. \ref{fig:difwqtau} dargestellt.
 Hierbei sind die Ergebnisse für verschiedene Kombinationen von $N_+$ und $N_0$ abgebildet.
@@ -254,7 +256,7 @@ Es wird einerseits der Einfluss durch Resonanzen vernachlässigt, andererseits w
   \label{fig:difwq33}
 \end{figure}
 
-\section{Korrekturen der Formfaktoren im Hinblick auf \texorpdfstring{$R(D)_\text{exp}$}{R(D)_exp}}
+\section{Korrekturen der Formfaktoren im Hinblick auf \texorpdfstring{${R(D)_\text{exp}}$}{R(D)_exp}}
 
 Für die Observable $R(D)$ existieren experimentelle Messungen der Experimente Belle \cite{PhysRevD.92.072014} und BaBar \cite{PhysRevLett.109.101802}.
 Diese angegebenen Ergebnisse der Messungen betragen
@@ -303,11 +305,11 @@ Die grundlegende Form der Kurve für $l = \tau$ verändert sich dabei zwar nur l
 Die Kurven für die leichten Leptonen werden hingegen, wie erwartet, nur leicht verändert.
 Für Myonen ist lediglich eine Veränderung im Bereich kleiner Impulsüberträge zu beobachten, während bei der Zerfallsbreite der Elektronen kein signifikanter Unterschied zur unveränderten Funktion auftritt.
 
-\subsection{Korrektur durch Berücksichtigung von NP Prozessen}
+\subsection{Korrektur durch Berücksichtigung von NP-Prozessen}
 
-Alternativ zur Korrektur der Formfaktoren bietet die auftretende Diskrepanz Interpretationsspielraum für Einflüsse durch neue Physik (NP), dessen Möglichkeiten im Folgenden untersucht werden.
+Alternativ zur Korrektur der Formfaktoren bietet die auftretende Diskrepanz Interpretationsspielraum für Einflüsse durch neue Physik (NP), was im Folgenden genauer untersucht wird.
 Dabei wird lediglich der mögliche Einfluss dieser Effekte auf Tauonen betrachtet, Elektronen und Myonen werden weiterhin wie im Standardmodell behandelt.
-Der effektive Hamiltonian für den schwachen Zerfall $b \to c \tau \overline{\nu_\tau}$ kann als
+Der effektive Hamiltonian für den schwachen Zerfall $b \to c \tau \overline{\nu}_\tau$ kann als
 \begin{equation}
   \mathcal{H}_\text{eff} \propto (\overline{c}_\text{L} \gamma^\mu b_\text{L})(\overline{\tau}_\text{L} \gamma_\mu \nu_\text{L} ) +  C_{\text{S}1}^\tau (\overline {c}_\text{L} b_\text{R}) (\overline{\tau}_\text{R} \nu_\text{L})
 \end{equation}
@@ -367,7 +369,7 @@ Zum Vergleich ist zusätzlich der Kurvenverlauf für $C_{\text{S}1} = \num{0}$, 
 Es ist zu beachten, dass die Kurven mit den Eigenschaften $\mathrm{Re}(C_{\text{S}1}) = \input{pycode/Cs1_Re.tex}$, $\mathrm{Im}(C_{\text{S}1}) = \pm\input{pycode/Cs1_Im.tex}$ zusammenfallen, da sich die $C_{\text{S}1}$-Werte lediglich im Vorzeichen des Imaginärteils unterscheiden, der Imaginärteil jedoch ausschließlich betragsmäßig in die differentielle Zerfallsbreite eingeht.
 Zusätzlich fällt auf, dass durch die Wahl der Position von $C_{\text{S}1}$ auf der komplexen Ebene ausgewählt wird, für welchen Impulsübertrag die maximale differentielle Zerfallsbreite der Tauonen zu erwarten ist.
 Eine Messung der Position des Maximums lässt dementsprechend Rückschlüsse auf mögliche Werte von $C_{\text{S}1}$ zu.
-Bei der Betrachtung der Korrekturen der Formfaktoren innerhalb des Standardmodells, siehe Kapitel \ref{sec:naiv}, hat sich dies Lage des Maximums der Verteilung für die hier betrachteten Parameterpaare ($\alpha,\: \beta$) nur geringfügig verändert.
+Bei der Betrachtung der Korrekturen der Formfaktoren innerhalb des Standardmodells, siehe Kapitel \ref{sec:naiv}, hat sich die Lage des Maximums der Verteilung für die hier betrachteten Parameterpaare ($\alpha,\: \beta$) nur geringfügig verändert.
 Somit würde eine große Abweichung des Maximums vom zu erwartenden Theoriewert einen Hinweis darauf geben, dass eine Korrektur außerhalb des Standardmodells, beispielsweise durch die Einführung von $C_{\text{S}1}$, zu erwarten ist.
 
 \begin{figure}
