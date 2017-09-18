@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2017.4.29)  18 SEP 2017 15:46
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2017.4.29)  18 SEP 2017 21:18
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -33,7 +33,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.171 seconds
+luaotfload | main : initialization completed in 0.168 seconds
 Babel <3.9r> and hyphenation patterns for 1 language(s) loaded.
 (/home/jean/.local/texlive/2016/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2017/01/23 v3.41 A class for typesetting presentations
@@ -1448,50 +1448,204 @@ Package luatex.def Info: logos/tu.pdf used on input line 63.
 (luatex.def)             Requested size: 130.2732pt x 22.76271pt.
  [3
 
-]
-File: logos/tu.pdf Graphic file (type pdf)
+](load luc: /home/jean/.local/texlive/2016/texmf-var/luatex-cache/generic/fonts/
+otl/lmroman6-regular.luc)(load luc: /home/jean/.local/texlive/2016/texmf-var/lua
+tex-cache/generic/fonts/otl/lmroman5-regular.luc)
+<Standard_Model_of_Elementary_Particles-de_colorlfull.png, id=58, 1606.0pt x 15
+39.351pt>
+File: Standard_Model_of_Elementary_Particles-de_colorlfull.png Graphic file (typ
+e png)
+ <use Standard_Model_of_Elementary_Particles-de_colorlfull.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorlfull.pn
+g used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+File: Standard_Model_of_Elementary_Particles-de_colorlfull.png Graphic file (typ
+e png)
 
+<use Standard_Model_of_Elementary_Particles-de_colorlfull.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorlfull.pn
+g used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+
+<Standard_Model_of_Elementary_Particles-de_colorless.png, id=59, 1606.0pt x 153
+9.351pt>
+File: Standard_Model_of_Elementary_Particles-de_colorless.png Graphic file (type
+ png)
+ <use Standard_Model_of_Elementary_Particles-de_colorless.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorless.png
+ used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+
+Overfull \hbox (1.54724pt too wide) in paragraph at lines 81--81
+[]$[]$$[]$  
+ []
+
+File: logos/tu.pdf Graphic file (type pdf)
 <use logos/tu.pdf>
-Package luatex.def Info: logos/tu.pdf used on input line 67.
+Package luatex.def Info: logos/tu.pdf used on input line 81.
 (luatex.def)             Requested size: 130.2732pt x 22.76271pt.
  [4
 
-] (./main.toc
-Language ngerman already loaded; id is 8)
+]
+File: Standard_Model_of_Elementary_Particles-de_colorlfull.png Graphic file (typ
+e png)
+
+<use Standard_Model_of_Elementary_Particles-de_colorlfull.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorlfull.pn
+g used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+File: Standard_Model_of_Elementary_Particles-de_colorlfull.png Graphic file (typ
+e png)
+
+<use Standard_Model_of_Elementary_Particles-de_colorlfull.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorlfull.pn
+g used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+File: Standard_Model_of_Elementary_Particles-de_colorless.png Graphic file (type
+ png)
+
+<use Standard_Model_of_Elementary_Particles-de_colorless.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorless.png
+ used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+
+Overfull \hbox (1.54724pt too wide) in paragraph at lines 81--81
+[]$[]$$[]$  
+ []
+
 File: logos/tu.pdf Graphic file (type pdf)
- <use logos/tu.pdf>
-Package luatex.def Info: logos/tu.pdf used on input line 75.
+<use logos/tu.pdf>
+Package luatex.def Info: logos/tu.pdf used on input line 81.
 (luatex.def)             Requested size: 130.2732pt x 22.76271pt.
  [5
 
-]
-File: logos/tu.pdf Graphic file (type pdf)
+<./Standard_Model_of_Elementary_Particles-de_colorlfull.png>]
+File: Standard_Model_of_Elementary_Particles-de_colorlfull.png Graphic file (typ
+e png)
+ <use Standard_Model_of_Elementary_Particles-de_colorlfull.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorlfull.pn
+g used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+File: Standard_Model_of_Elementary_Particles-de_colorlfull.png Graphic file (typ
+e png)
 
+<use Standard_Model_of_Elementary_Particles-de_colorlfull.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorlfull.pn
+g used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+File: Standard_Model_of_Elementary_Particles-de_colorless.png Graphic file (type
+ png)
+
+<use Standard_Model_of_Elementary_Particles-de_colorless.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorless.png
+ used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+
+Overfull \hbox (1.54724pt too wide) in paragraph at lines 81--81
+[]$[]$$[]$  
+ []
+
+File: logos/tu.pdf Graphic file (type pdf)
 <use logos/tu.pdf>
-Package luatex.def Info: logos/tu.pdf used on input line 79.
+Package luatex.def Info: logos/tu.pdf used on input line 81.
 (luatex.def)             Requested size: 130.2732pt x 22.76271pt.
  [6
 
-] (./main.toc
-Language ngerman already loaded; id is 8)
+]
+File: Standard_Model_of_Elementary_Particles-de_colorlfull.png Graphic file (typ
+e png)
+
+<use Standard_Model_of_Elementary_Particles-de_colorlfull.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorlfull.pn
+g used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+File: Standard_Model_of_Elementary_Particles-de_colorlfull.png Graphic file (typ
+e png)
+
+<use Standard_Model_of_Elementary_Particles-de_colorlfull.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorlfull.pn
+g used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+File: Standard_Model_of_Elementary_Particles-de_colorless.png Graphic file (type
+ png)
+
+<use Standard_Model_of_Elementary_Particles-de_colorless.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorless.png
+ used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+
+Overfull \hbox (1.54724pt too wide) in paragraph at lines 81--81
+[]$[]$$[]$  
+ []
+
 File: logos/tu.pdf Graphic file (type pdf)
- <use logos/tu.pdf>
-Package luatex.def Info: logos/tu.pdf used on input line 87.
+<use logos/tu.pdf>
+Package luatex.def Info: logos/tu.pdf used on input line 81.
 (luatex.def)             Requested size: 130.2732pt x 22.76271pt.
  [7
 
-]
-File: logos/tu.pdf Graphic file (type pdf)
+<./Standard_Model_of_Elementary_Particles-de_colorless.png>]
+File: Standard_Model_of_Elementary_Particles-de_colorlfull.png Graphic file (typ
+e png)
+ <use Standard_Model_of_Elementary_Particles-de_colorlfull.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorlfull.pn
+g used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+File: Standard_Model_of_Elementary_Particles-de_colorlfull.png Graphic file (typ
+e png)
 
+<use Standard_Model_of_Elementary_Particles-de_colorlfull.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorlfull.pn
+g used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+File: Standard_Model_of_Elementary_Particles-de_colorless.png Graphic file (type
+ png)
+
+<use Standard_Model_of_Elementary_Particles-de_colorless.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorless.png
+ used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+
+Overfull \hbox (1.54724pt too wide) in paragraph at lines 81--81
+[]$[]$$[]$  
+ []
+
+File: logos/tu.pdf Graphic file (type pdf)
 <use logos/tu.pdf>
-Package luatex.def Info: logos/tu.pdf used on input line 91.
+Package luatex.def Info: logos/tu.pdf used on input line 81.
 (luatex.def)             Requested size: 130.2732pt x 22.76271pt.
  [8
 
 ]
+File: Standard_Model_of_Elementary_Particles-de_colorlfull.png Graphic file (typ
+e png)
+
+<use Standard_Model_of_Elementary_Particles-de_colorlfull.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorlfull.pn
+g used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+File: Standard_Model_of_Elementary_Particles-de_colorlfull.png Graphic file (typ
+e png)
+
+<use Standard_Model_of_Elementary_Particles-de_colorlfull.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorlfull.pn
+g used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+File: Standard_Model_of_Elementary_Particles-de_colorless.png Graphic file (type
+ png)
+
+<use Standard_Model_of_Elementary_Particles-de_colorless.png>
+Package luatex.def Info: Standard_Model_of_Elementary_Particles-de_colorless.png
+ used on input line 81.
+(luatex.def)             Requested size: 190.89827pt x 199.15962pt.
+
+Overfull \hbox (1.54724pt too wide) in paragraph at lines 81--81
+[]$[]$$[]$  
+ []
+
 File: logos/tu.pdf Graphic file (type pdf)
- <use logos/tu.pdf>
-Package luatex.def Info: logos/tu.pdf used on input line 95.
+<use logos/tu.pdf>
+Package luatex.def Info: logos/tu.pdf used on input line 81.
 (luatex.def)             Requested size: 130.2732pt x 22.76271pt.
  [9
 
@@ -1499,7 +1653,7 @@ Package luatex.def Info: logos/tu.pdf used on input line 95.
 Language ngerman already loaded; id is 8)
 File: logos/tu.pdf Graphic file (type pdf)
  <use logos/tu.pdf>
-Package luatex.def Info: logos/tu.pdf used on input line 103.
+Package luatex.def Info: logos/tu.pdf used on input line 89.
 (luatex.def)             Requested size: 130.2732pt x 22.76271pt.
  [10
 
@@ -1507,7 +1661,7 @@ Package luatex.def Info: logos/tu.pdf used on input line 103.
 File: logos/tu.pdf Graphic file (type pdf)
 
 <use logos/tu.pdf>
-Package luatex.def Info: logos/tu.pdf used on input line 107.
+Package luatex.def Info: logos/tu.pdf used on input line 93.
 (luatex.def)             Requested size: 130.2732pt x 22.76271pt.
  [11
 
@@ -1515,9 +1669,48 @@ Package luatex.def Info: logos/tu.pdf used on input line 107.
 Language ngerman already loaded; id is 8)
 File: logos/tu.pdf Graphic file (type pdf)
  <use logos/tu.pdf>
-Package luatex.def Info: logos/tu.pdf used on input line 115.
+Package luatex.def Info: logos/tu.pdf used on input line 101.
 (luatex.def)             Requested size: 130.2732pt x 22.76271pt.
  [12
+
+]
+File: logos/tu.pdf Graphic file (type pdf)
+
+<use logos/tu.pdf>
+Package luatex.def Info: logos/tu.pdf used on input line 105.
+(luatex.def)             Requested size: 130.2732pt x 22.76271pt.
+ [13
+
+]
+File: logos/tu.pdf Graphic file (type pdf)
+ <use logos/tu.pdf>
+Package luatex.def Info: logos/tu.pdf used on input line 109.
+(luatex.def)             Requested size: 130.2732pt x 22.76271pt.
+ [14
+
+] (./main.toc
+Language ngerman already loaded; id is 8)
+File: logos/tu.pdf Graphic file (type pdf)
+ <use logos/tu.pdf>
+Package luatex.def Info: logos/tu.pdf used on input line 117.
+(luatex.def)             Requested size: 130.2732pt x 22.76271pt.
+ [15
+
+]
+File: logos/tu.pdf Graphic file (type pdf)
+
+<use logos/tu.pdf>
+Package luatex.def Info: logos/tu.pdf used on input line 121.
+(luatex.def)             Requested size: 130.2732pt x 22.76271pt.
+ [16
+
+] (./main.toc
+Language ngerman already loaded; id is 8)
+File: logos/tu.pdf Graphic file (type pdf)
+ <use logos/tu.pdf>
+Package luatex.def Info: logos/tu.pdf used on input line 129.
+(luatex.def)             Requested size: 130.2732pt x 22.76271pt.
+ [17
 
 ]
 \tf@nav=\write5
@@ -1529,36 +1722,40 @@ Package luatex.def Info: logos/tu.pdf used on input line 115.
 \tf@snm=\write7
 
 \openout7 = main.snm
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 117.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 117.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 131.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
  (./main.aux
 Language ngerman already loaded; id is 8)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 117.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 117.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 131.
 )
 
 Here is how much of LuaTeX's memory you used:
- 31162 strings out of 494577
+ 31343 strings out of 494577
  100000,794899 words of node,token memory allocated
- 6776 words of node memory still in use:
-   84 hlist, 14 vlist, 6 rule, 19 disc, 10 local_par, 328 glue, 33 kern, 19 pena
-lty, 119 glyph, 331 attribute, 53 glue_spec, 331 attribute_list, 3 write, 103 pd
+ 7488 words of node memory still in use:
+   84 hlist, 14 vlist, 6 rule, 19 disc, 10 local_par, 412 glue, 33 kern, 19 pena
+lty, 119 glyph, 362 attribute, 53 glue_spec, 362 attribute_list, 3 write, 103 pd
 f_literal, 5 pdf_start_link, 5 pdf_end_link, 5 pdf_action, 70 pdf_colorstack, 1 
 pdf_setmatrix, 1 pdf_save, 1 pdf_restore nodes
-   avail lists: 1:1,2:305,3:246,4:128,5:82,6:234,7:187,8:17,9:159,10:6,11:35
- 34001 multiletter control sequences out of 65536+600000
- 55 fonts using 9569223 bytes
+   avail lists: 1:1,2:260,3:246,4:128,5:148,6:510,7:187,8:17,9:159,10:6,11:85
+ 34050 multiletter control sequences out of 65536+600000
+ 75 fonts using 10948895 bytes
  56i,18n,80p,769b,735s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/jean/.local/texlive/2016/texmf-dist/fonts/opentype/public/fira/FiraSans-M
 edium.otf></home/jean/.local/texlive/2016/texmf-dist/fonts/opentype/public/fira/
 FiraSans-Light.otf></home/jean/.local/texlive/2016/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmmi10.pfb></home/jean/.local/texlive/2016/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmmi12.pfb></home/jean/.local/texlive/2016/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (12 pages, 52313 bytes).
+pe1/public/amsfonts/cm/cmmi6.pfb></home/jean/.local/texlive/2016/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi9.pfb></home/jean/.local/texlive/2016/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr9.pfb></home/jean/.local/texlive/2016/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/jean/.local/texlive/2016/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
+Output written on main.pdf (17 pages, 594393 bytes).
 
-PDF statistics: 185 PDF objects out of 1000 (max. 8388607)
- 152 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 131072)
+PDF statistics: 242 PDF objects out of 1000 (max. 8388607)
+ 196 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 131072)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
