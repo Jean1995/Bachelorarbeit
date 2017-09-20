@@ -4,6 +4,13 @@
 \usefonttheme[onlymath]{serif}
 \usetheme[showtotalframes]{tudo}
 
+\usepackage[
+  math-style=ISO,
+  bold-style=ISO,
+  sans-style=italic,
+  nabla=upright,
+  partial=upright,
+]{unicode-math}
 
 
 \ifluatex
@@ -47,6 +54,45 @@
 \DeclarePairedDelimiterX{\braket}[2]{\langle}{\rangle}{
   #1 \delimsize| #2
 }
+
+
+% --- Macro \xvec
+\makeatletter
+\newlength\xvec@height%
+\newlength\xvec@depth%
+\newlength\xvec@width%
+\newcommand{\xvec}[2][]{%
+  \ifmmode%
+    \settoheight{\xvec@height}{$#2$}%
+    \settodepth{\xvec@depth}{$#2$}%
+    \settowidth{\xvec@width}{$#2$}%
+  \else%
+    \settoheight{\xvec@height}{#2}%
+    \settodepth{\xvec@depth}{#2}%
+    \settowidth{\xvec@width}{#2}%
+  \fi%
+  \def\xvec@arg{#1}%
+  \def\xvec@dd{:}%
+  \def\xvec@d{.}%
+  \raisebox{.2ex}{\raisebox{\xvec@height}{\rlap{%
+    \kern.05em%  (Because left edge of drawing is at .05em)
+    \begin{tikzpicture}[scale=1]
+    \pgfsetroundcap
+    \draw (.05em,0)--(\xvec@width-.05em,0);
+    \draw (\xvec@width-.05em,0)--(\xvec@width-.15em, .075em);
+    \draw (\xvec@width-.05em,0)--(\xvec@width-.15em,-.075em);
+    \ifx\xvec@arg\xvec@d%
+      \fill(\xvec@width*.45,.5ex) circle (.5pt);%
+    \else\ifx\xvec@arg\xvec@dd%
+      \fill(\xvec@width*.30,.5ex) circle (.5pt);%
+      \fill(\xvec@width*.65,.5ex) circle (.5pt);%
+    \fi\fi%
+    \end{tikzpicture}%
+  }}}%
+  #2%
+}
+\makeatother
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%-------------Hier Titel/Autor/Grafik/Lehrstuhl eintragen--------------%%%%%
@@ -296,8 +342,39 @@
       sectionstyle=show/shaded,
   ]\end{frame}
 
-\begin{frame}
-    Hier fitte ich.
+\begin{frame}{Fitmethodik}
+  \begin{itemize}
+    \setlength\itemsep{1em}
+    \item<2-> Theoriewerte für die Formfaktoren aus Gittereichrechnungen der Fermilab und MILC Kollaboration \cite{PhysRevD.92.034506}
+    \item<3-> Potenzreihenentwicklung in $z$ als Fitfunktion:
+    \begin{align*}
+      \onslide<3->{f_i(z) = \frac{1}{P_i(z)} \sum_{k=0}^{N_i} a_{i,k} z^{k}}
+    \end{align*}
+    \item<4-> Resonanzen durch angeregte Zustände:
+    \begin{align*}
+      \onslide<3->{ P_i(z) = \frac{1}{1 - \frac{q^2(z)}{m_i^2}}}
+    \end{align*}
+    mit dazugehörigen Resonanzmassen $m_+$ und $m_0$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Fitmethodik}
+  \begin{itemize}
+    \setlength\itemsep{1em}
+    \item<1-> Nebenbedingung: $f_+(z_\text{max}) = f_0(z_\text{max})$ \qquad \qquad (da $f_0(q^2) = f_+(q^2) + f_{-}(q^2) \frac{q^2}{m_B^2 - m_D^2}$)
+    \item<2-> Methode der kleinsten Quadrate: Minimierung der Summe der Residuenquadrate
+    \begin{align*}
+      \onslide<2->{ S = \sum_{i=0}^{} \left( y_{i,+}(z_i) - f_{+}(z_i, \xvec{a}_+) \right)^2 + \sum_{i=0}^{} \left( y_{i,0}(z_i) - f_{0}(z_i, \xvec{a}_0) \right)^2 }
+    \end{align*}
+    \item<3-> Berücksichtigung der Korrelationen und Fehler: Minimierung der gewichteten Summe
+    \begin{align*}
+      \onslide<3->{ S = \xvec{r}^T \, \symbf{W} \, \xvec{r} \qquad \text{mit} \qquad \symbf{W} = \symbf{V}^{-1}}
+    \end{align*}
+
+    \item<4-> Bestimmung von Konfidenzintervallen der gefitteten Funktionen durch Monte-Carlo-Simulation
+  \end{itemize}
+
 \end{frame}
 
 \begin{frame}
