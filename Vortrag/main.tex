@@ -297,9 +297,9 @@
 
 
 \begin{frame}{Parametrisierung des Matrixelementes}
-  \begin{equation}
+  \begin{align*}
     \frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D l \overline{\nu}_l \right) = \frac{\eta_\text{EW}^2 G_\text{F}^2 \lvert V_{cb} \rvert^2 m_B \sqrt{\lambda} }{192 \pi^3} \left( 1 - \frac{m_l^2}{q^2} \right)^2 \left( c_+^l f_+(q^2)^2 + c_0^l f_0(q^2)^2 \right)
-  \end{equation}
+  \end{align*}
   mit den Abkürzungen
   \begin{align*}
     c_+^l &= \frac{\lambda}{m_B^4} \left( 1 + \frac{m_l^2}{2 q^2} \right) \\
@@ -459,7 +459,7 @@
   \end{minipage}%
 \end{frame}
 
-\begin{frame}{Fitergebnisse}
+\begin{frame}{Berechnung dif. Zerfallsbreiten}
   \begin{minipage}{5cm}
     \begin{itemize}
       \setlength\itemsep{2em}
@@ -476,7 +476,7 @@
 \end{frame}
 
 
-\begin{frame}{Fitergebnisse}
+\begin{frame}{Berechnung totale Zerfallsbreiten und $R(D)$}
   \begin{minipage}{7cm}
     \begin{itemize}
       \setlength\itemsep{1em}
@@ -519,6 +519,99 @@
   \end{minipage}%
 \end{frame}
 
+
+\begin{frame}{Vergleich mit experimentellen Daten}
+  \begin{itemize}
+    \setlength\itemsep{1em}
+    \item<1-> Errechneter Theoriewert aus Fit: $R(D) = \num{0.287} \pm \num{0.011}$
+    \item<2-> Experimentelle Messungen von $R(D)$ (\cite{PhysRevD.92.072014}, \cite{PhysRevLett.109.101802}):
+    \begin{align*}
+      \begin{drcases}
+        R(D)_\text{Belle} &= \input{R_belle_0.tex} \pm \input{R_belle_1.tex} \pm \input{R_belle_2.tex} \\
+        R(D)_\text{BaBar} &= \input{R_babar_0.tex} \pm \input{R_babar_1.tex} \pm \input{R_babar_2.tex}
+      \end{drcases}
+      \quad R(D)_\text{exp} = \input{R_exp_mean.tex}
+    \end{align*}
+    \item[→]<3-> Abweichung des exp. Wertes vom Theoriewert von $\num{2.4}\sigma$
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Naive Korrektur der Formfaktoren}
+  \begin{minipage}{6cm}
+    \begin{itemize}
+      \setlength\itemsep{2em}
+      \item<2-> Naive Multiplikation von Vorfaktoren:
+      \begin{align*}
+        f_+(q^2) &\to \alpha f_+(q^2)\\ f_0(q^2) &\to \beta f_0(q^2)
+      \end{align*}
+      ausgehend von Formfaktoren für $N_+ = N_0 = \num{2}$.
+      \item<4-> Betrachte Punkt $\alpha = \num{1}, \: \beta = \num{1.31}$
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}{8.5cm}
+    \begin{overprint}
+      \onslide<3-4>\includegraphics[width=\textwidth]{alpha_beta_33.pdf}
+      \onslide<5->\includegraphics[width=\textwidth]{plot_diff_wq_Rexp33.pdf}
+    \end{overprint}
+  \end{minipage}%
+\end{frame}
+
+
+\begin{frame}{Korrektur der Formfaktoren durch neue Physik}
+  \begin{itemize}
+    \setlength\itemsep{1em}
+    \item<1-> Untersuche Einfluss von möglichen BSM-Prozessen
+    \item[→]<2-> Einschränkung auf $\tau$-Sektor
+    \item<3-> Effektiver Hamiltonian für $b \to c \tau \overline{\nu}_\tau$:
+    \begin{align*}
+        \mathcal{H}_\text{eff} \propto (\overline{c}_\text{L} \gamma^\mu b_\text{L})(\overline{\tau}_\text{L} \gamma_\mu \nu_\text{L} ) +  C_{\text{S}1}^\tau (\overline {c}_\text{L} b_\text{R}) (\overline{\tau}_\text{R} \nu_\text{L})
+    \end{align*}
+    \item<4-> Wilson-Koeffizient $C_{\text{S}1}^\tau$ beschreibt Stärke des Einflusses der NP-Kopplung
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Korrektur der Formfaktoren durch neue Physik}
+  \begin{align*}
+      \frac{\mathrm{d} \Gamma}{\mathrm{d} q^2} \left(\overline{B} \to D \tau \overline{\nu}_{\tau} \right) = \xi \left\lbrace c_+^{\tau} f_+(q^2)^2 + \left\lbrack c_0^{\tau} + \kappa_1 \lvert C_{\text{S}1}^{\tau} \rvert^2 + \kappa_2 \operatorname{Re}(C_{\text{S}1}^{\tau}) \right\rbrack f_0(q^2)^2 \right\rbrace
+  \end{align*}
+  \vspace{5px}
+  mit den Abkürzungen
+  \begin{align*}
+      \kappa_1 &= \frac{3}{2} \left( \frac{m_B^2 - m_D^2}{m_b - m_c} \right)^2 \frac{q^2}{m_B^4}\\
+      \kappa_2 &= 3  \frac{m_\tau}{m_B^4} \frac{(m_B^2 - m_D^2)^2}{m_b - m_c} \\
+      \xi &= \frac{\eta_\text{EW}^2 G_\text{F}^2 \lvert V_{cb} \rvert^2 m_B \sqrt{\lambda} }{192 \pi^3} \left( 1 - \frac{m_\tau^2}{q^2} \right)^2.
+  \end{align*}
+  \cite{PhysRevD.88.094012}
+\end{frame}
+
+
+\begin{frame}{Korrektur der Formfaktoren durch neue Physik}
+  \begin{itemize}
+    \setlength\itemsep{1em}
+    \item<1-> Integration ergibt Verzweigungsverhältnis außerhalb des SM:
+    \begin{align*}
+        {\mathbfcal{B}}\!\left(\overline{B} \to D \tau \overline{\nu}_\tau \right) = {\mathbfcal{B}}_\text{SM}\!\left(\overline{B} \to D \tau \overline{\nu}_\tau \right) + A_\text{S} \lvert C_{\text{S}1}^{\tau} \rvert^2 + A_{\text{VS}} \operatorname{Re}(C_{\text{S}1}^{\tau})
+    \end{align*}
+    mit
+    \begin{align*}
+      \hat{A}_\text{S} &= \input{As.tex} \\
+      \hat{A}_{\text{VS}} &= \input{Avs.tex}
+    \end{align*}
+    \item[→]<2-> Passe $R(D)$ durch Wahl von $C_{\text{S}1}^\tau$ an experimentelles Ergebnis an
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Korrektur der Formfaktoren durch neue Physik}
+  \begin{minipage}{7.4cm}
+      \includegraphics[width=\textwidth]{plot_wilson_1_33.pdf}
+  \end{minipage}
+  \begin{minipage}{7.4cm}
+      \includegraphics[width=\textwidth]{plot_bsm_dif_wq_33.pdf}
+  \end{minipage}%
+\end{frame}
 
 
 \section{Zusammenfassung}
