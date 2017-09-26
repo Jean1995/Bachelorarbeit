@@ -97,6 +97,8 @@
 }
 \makeatother
 
+\usepackage{subcaption}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%-------------Hier Titel/Autor/Grafik/Lehrstuhl eintragen--------------%%%%%
@@ -136,7 +138,7 @@
 \begin{frame}
   \begin{minipage}{8cm}
   \begin{itemize}
-    \item<2-> Untersuchung des Standardmodelles der Teilchenphysik
+    \item<2-> Untersuchung des Standardmodells der Teilchenphysik
     \item<3-> Betrachteter Zerfall: $\overline{B} \to D l \overline{\nu}_l$
     \item<5-> Untersuchte Observable: $R(D)$
     \item[→]<6-> Diskrepanz zwischen theoretischen und experimentellen Ergebnissen
@@ -670,6 +672,54 @@
 \appendix
 \section{Anhang}
 
+\begin{frame}{Kinematische Extremfälle}
+  \begin{center}
+  \begin{figure}
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \draw (0,0) circle [radius=0.3] node {$\overline{B}$};
+        \draw[dashed, ->] (0.5, 0) -- (1.5, 0);
+        \draw (2,0) circle [radius=0.3] node {$D$};
+        \draw (2.7,0) circle [radius=0.3] node {$l$};
+        \draw[thick, ->] (2.7, 0.5) -- (2.7, 1.0);
+        \draw (3.4,0) circle [radius=0.3] node {$\overline{\nu}_l$};
+        \draw[thick, ->] (3.4, -0.5) -- (3.4, -1.0);
+      \end{tikzpicture}
+      \caption{Kinematik bei $q_\text{max}^2 = (m_B - m_D)^2$.}
+    \end{subfigure}
+    \begin{subfigure}{0.48\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \draw (0,0) circle [radius=0.3] node {$\overline{B}$};
+        \draw[dashed, ->] (0.5, 0) -- (1.5, 0);
+        \draw (2,0) circle [radius=0.3] node {$D$};
+        \draw[thick, ->] (2, 0.5) -- (2, 1.0);
+        \draw (2.7,0) circle [radius=0.3] node {$l$};
+        \draw[thick, ->] (2.7, -0.5) -- (2.7, -1.0);
+        \draw (3.4,0) circle [radius=0.3] node {$\overline{\nu}_l$};
+        \draw[thick, ->] (3.4, -0.5) -- (3.4, -1.0);
+      \end{tikzpicture}
+      \caption{Kinematik bei $q_\text{min}^2 = m_l^2$.}
+      \label{fig:recoil2}
+    \end{subfigure}
+  \end{figure}
+  \end{center}
+\end{frame}
+
+\begin{frame}{w-Parametrisierung}
+  \begin{center}
+      \includegraphics[width=9cm]{plot_w.pdf}
+  \end{center}
+\end{frame}
+
+\begin{frame}{z-Parametrisierung}
+  \begin{center}
+      \includegraphics[width=9cm]{plot_z.pdf}
+  \end{center}
+\end{frame}
+
 \begin{frame}{Korrelationsmatrix der Gittereichrechnungen}
   \begin{center}
     \includegraphics[width=9cm]{cormatrix_daten.pdf}
@@ -689,7 +739,9 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Korrelationsmatrix der Firparameter für (3,3)}
+
+
+\begin{frame}{Korrelationsmatrix der Firparameter für (2,2)}
   \begin{center}
       \includegraphics[width=9cm]{cormatrix_a_N33.pdf}
   \end{center}
